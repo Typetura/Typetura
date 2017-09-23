@@ -12,7 +12,7 @@ This is a tool to make fluidly responsive typography easy with support for font 
 
 ### Custom properties
 
-This is powered by CSS custom properties and thus the syntax is different from that in normal CSS. You change the font size with the property `--font-size` and values are structured in an array with `value » breakpoint`. The value can be anything but it needs to be consistent throguhout the array and the breakpoint is in unitless pixel numbers.
+This is powered by CSS custom properties and thus the syntax is different from that in normal CSS. You change the font size with the property `--font-size` and values are structured in an array with `value » breakpoint`. The value can be anything but it needs to be consistent throguhout the array and the breakpoint is in unitless pixel numbers. Note the breakpoints are based on the container width not the viewport width like regular media queries.
 
 ```css
 h1 {
