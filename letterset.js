@@ -1,14 +1,30 @@
-var lettersetSelect = ['p','h1','h2','h3','h4','h5','h6'];
-var lettersetStyles = ['font-size','line-height','variation-wght','variation-wdth'];
+var lettersetSelect = [
+  'p',
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'li',
+  'blockquote'
+];
+var lettersetStyles = [
+  'font-size',
+  'line-height',
+  'variation-ital',
+  'variation-opsz',
+  'variation-slnt',
+  'variation-wdth',
+  'variation-wght'
+];
 var lettersetContext = document.getElementById('letterset');
 var lettersetData = {};
 
 // camelize strings
 var lettersetCamelize = function(str) {
   return str
-    .replace(/\s(.)/g, function($1) { return $1.toUpperCase(); })
     .replace(/-([a-z])/g, function($1) { return $1.toUpperCase(); })
-    .replace(/\s/g, '')
     .replace('-', '')
     .replace(/^(.)/, function($1) { return $1.toLowerCase(); });
 }
