@@ -1,0 +1,55 @@
+body {
+  font-size: 18px;
+  font-family: Skia, serif;
+}
+
+article {
+  padding: 0 4%;
+  margin: 0 auto;
+  max-width: 900px;
+  font-size: 16px;
+}
+p {
+  --font-size:
+    1em » 500,
+    1.2em » 1000
+  ;
+  --line-height:
+    1.2 » 500,
+    1.4 » 1000
+  ;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1;
+}
+h1, h2 {
+  --font-size:
+    2em » 520,
+    6em » 1200
+  ;
+  --line-height:
+    1 » 520,
+    1.1 » 1200
+  ;
+  --variation-wght:
+    2 » 500,
+    .2 » 1000
+  ;
+  --variation-wdth:
+    1.2 » 500,
+    .8 » 1000
+  ;
+  font-size: 2em;
+  line-height: 1;
+}
+h2 {
+  --font-size:
+    1.3em » 520,
+    3em » 1200
+  ;
+  --variation-wght:
+    1.5 » 500,
+    1.2 » 1000
+  ;
+}
