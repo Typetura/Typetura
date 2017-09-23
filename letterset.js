@@ -16,7 +16,9 @@ var lettersetStyles = [
   'variation-opsz',
   'variation-slnt',
   'variation-wdth',
-  'variation-wght'
+  'variation-wght',
+  'variation-grad',
+  'variation-xhgt'
 ];
 var lettersetContext = document.getElementById('letterset');
 var lettersetData = {};
