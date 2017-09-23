@@ -1,5 +1,7 @@
 # [DEMO](http://skscratch.bitballoon.com/)
 
+THIS PROJECT IS NOT FINISHED YET AND IS SUBJECT TO CHANGE
+
 This is a tool to make fluidly responsive typography easy with support for font size, line height, and variable fonts.
 
 # How to use:
