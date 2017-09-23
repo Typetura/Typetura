@@ -26,19 +26,16 @@ h1, h2, h3, h4, h5, h6 {
 h1, h2 {
   --font-size:
     2em » 520,
-    6em » 1200
-  ;
-  --line-height:
-    1 » 520,
-    1.1 » 1200
+    8em » 1200
   ;
   --variation-wght:
     2 » 500,
+    1 » 650,
     .2 » 1000
   ;
   --variation-wdth:
-    1.2 » 500,
-    .8 » 1000
+    1 » 500,
+    .7 » 1000
   ;
   font-size: 2em;
   line-height: 1;
