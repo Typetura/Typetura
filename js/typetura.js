@@ -1,11 +1,11 @@
 ////////////////////////
 // SETTINGS
 
-// Where to parse text
-var lettersetContext = 'article';
+// Wrapper element
+var lettersetEl = 'article';
 
-// Selectors to be styled
-var lettersetSelect = [
+// Selectors to target
+var typeturaSelect = [
   'p',
   'h1',
   'h2',
@@ -13,13 +13,13 @@ var lettersetSelect = [
   'h4',
   'h5',
   'h6',
-  'ul',
   'ol',
+  'ul',
   'li',
   'blockquote'
 ];
 // Styles to parse
-var lettersetStyles = [
+var typeturaStyles = [
   'margin',
   'padding',
   'font-size',
@@ -33,10 +33,13 @@ var lettersetStyles = [
   'variation-xhgt'
 ];
 
+
 ////////////////////////
 // DATA
-var lettersetContextEl = document.querySelector(lettersetContext);
-var lettersetData = {};
+
+var typeturaContext = document.querySelector(lettersetEl);
+var typeturaData = {};
+
 // {
 //   "breakpoints": {
 //     "532px": {
@@ -47,12 +50,14 @@ var lettersetData = {};
 //     }
 //   }
 // }
+// Add Comment
+
 
 ////////////////////////
-// SUPPORT
+// HELPERS
 
 // camelize strings
-var lettersetCamelize = function(str) {
+var typeturaCamelize = function(str) {
   return str
     .replace(/-([a-z])/g, function($1) { return $1.toUpperCase(); })
     .replace('-', '')
@@ -63,7 +68,7 @@ var lettersetCamelize = function(str) {
 // READ
 
 // parse data from breakpoint list into value + breakpoint arrays
-var lettersetParse = function(s) {
+var typeturaParse = function(s) {
   var l = s.split(',');
   var breakpoints = [];
   var values = [];
@@ -81,11 +86,8 @@ var lettersetParse = function(s) {
   }
 }
 
-////////////////////////
-// WRITE
-
 // style elements based on parsed data
-var lettersetStyle = function(v,w) {
+var typeturaStyle = function(v,w) {
   var u = v[1][0].split(parseFloat(v[1][0]))[1]; // Find the units used
 
   if(w<=v[0][0]) {
@@ -111,61 +113,65 @@ var lettersetStyle = function(v,w) {
   return s + u; // Add on the units and return value
 }
 
-var letterset = function() {
-  var w = lettersetContextEl.offsetWidth;
+var typetura = function() {
+  var w = typeturaContext.offsetWidth;
 
-  for(el in lettersetData) {
-    lettersetContextEl.style.setProperty('--' + el + '-font-variation-settings', ''); // reset so variations don’t compound on old setting
-    for(prop in lettersetData[el]) {
+  for(el in typeturaData) {
+    typeturaContext.style.setProperty('--' + el + '-font-variation-settings', ''); // reset so variations don’t compound on old setting
+    for(prop in typeturaData[el]) {
       if(prop.split('-')[0] === 'variation') {
-        var currentValue = lettersetContextEl.style.getPropertyValue('--' + el + '-font-variation-settings');
+        var currentValue = typeturaContext.style.getPropertyValue('--' + el + '-font-variation-settings');
         var append = '';
         if(currentValue) {
           append =  ', ' + currentValue;
         }
-        lettersetContextEl.style.setProperty('--' + el + '-' + 'font-variation-settings', '"' + prop.split('-')[1] + '" ' + lettersetStyle(lettersetData[el][prop],w) + append);
+        typeturaContext.style.setProperty('--' + el + '-' + 'font-variation-settings', '"' + prop.split('-')[1] + '" ' + typeturaStyle(typeturaData[el][prop],w) + append);
       } else {
-        lettersetContextEl.style.setProperty('--' + el + '-' + prop, lettersetStyle(lettersetData[el][prop],w));
+        typeturaContext.style.setProperty('--' + el + '-' + prop, typeturaStyle(typeturaData[el][prop],w));
       }
     }
   }
 }
 
-// Initiate letterset by building data and setting reference styles
-var lettersetInit = function() {
+// Initiate typetura by building data and setting reference styles
+var typeturaInit = function() {
   // Loop through selectors and build data
-  for (var i = 0; i < lettersetSelect.length; i++) {
-    var s = lettersetContextEl.querySelector(lettersetSelect[i]);
+  for (var i = 0; i < typeturaSelect.length; i++) {
+    var s = typeturaContext.querySelector(typeturaSelect[i]);
     if(s) {
-      for(var j = 0; j < lettersetStyles.length; j++) {
-        var v = lettersetParse(getComputedStyle(s).getPropertyValue('--' + lettersetStyles[j]));
+      for(var j = 0; j < typeturaStyles.length; j++) {
+        var v = typeturaParse(getComputedStyle(s).getPropertyValue('--' + typeturaStyles[j]));
         if(v) {
-          if(!lettersetData[lettersetSelect[i]]) {
-            lettersetData[lettersetSelect[i]] = {};
+          if(!typeturaData[typeturaSelect[i]]) {
+            typeturaData[typeturaSelect[i]] = {};
           }
-          lettersetData[lettersetSelect[i]][lettersetStyles[j]] = v;
+          typeturaData[typeturaSelect[i]][typeturaStyles[j]] = v;
         }
       }
     }
   }
 
   // set up custom props in head
-  letterset();
+  typetura();
 
   // Setup custom props on elements
-  var elements = lettersetContextEl.querySelectorAll(lettersetSelect);
+  var elements = typeturaContext.querySelectorAll(typeturaSelect);
   for(var i = 0; i < elements.length; i++) {
     var tag = elements[i].tagName.toLowerCase();
-    for(prop in lettersetData[tag]) {
+    for(prop in typeturaData[tag]) {
       if(prop.split('-')[0] === 'variation') {
         elements[i].style.fontVariationSettings = 'var(--' + tag + '-font-variation-settings)';
       } else {
-        elements[i].style[lettersetCamelize(prop)] = 'var(--' + tag + '-' + prop + ')';
+        elements[i].style[typeturaCamelize(prop)] = 'var(--' + tag + '-' + prop + ')';
       }
     }
   }
 }
 
 window.onload = function(){
-  letterset();
+  typeturaInit();
+}
+
+window.onresize = function(){
+  typetura();
 }
