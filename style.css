@@ -1,5 +1,4 @@
 body {
-  font-size: 18px;
   font-family: Skia, serif;
 }
 
@@ -7,9 +6,13 @@ article {
   padding: 0 4%;
   margin: 0 auto;
   max-width: 900px;
-  font-size: 16px;
+  --ms-base: 1em;
+  --ms-ratio:
+    1.1 ~ 500,
+    1.4 ~ 1000
+  ;
 }
-article p {
+p {
   --font-size:
     1em ~ 500,
     1.2em ~ 1000
@@ -19,15 +22,12 @@ article p {
     1.4 ~ 1000
   ;
 }
-article h1, article h2, article h3, article h4, article h5, article h6 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
   line-height: 1;
 }
-article h1, article h2 {
-  --font-size:
-    2em ~ 520,
-    8em ~ 1200
-  ;
+h1, h2 {
+  --font-size: 5ms;
   --variation-wght:
     2 ~ 500,
     1 ~ 650,
@@ -40,7 +40,7 @@ article h1, article h2 {
   font-size: 2em;
   line-height: 1;
 }
-article h2 {
+h2 {
   --font-size:
     1.3em ~ 520,
     3em ~ 1200

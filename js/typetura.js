@@ -1,11 +1,13 @@
 ////////////////////////
 // SETTINGS
 
-// Wrapper element
-var lettersetEl = 'article';
+// Top level element,
+// overwrite to be more specific for better performance.
+var lettersetEl = 'body';
 
 // Selectors to target
 var typeturaSelect = [
+  'article',
   'p',
   'h1',
   'h2',
@@ -18,8 +20,11 @@ var typeturaSelect = [
   'li',
   'blockquote'
 ];
+
 // Styles to parse
 var typeturaStyles = [
+  'ms-base',
+  'ms-ratio',
   'margin',
   'padding',
   'font-size',
@@ -53,6 +58,66 @@ var typeturaCamelize = function(str) {
     .replace(/^(.)/, function($1) { return $1.toLowerCase(); });
 }
 
+
+////////////////////////
+// Modular Scale
+// https://github.com/modularscale/modularscale-js
+
+// Function settings
+var typeturaMS = {
+  base: '1em',
+  ratio: 1.5,
+};
+
+// Function
+function typeturaMSFunc(v,settings) {
+
+  // Parse settings
+  // Write initial settings if undefined
+  if (settings === undefined) {
+    settings = typeturaMS;
+  }
+  // Initiate values
+  var base = parseFloat(settings.base);
+  var unit = settings.base.split(base)[1];
+  var ratio = settings.ratio;
+  // Fill in the blanks with default values
+  if (ratio === undefined) {
+    ratio = typeturaMS.ratio;
+  }
+  if (base === undefined) {
+    base = typeturaMS.base;
+  }
+
+  // Fast calc if not multi stranded
+  if (!Array.isArray(base) || base.length === 1) {
+    return (Math.pow(ratio,v) * base) + unit;
+  }
+
+  // Normalize bases
+  // Find the upper bounds for base values
+  var baseHigh = Math.pow(ratio,1) * base[0];
+  for (var i = 1; i < base.length; i++) {
+    // shift up if value too low
+    while (base[i]/1 < base[0]/1) {
+      base[i] = Math.pow(ratio,1) * base[i];
+    }
+    // Shift down if too high
+    while (base[i]/1 >= baseHigh/1) {
+      base[i] = Math.pow(ratio,-1) * base[i];
+    }
+  }
+  // Sort bases
+  base.sort();
+
+  // Figure out what base to use with modulo
+  var rBase = Math.round((v / base.length - Math.floor(v/base.length)) * base.length);
+
+  // Return
+  return Math.pow(ratio,Math.floor(v/base.length)) * base[rBase] + unit;
+};
+
+
 ////////////////////////
 // READ
 
@@ -65,6 +130,9 @@ var typeturaParse = function(s) {
     var x = l[i].split('~');
     if(x[1]) {
       breakpoints.push(parseFloat(x[1].trim()));
+      values.push(x[0].trim());
+    } else if(x[0]) {
+      breakpoints.push(1);
       values.push(x[0].trim());
     }
   }
@@ -80,9 +148,15 @@ var typeturaStyle = function(v,w) {
   var u = v[1][0].split(parseFloat(v[1][0]))[1]; // Find the units used
 
   if(w<=v[0][0]) {
+    if (u === 'ms') {
+      return typeturaMSFunc(parseFloat(v[1][0]));
+    }
     return v[1][0]; // Just return the small setting if small
   }
   if(w>=v[0][v[0].length-1]) {
+    if (u === 'ms') {
+      return typeturaMSFunc(parseFloat(v[1][v[0].length-1]));
+    }
     return v[1][v[0].length-1]; // Just return the large setting if large
   }
 
@@ -99,7 +173,12 @@ var typeturaStyle = function(v,w) {
   var l = (w - v[0][p]) / (v[0][p+1] - v[0][p]); // Find the location between breakpoints (value between 0-1)
   var s = (parseFloat(v[1][p+1]) - parseFloat(v[1][p])) * l + parseFloat(v[1][p]); // Map the location to the scale factor
 
-  return s + u; // Add on the units and return value
+  // If the unit is modular scale
+  if (u === 'ms') {
+    return typeturaMSFunc(s); // Add on the units and return value
+  } else {
+    return s + u; // Add on the units and return value
+  }
 }
 
 
@@ -110,7 +189,12 @@ var typetura = function(w) {
   for(el in typeturaData) {
     typeturaContext.style.setProperty('--' + el + '-font-variation-settings', ''); // reset so variations don’t compound on old setting
     for(prop in typeturaData[el]) {
-      if(prop.split('-')[0] === 'variation') {
+      if(prop === 'ms-base') {
+        typeturaMS.base = typeturaStyle(typeturaData[el][prop],typeturaWidth);
+      }
+      else if(prop === 'ms-ratio') {
+        typeturaMS.ratio = typeturaStyle(typeturaData[el][prop],typeturaWidth);
+      } else if(prop.split('-')[0] === 'variation') {
         var currentValue = typeturaContext.style.getPropertyValue('--' + el + '-font-variation-settings');
         var append = '';
         if(currentValue) {
@@ -155,7 +239,10 @@ var typeturaInit = function() {
   for(var i = 0; i < elements.length; i++) {
     var tag = elements[i].tagName.toLowerCase();
     for(prop in typeturaData[tag]) {
-      if(prop.split('-')[0] === 'variation') {
+      if(prop.split('-')[0] === 'ms') {
+        // Don’t write anything for ms values
+      }
+      else if(prop.split('-')[0] === 'variation') {
         elements[i].style.fontVariationSettings = 'var(--' + tag + '-font-variation-settings)';
       } else {
         elements[i].style[typeturaCamelize(prop)] = 'var(--' + tag + '-' + prop + ')';
