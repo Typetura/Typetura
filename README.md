@@ -63,11 +63,11 @@ h1 {
 
 ### Modular scales
 
-Modular scales can be calculated at runtime by simply using the `ms` unit on your values.
+Modular scales can be calculated at runtime by simply using the `step` unit on your values.
 
 ```css
 h1 {
-  --font-size: 5ms;
+  --font-size: 5step;
 }
 ```
 

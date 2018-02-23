@@ -148,13 +148,13 @@ var typeturaStyle = function(v,w) {
   var u = v[1][0].split(parseFloat(v[1][0]))[1]; // Find the units used
 
   if(w<=v[0][0]) {
-    if (u === 'ms') {
+    if (u === 'step') {
       return typeturaMSFunc(parseFloat(v[1][0]));
     }
     return v[1][0]; // Just return the small setting if small
   }
   if(w>=v[0][v[0].length-1]) {
-    if (u === 'ms') {
+    if (u === 'step') {
       return typeturaMSFunc(parseFloat(v[1][v[0].length-1]));
     }
     return v[1][v[0].length-1]; // Just return the large setting if large
@@ -174,7 +174,7 @@ var typeturaStyle = function(v,w) {
   var s = (parseFloat(v[1][p+1]) - parseFloat(v[1][p])) * l + parseFloat(v[1][p]); // Map the location to the scale factor
 
   // If the unit is modular scale
-  if (u === 'ms') {
+  if (u === 'step') {
     return typeturaMSFunc(s); // Add on the units and return value
   } else {
     return s + u; // Add on the units and return value
