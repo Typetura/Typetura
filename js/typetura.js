@@ -127,7 +127,7 @@ var typeturaParse = function(s) {
   var breakpoints = [];
   var values = [];
   for (var i = 0; i < l.length; i++) {
-    var x = l[i].split('~');
+    var x = l[i].split('/');
     if(x[1]) {
       breakpoints.push(parseFloat(x[1].trim()));
       values.push(x[0].trim());

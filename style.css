@@ -8,18 +8,18 @@ article {
   max-width: 900px;
   --ms-base: 1em;
   --ms-ratio:
-    1.1 ~ 500,
-    1.4 ~ 1000
+    1.1 / 500,
+    1.4 / 1000
   ;
 }
 p {
   --font-size:
-    1em ~ 500,
-    1.2em ~ 1000
+    1em   / 500,
+    1.2em / 1000
   ;
   --line-height:
-    1.3 ~ 500,
-    1.4 ~ 1000
+    1.3 / 500,
+    1.4 / 1000
   ;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -29,24 +29,24 @@ h1, h2, h3, h4, h5, h6 {
 h1, h2 {
   --font-size: 5step;
   --variation-wght:
-    2 ~ 500,
-    1 ~ 650,
-    .2 ~ 1000
+    2 / 500,
+    1 / 650,
+    .2 / 1000
   ;
   --variation-wdth:
-    1 ~ 500,
-    .7 ~ 1000
+    1 / 500,
+    .7 / 1000
   ;
   font-size: 2em;
   line-height: 1;
 }
 h2 {
   --font-size:
-    1.3em ~ 520,
-    3em ~ 1200
+    1.3em / 520,
+    3em / 1200
   ;
   --variation-wght:
-    1.5 ~ 500,
-    1.2 ~ 1000
+    1.5 / 500,
+    1.2 / 1000
   ;
 }
