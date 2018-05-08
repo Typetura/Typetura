@@ -3,40 +3,47 @@
 
 // Top level element,
 // overwrite to be more specific for better performance.
-var lettersetEl = 'body';
+if(!lettersetEl) {
+  var lettersetEl = 'body';
+}
 
 // Selectors to target
-var typeturaSelect = [
-  'article',
-  'p',
-  'h1',
-  'h2',
-  'h3',
-  'h4',
-  'h5',
-  'h6',
-  'ol',
-  'ul',
-  'li',
-  'blockquote'
-];
+if(!typeturaSelect) {
+  var typeturaSelect = [
+    'article',
+    'p',
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'ol',
+    'ul',
+    'li',
+    'blockquote'
+  ];
+}
+
 
 // Styles to parse
-var typeturaStyles = [
-  'ms-base',
-  'ms-ratio',
-  'margin',
-  'padding',
-  'font-size',
-  'line-height',
-  'variation-ital',
-  'variation-opsz',
-  'variation-slnt',
-  'variation-wdth',
-  'variation-wght',
-  'variation-grad',
-  'variation-xhgt'
-];
+if(!typeturaStyles) {
+  var typeturaStyles = [
+    'ms-base',
+    'ms-ratio',
+    'margin',
+    'padding',
+    'font-size',
+    'line-height',
+    'variation-ital',
+    'variation-opsz',
+    'variation-slnt',
+    'variation-wdth',
+    'variation-wght',
+    'variation-grad',
+    'variation-xhgt'
+  ];
+}
 
 
 ////////////////////////
