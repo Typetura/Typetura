@@ -4,9 +4,8 @@ This is a tool to make fluidly responsive typography easy with support for font 
 
 # How to use:
 
-* Add letterset.js to the end of your `body` tag
-* Add the id `letterset` to your article, or whatever you want to be the container of your text
-* Start styling with CSS
+* Add letterset.js to the end of your `<body>`.
+* Start styling with CSS.
 
 ### Custom properties
 
