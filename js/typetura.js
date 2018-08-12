@@ -234,10 +234,6 @@ var getTypeturaDataFromDOM = function() {
 var typeturaInit = function(typeturaData) {
   var typeturaWidth = typeturaContext.offsetWidth;
 
-  if (!typeturaData) {
-    typeturaData = getTypeturaDataFromDOM();
-  }
-
   // set up custom props in head
   typeturaWrite(typeturaData, typeturaWidth);
 
@@ -265,15 +261,19 @@ if (typeof exports !== 'undefined') {
   }
   exports.typeturaInit = typeturaInit;
 } else {
+  if (!window.typeturaData) {
+    window.typeturaData = getTypeturaDataFromDOM();
+  }
+
   window['typeturaInit'] = typeturaInit;
 
   window.onload = function() {
-    window.typeturaInit();
+    window.typeturaInit(window.typeturaData);
   };
 
   window.onresize = function() {
     var typeturaWidth = typeturaContext.offsetWidth;
 
-    typeturaWrite(typeturaWidth);
+    typeturaWrite(window.typeturaData, typeturaWidth);
   };
 }
