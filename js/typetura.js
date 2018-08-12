@@ -39,8 +39,6 @@ if (!typeturaStyles) {
 // DATA
 
 var typeturaContext = document.querySelector(lettersetEl);
-var typeturaData = {};
-var typeturaWidth = typeturaContext.offsetWidth;
 
 // -----------------------------------------------
 // HELPERS
@@ -179,8 +177,7 @@ var typeturaStyle = function(v, w) {
 
 // -----------------------------------------------
 // WRITE
-
-var typetura = function(w) {
+var typeturaWrite = function(typeturaData, typeturaWidth) {
   for (var el in typeturaData) {
     typeturaContext.style.setProperty('--' + el + '-font-variation-settings', ''); // reset so variations don’t compound on old setting
     for (var prop in typeturaData[el]) {
@@ -206,32 +203,47 @@ var typetura = function(w) {
 };
 
 // -----------------------------------------------
-// INIT
+// GET DATA
+var getTypeturaDataFromDOM = function() {
+  var typeturaData = {};
 
-// Initiate typetura by building data and setting reference styles
-var typeturaInit = function() {
   // Loop through selectors and build data
   for (var i = 0; i < typeturaSelect.length; i++) {
-    var s = typeturaContext.querySelector(typeturaSelect[i]);
+    var selector = typeturaContext.querySelector(typeturaSelect[i]);
 
-    if (s) {
-      for (var j = 0; j < typeturaStyles.length; j++) {
-        var v = typeturaParse(window.getComputedStyle(s).getPropertyValue('--' + typeturaStyles[j]));
-        if (v) {
-          if (!typeturaData[typeturaSelect[i]]) {
-            typeturaData[typeturaSelect[i]] = {};
-          }
-          typeturaData[typeturaSelect[i]][typeturaStyles[j]] = v;
-        }
+    if (!selector) continue;
+
+    for (var j = 0; j < typeturaStyles.length; j++) {
+      var styles = typeturaParse(window.getComputedStyle(selector).getPropertyValue('--' + typeturaStyles[j]));
+
+      if (!styles) continue;
+
+      if (!typeturaData[typeturaSelect[i]]) {
+        typeturaData[typeturaSelect[i]] = {};
       }
+
+      typeturaData[typeturaSelect[i]][typeturaStyles[j]] = styles;
     }
   }
 
+  return typeturaData;
+};
+
+// -----------------------------------------------
+// Initiate typetura by building data and setting reference styles
+var typeturaInit = function(typeturaData) {
+  var typeturaWidth = typeturaContext.offsetWidth;
+
+  if (!typeturaData) {
+    typeturaData = getTypeturaDataFromDOM();
+  }
+
   // set up custom props in head
-  typetura(typeturaWidth);
+  typeturaWrite(typeturaData, typeturaWidth);
 
   // Setup custom props on elements
   var elements = typeturaContext.querySelectorAll(typeturaSelect);
+
   for (var k = 0; k < elements.length; k++) {
     var tag = elements[k].tagName.toLowerCase();
 
@@ -247,11 +259,21 @@ var typeturaInit = function() {
   }
 };
 
-window.onload = function() {
-  typeturaInit();
-};
+if (typeof exports !== 'undefined') {
+  if (typeof module !== 'undefined' && module.exports) {
+    exports = module.exports = typeturaInit;
+  }
+  exports.typeturaInit = typeturaInit;
+} else {
+  window['typeturaInit'] = typeturaInit;
 
-window.onresize = function() {
-  typeturaWidth = typeturaContext.offsetWidth;
-  typetura(typeturaWidth);
-};
+  window.onload = function() {
+    window.typeturaInit();
+  };
+
+  window.onresize = function() {
+    var typeturaWidth = typeturaContext.offsetWidth;
+
+    typeturaWrite(typeturaWidth);
+  };
+}
