@@ -1,15 +1,8 @@
-var lettersetEl;
 var typeturaSelect;
 var typeturaStyles;
 
 // -----------------------------------------------
 // SETTINGS
-
-// Top level element,
-// overwrite to be more specific for better performance.
-if (!lettersetEl) {
-  lettersetEl = 'body';
-}
 
 // Selectors to target
 if (!typeturaSelect) {
@@ -38,7 +31,9 @@ if (!typeturaStyles) {
 // -----------------------------------------------
 // DATA
 
-var typeturaContext = document.querySelector(lettersetEl);
+var getTypeturaContext = lettersetEl => {
+  return document.querySelector(lettersetEl);
+};
 
 // -----------------------------------------------
 // HELPERS
@@ -177,7 +172,7 @@ var typeturaStyle = function(v, w) {
 
 // -----------------------------------------------
 // WRITE
-var typeturaWrite = function(typeturaData, typeturaWidth) {
+var typeturaWrite = function(typeturaData, typeturaWidth, typeturaContext) {
   for (var el in typeturaData) {
     typeturaContext.style.setProperty('--' + el + '-font-variation-settings', ''); // reset so variations don’t compound on old setting
     for (var prop in typeturaData[el]) {
@@ -204,7 +199,7 @@ var typeturaWrite = function(typeturaData, typeturaWidth) {
 
 // -----------------------------------------------
 // GET DATA
-var getTypeturaDataFromDOM = function() {
+var getTypeturaDataFromDOM = function(typeturaContext) {
   var typeturaData = {};
 
   // Loop through selectors and build data
@@ -231,11 +226,11 @@ var getTypeturaDataFromDOM = function() {
 
 // -----------------------------------------------
 // Initiate typetura by building data and setting reference styles
-var typeturaInit = function(typeturaData) {
+var typeturaInit = function(typeturaData, typeturaContext) {
   var typeturaWidth = typeturaContext.offsetWidth;
 
   // set up custom props in head
-  typeturaWrite(typeturaData, typeturaWidth);
+  typeturaWrite(typeturaData, typeturaWidth, typeturaContext);
 
   // Setup custom props on elements
   var elements = typeturaContext.querySelectorAll(typeturaSelect);
@@ -260,20 +255,32 @@ if (typeof exports !== 'undefined') {
     exports = module.exports = typeturaInit;
   }
   exports.typeturaInit = typeturaInit;
+  exports.getTypeturaDataFromDOM = getTypeturaDataFromDOM;
+  exports.typeturaInit = typeturaInit;
+  exports.getTypeturaContext = getTypeturaContext;
+  exports.typeturaWrite = typeturaWrite;
 } else {
+  // Top level element,
+  // overwrite to be more specific for better performance.
+  if (!window.lettersetEl) {
+    window.lettersetEl = 'body';
+  }
+  if (!window.typeturaContext) {
+    window.typeturaContext = getTypeturaContext(window.lettersetEl);
+  }
   if (!window.typeturaData) {
-    window.typeturaData = getTypeturaDataFromDOM();
+    window.typeturaData = getTypeturaDataFromDOM(window.typeturaContext);
   }
 
   window['typeturaInit'] = typeturaInit;
 
   window.onload = function() {
-    window.typeturaInit(window.typeturaData);
+    window.typeturaInit(window.typeturaData, window.typeturaContext);
   };
 
   window.onresize = function() {
-    var typeturaWidth = typeturaContext.offsetWidth;
+    var typeturaWidth = window.typeturaContext.offsetWidth;
 
-    typeturaWrite(window.typeturaData, typeturaWidth);
+    typeturaWrite(window.typeturaData, typeturaWidth, window.typeturaContext);
   };
 }
