@@ -31,7 +31,7 @@ if (!typeturaStyles) {
 // -----------------------------------------------
 // DATA
 
-var getTypeturaContext = lettersetEl => {
+var getTypeturaContext = function(lettersetEl) {
   return document.querySelector(lettersetEl);
 };
 
