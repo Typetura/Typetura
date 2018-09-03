@@ -1,34 +1,17 @@
-////////////////////////
+var typeturaSelect;
+var typeturaStyles;
+
+// -----------------------------------------------
 // SETTINGS
 
-// Top level element,
-// overwrite to be more specific for better performance.
-if(!lettersetEl) {
-  var lettersetEl = 'body';
-}
-
 // Selectors to target
-if(!typeturaSelect) {
-  var typeturaSelect = [
-    'article',
-    'p',
-    'h1',
-    'h2',
-    'h3',
-    'h4',
-    'h5',
-    'h6',
-    'ol',
-    'ul',
-    'li',
-    'blockquote'
-  ];
+if (!typeturaSelect) {
+  typeturaSelect = ['article', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ol', 'ul', 'li', 'blockquote'];
 }
-
 
 // Styles to parse
-if(!typeturaStyles) {
-  var typeturaStyles = [
+if (!typeturaStyles) {
+  typeturaStyles = [
     'ms-base',
     'ms-ratio',
     'margin',
@@ -41,32 +24,33 @@ if(!typeturaStyles) {
     'variation-wdth',
     'variation-wght',
     'variation-grad',
-    'variation-xhgt'
+    'variation-xhgt',
   ];
 }
 
-
-////////////////////////
+// -----------------------------------------------
 // DATA
 
-var typeturaContext = document.querySelector(lettersetEl);
-var typeturaData = {};
-var typeturaWidth = typeturaContext.offsetWidth;
+var getTypeturaContext = function(lettersetEl) {
+  return document.querySelector(lettersetEl);
+};
 
-
-////////////////////////
+// -----------------------------------------------
 // HELPERS
 
 // camelize strings
 var typeturaCamelize = function(str) {
   return str
-    .replace(/-([a-z])/g, function($1) { return $1.toUpperCase(); })
+    .replace(/-([a-z])/g, function($1) {
+      return $1.toUpperCase();
+    })
     .replace('-', '')
-    .replace(/^(.)/, function($1) { return $1.toLowerCase(); });
-}
+    .replace(/^(.)/, function($1) {
+      return $1.toLowerCase();
+    });
+};
 
-
-////////////////////////
+// -----------------------------------------------
 // Modular Scale
 // https://github.com/modularscale/modularscale-js
 
@@ -77,8 +61,7 @@ var typeturaMS = {
 };
 
 // Function
-function typeturaMSFunc(v,settings) {
-
+function typeturaMSFunc(v, settings) {
   // Parse settings
   // Write initial settings if undefined
   if (settings === undefined) {
@@ -98,34 +81,33 @@ function typeturaMSFunc(v,settings) {
 
   // Fast calc if not multi stranded
   if (!Array.isArray(base) || base.length === 1) {
-    return (Math.pow(ratio,v) * base) + unit;
+    return Math.pow(ratio, v) * base + unit;
   }
 
   // Normalize bases
   // Find the upper bounds for base values
-  var baseHigh = Math.pow(ratio,1) * base[0];
+  var baseHigh = Math.pow(ratio, 1) * base[0];
   for (var i = 1; i < base.length; i++) {
     // shift up if value too low
-    while (base[i]/1 < base[0]/1) {
-      base[i] = Math.pow(ratio,1) * base[i];
+    while (base[i] / 1 < base[0] / 1) {
+      base[i] = Math.pow(ratio, 1) * base[i];
     }
     // Shift down if too high
-    while (base[i]/1 >= baseHigh/1) {
-      base[i] = Math.pow(ratio,-1) * base[i];
+    while (base[i] / 1 >= baseHigh / 1) {
+      base[i] = Math.pow(ratio, -1) * base[i];
     }
   }
   // Sort bases
   base.sort();
 
   // Figure out what base to use with modulo
-  var rBase = Math.round((v / base.length - Math.floor(v/base.length)) * base.length);
+  var rBase = Math.round((v / base.length - Math.floor(v / base.length)) * base.length);
 
   // Return
-  return Math.pow(ratio,Math.floor(v/base.length)) * base[rBase] + unit;
-};
+  return Math.pow(ratio, Math.floor(v / base.length)) * base[rBase] + unit;
+}
 
-
-////////////////////////
+// -----------------------------------------------
 // READ
 
 // parse data from breakpoint list into value + breakpoint arrays
@@ -135,36 +117,36 @@ var typeturaParse = function(s) {
   var values = [];
   for (var i = 0; i < l.length; i++) {
     var x = l[i].split('/');
-    if(x[1]) {
+    if (x[1]) {
       breakpoints.push(parseFloat(x[1].trim()));
       values.push(x[0].trim());
-    } else if(x[0]) {
+    } else if (x[0]) {
       breakpoints.push(1);
       values.push(x[0].trim());
     }
   }
-  if(breakpoints.length > 0) {
-    return [breakpoints,values]
+  if (breakpoints.length > 0) {
+    return [breakpoints, values];
   } else {
-    return null
+    return null;
   }
-}
+};
 
 // style elements based on parsed data
-var typeturaStyle = function(v,w) {
+var typeturaStyle = function(v, w) {
   var u = v[1][0].split(parseFloat(v[1][0]))[1]; // Find the units used
 
-  if(w<=v[0][0]) {
+  if (w <= v[0][0]) {
     if (u === 'step') {
       return typeturaMSFunc(parseFloat(v[1][0]));
     }
     return v[1][0]; // Just return the small setting if small
   }
-  if(w>=v[0][v[0].length-1]) {
+  if (w >= v[0][v[0].length - 1]) {
     if (u === 'step') {
-      return typeturaMSFunc(parseFloat(v[1][v[0].length-1]));
+      return typeturaMSFunc(parseFloat(v[1][v[0].length - 1]));
     }
-    return v[1][v[0].length-1]; // Just return the large setting if large
+    return v[1][v[0].length - 1]; // Just return the large setting if large
   }
 
   // Find the breakpoint zone
@@ -172,13 +154,13 @@ var typeturaStyle = function(v,w) {
 
   // Loop through breakpoints to find the correct zone
   for (var i = 0; i < v[0].length; i++) {
-    if(w>v[0][i]) {
-      var p = i;
+    if (w > v[0][i]) {
+      p = i;
     }
   }
 
-  var l = (w - v[0][p]) / (v[0][p+1] - v[0][p]); // Find the location between breakpoints (value between 0-1)
-  var s = (parseFloat(v[1][p+1]) - parseFloat(v[1][p])) * l + parseFloat(v[1][p]); // Map the location to the scale factor
+  var l = (w - v[0][p]) / (v[0][p + 1] - v[0][p]); // Find the location between breakpoints (value between 0-1)
+  var s = (parseFloat(v[1][p + 1]) - parseFloat(v[1][p])) * l + parseFloat(v[1][p]); // Map the location to the scale factor
 
   // If the unit is modular scale
   if (u === 'step') {
@@ -186,83 +168,119 @@ var typeturaStyle = function(v,w) {
   } else {
     return s + u; // Add on the units and return value
   }
-}
+};
 
-
-////////////////////////
+// -----------------------------------------------
 // WRITE
-
-var typetura = function(w) {
-  for(el in typeturaData) {
+var typeturaWrite = function(typeturaData, typeturaWidth, typeturaContext) {
+  for (var el in typeturaData) {
     typeturaContext.style.setProperty('--' + el + '-font-variation-settings', ''); // reset so variations don’t compound on old setting
-    for(prop in typeturaData[el]) {
-      if(prop === 'ms-base') {
-        typeturaMS.base = typeturaStyle(typeturaData[el][prop],typeturaWidth);
-      }
-      else if(prop === 'ms-ratio') {
-        typeturaMS.ratio = typeturaStyle(typeturaData[el][prop],typeturaWidth);
-      } else if(prop.split('-')[0] === 'variation') {
+    for (var prop in typeturaData[el]) {
+      if (prop === 'ms-base') {
+        typeturaMS.base = typeturaStyle(typeturaData[el][prop], typeturaWidth);
+      } else if (prop === 'ms-ratio') {
+        typeturaMS.ratio = typeturaStyle(typeturaData[el][prop], typeturaWidth);
+      } else if (prop.split('-')[0] === 'variation') {
         var currentValue = typeturaContext.style.getPropertyValue('--' + el + '-font-variation-settings');
         var append = '';
-        if(currentValue) {
-          append =  ', ' + currentValue;
+        if (currentValue) {
+          append = ', ' + currentValue;
         }
-        typeturaContext.style.setProperty('--' + el + '-' + 'font-variation-settings', '"' + prop.split('-')[1] + '" ' + typeturaStyle(typeturaData[el][prop],typeturaWidth) + append);
+        typeturaContext.style.setProperty(
+          '--' + el + '-' + 'font-variation-settings',
+          '"' + prop.split('-')[1] + '" ' + typeturaStyle(typeturaData[el][prop], typeturaWidth) + append
+        );
       } else {
-        typeturaContext.style.setProperty('--' + el + '-' + prop, typeturaStyle(typeturaData[el][prop],typeturaWidth));
+        typeturaContext.style.setProperty('--' + el + '-' + prop, typeturaStyle(typeturaData[el][prop], typeturaWidth));
       }
     }
   }
-}
+};
 
-
-////////////////////////
-// INIT
-
-// Initiate typetura by building data and setting reference styles
-var typeturaInit = function() {
+// -----------------------------------------------
+// GET DATA
+var getTypeturaDataFromDOM = function(typeturaContext) {
+  var typeturaData = {};
 
   // Loop through selectors and build data
   for (var i = 0; i < typeturaSelect.length; i++) {
-    var s = typeturaContext.querySelector(typeturaSelect[i]);
-    if(s) {
-      for(var j = 0; j < typeturaStyles.length; j++) {
-        var v = typeturaParse(getComputedStyle(s).getPropertyValue('--' + typeturaStyles[j]));
-        if(v) {
-          if(!typeturaData[typeturaSelect[i]]) {
-            typeturaData[typeturaSelect[i]] = {};
-          }
-          typeturaData[typeturaSelect[i]][typeturaStyles[j]] = v;
-        }
+    var selector = typeturaContext.querySelector(typeturaSelect[i]);
+
+    if (!selector) continue;
+
+    for (var j = 0; j < typeturaStyles.length; j++) {
+      var styles = typeturaParse(window.getComputedStyle(selector).getPropertyValue('--' + typeturaStyles[j]));
+
+      if (!styles) continue;
+
+      if (!typeturaData[typeturaSelect[i]]) {
+        typeturaData[typeturaSelect[i]] = {};
       }
+
+      typeturaData[typeturaSelect[i]][typeturaStyles[j]] = styles;
     }
   }
 
+  return typeturaData;
+};
+
+// -----------------------------------------------
+// Initiate typetura by building data and setting reference styles
+var typeturaInit = function(typeturaData, typeturaContext) {
+  var typeturaWidth = typeturaContext.offsetWidth;
+
   // set up custom props in head
-  typetura(typeturaWidth);
+  typeturaWrite(typeturaData, typeturaWidth, typeturaContext);
 
   // Setup custom props on elements
   var elements = typeturaContext.querySelectorAll(typeturaSelect);
-  for(var i = 0; i < elements.length; i++) {
-    var tag = elements[i].tagName.toLowerCase();
-    for(prop in typeturaData[tag]) {
-      if(prop.split('-')[0] === 'ms') {
+
+  for (var k = 0; k < elements.length; k++) {
+    var tag = elements[k].tagName.toLowerCase();
+
+    for (var prop in typeturaData[tag]) {
+      if (prop.split('-')[0] === 'ms') {
         // Don’t write anything for ms values
-      }
-      else if(prop.split('-')[0] === 'variation') {
-        elements[i].style.fontVariationSettings = 'var(--' + tag + '-font-variation-settings)';
+      } else if (prop.split('-')[0] === 'variation') {
+        elements[k].style.fontVariationSettings = 'var(--' + tag + '-font-variation-settings)';
       } else {
-        elements[i].style[typeturaCamelize(prop)] = 'var(--' + tag + '-' + prop + ')';
+        elements[k].style[typeturaCamelize(prop)] = 'var(--' + tag + '-' + prop + ')';
       }
     }
   }
-}
+};
 
-window.onload = function(){
-  typeturaInit();
-}
+if (typeof exports !== 'undefined') {
+  if (typeof module !== 'undefined' && module.exports) {
+    exports = module.exports = typeturaInit;
+  }
+  exports.typeturaInit = typeturaInit;
+  exports.getTypeturaDataFromDOM = getTypeturaDataFromDOM;
+  exports.typeturaInit = typeturaInit;
+  exports.getTypeturaContext = getTypeturaContext;
+  exports.typeturaWrite = typeturaWrite;
+} else {
+  // Top level element,
+  // overwrite to be more specific for better performance.
+  if (!window.lettersetEl) {
+    window.lettersetEl = 'body';
+  }
+  if (!window.typeturaContext) {
+    window.typeturaContext = getTypeturaContext(window.lettersetEl);
+  }
+  if (!window.typeturaData) {
+    window.typeturaData = getTypeturaDataFromDOM(window.typeturaContext);
+  }
 
-window.onresize = function(){
-  typeturaWidth = typeturaContext.offsetWidth;
-  typetura(typeturaWidth);
+  window['typeturaInit'] = typeturaInit;
+
+  window.onload = function() {
+    window.typeturaInit(window.typeturaData, window.typeturaContext);
+  };
+
+  window.onresize = function() {
+    var typeturaWidth = window.typeturaContext.offsetWidth;
+
+    typeturaWrite(window.typeturaData, typeturaWidth, window.typeturaContext);
+  };
 }

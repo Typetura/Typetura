@@ -1,0 +1,45 @@
+{
+  "name": "typeturajs",
+  "version": "1.0.0",
+  "description": "This is a tool to make fluidly responsive typography easy with support for font size, line height, and variable fonts.",
+  "main": "js/typetura.js",
+  "scripts": {
+    "build": "node ./scripts/minify.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scottkellum/typetura.js.git"
+  },
+  "keywords": [
+    "typography",
+    "typetura",
+    "typeturajs",
+    "variable",
+    "fonts",
+    "lint",
+    "height",
+    "font",
+    "size"
+  ],
+  "author": "Scott Kellum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scottkellum/typetura.js/issues"
+  },
+  "homepage": "https://github.com/scottkellum/typetura.js#readme",
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.16.0",
+    "eslint-config-prettier": "^2.5.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-prettier": "^2.5.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.1",
+    "node-minify": "^3.3.0",
+    "prettier": "^1.10.2"
+  }
+}
