@@ -1,130 +1,106 @@
-# [DEMO](http://typeturajs.bitballoon.com/)
+# Using typetura
 
-This is a tool to make fluidly responsive typography easy with support for font size, line height, and variable fonts.
+Typetura is a tool to make fluid typography easy. Here is a [demo of typetura in action](http://typetura-js.netlify.com). It enables you to control the font size, line height, margins, padding, variable font settings, and anything that can be animated. The difference is that the keyframes are applied across screen sizes as opposed to time.
 
-# How to use:
+### Installing typetura on your website
 
-* Add letterset.js to the end of your `<body>`.
+* Link letterset.js in your `<head>`.
 * Start styling with CSS.
 
-### Custom properties
+### Starting with the basics
 
-This is powered by CSS custom properties and thus the syntax is different from that in normal CSS. You change the font size with the property `--font-size` and values are structured in an array with `value / breakpoint`. The value can be anything but it needs to be consistent throguhout the array and the breakpoint is in unitless pixel numbers. Note the breakpoints are based on the container width not the viewport width like regular media queries.
+At its core, Typetura works with [CSS keyframe animations](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes) and ties those animations to the width of the page or [an element](#Work-off-the-width-of-an-element-and-more) instead of a timeline. Let’s create keyframes for our `<h1>`.
+
+```css
+@keyframes h1 {
+  0%,20% {
+    font-size: 1.2em;
+  }
+  100% {
+    font-size: 4em;
+  }
+}
+```
+
+Now that you have your keyframes set up, let’s tell typetura to use those keyframes to scale the text.
 
 ```css
 h1 {
-  --font-size:
-    2em / 520,
-    6em / 1200
-  ;
+  --tt-key: h1;
 }
 ```
 
-I also reccomend you add a fallback. This will overwrite your fallback values across breakpoints so feel free to use media queries as well.
+Awesome! You should be seeing typetura working. But you might be thinking the effect is happening over too wide a range. By default, the keyframes map to a viewport range of `0px` to `1600px` wide. Change the max to `960px` adding `--tt-max:960;` either locally on the `h1` or globally on the `body`.
+
+So far, your CSS should look something like this:
 
 ```css
+@keyframes h1 {
+  0% {
+    font-size: 1.2em;
+  }
+  100% {
+    font-size: 4em;
+  }
+}
 h1 {
-  --font-size:
-    2em / 520,
-    6em / 1200
-  ;
-  font-size: 2em;
+  --tt-key: h1;
+  --tt-max:960;
 }
 ```
 
-Variations are simplified down from their normal syntax to `--variation-` + the feature code. Currently typetura supports the `ital`, `opsz`, `slnt`, `wdth`, `wght`, `grad`, and `xhgt` axes.
+At this point you may be noticing the fluid transition cuts off at that `960px` width we set earlier. This is because the animation has stopped and the normal `h1` value is currently being used. Move the value(s) from the `100%` keyframe to your `h1`. Just like with regular CSS animations, the animation transitions into the values defined on the element so we can safely delete that keyframe and below is our final CSS for our `h1`.
 
 ```css
+@keyframes h1 {
+  0% {
+    font-size: 1.2em;
+  }
+}
 h1 {
-  --variation-wght:
-    2 / 500,
-    .2 / 1000
-  ;
+  font-size: 4em;
+  --tt-key: h1;
+  --tt-max:960;
 }
 ```
 
-If you want to add more variation settings you can just add more variation settings
+Anything that can be animated can be used in these keyframes like color, transforms, size, margins, padding, variable font properties, etc. The sky is the limit.
 
-```css
-h1 {
-  --variation-wght:
-    2 / 500,
-    .2 / 1000
-  ;
-  --variation-wdth:
-    1.2 / 500,
-    .8 / 1000
-  ;
-}
-```
+### Work off the width of an element and more
 
-### Modular scales
+By default typetura queries the width of the `body` element but you can select any other element, like an `article` element. To do this, add `id="typetura"` to the element you wish to use as the width reference.
 
-Modular scales can be calculated at runtime by using the `step` unit on your values.
+Typetura can also work with any unit-less number you feed it. You can bind it to scroll depth, cursor position, device orientation, or ambient light. To do this, pass the values through the CSS property `--tt-bind`. This value inherits so you can set it on the `body` if you want it to be applied everywhere or on a specific element. [Momentum](https://github.com/scottkellum/momentum) is a library that exposes a number of these events for you to use. If you were using [Momentum](https://github.com/scottkellum/momentum) with typetura you could write `body {--tt-bind:--scrolly}` to bind typetura to scroll instead of viewport width.
 
-```css
-h1 {
-  --font-size: 5step;
-}
-```
+### Custom easing
 
-To configure your scale, you can add settings like so that will flow down the cascade.
+Easing works in typetura just like it does with any other animations. However you may want the easing functions you set to inherit and the default timing functions don’t. You can set your timing functions in typetura with `--tt-ease` and that timing function will be inherited by any element underneath it.
 
-```css
-article {
-  --ms-base: 1em;
-  --ms-ratio:
-    1.1 / 500,
-    1.5 / 1000
-  ;
-}
-```
+### Index
 
-### Customizing selectors and properties
-
-There are three settings that configure where typetura.js looks for styled elements and properties that it will modify. The defaults are listed below:
-
-```js
-var lettersetEl = 'body';
-```
-
-_this is the selector for the parent element. Choosing the selector closest to the elements you are styling will yeild better performance._
-
-```js
-var typeturaSelect = [
-  'article',
-  'p',
-  'h1',
-  'h2',
-  'h3',
-  'h4',
-  'h5',
-  'h6',
-  'ol',
-  'ul',
-  'li',
-  'blockquote'
-];
-```
-
-_Selectors to style_
-
-```js
-var typeturaStyles = [
-  'ms-base',
-  'ms-ratio',
-  'margin',
-  'padding',
-  'font-size',
-  'line-height',
-  'variation-ital',
-  'variation-opsz',
-  'variation-slnt',
-  'variation-wdth',
-  'variation-wght',
-  'variation-grad',
-  'variation-xhgt'
-];
-```
-
-_Custom properties to loop through._
+<table>
+  <tr>
+    <th>Property
+    <th>Accepted values
+    <th>Inherits
+    <th>Default value
+<tr>
+  <td><code>--tt-key</code>
+  <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name">The keyframes name (string)</a>
+  <td>no
+  <td><code>''</code>
+<tr>
+  <td><code>--tt-max</code>
+  <td>Value at witch the animation ends (number)
+  <td>yes
+  <td><code>1600</code>
+<tr>
+  <td><code>--tt-ease</code>
+  <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function">Animation easing function</a>
+  <td>yes
+  <td><code>linear</code>
+<tr>
+  <td><code>--tt-bind</code>
+  <td>Position of the animation between <code>0</code> and <code>--tt-max</code> (number)
+  <td>yes
+  <td><code>--tt-width</code>

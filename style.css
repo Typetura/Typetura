@@ -5,48 +5,49 @@ body {
 article {
   padding: 0 4%;
   margin: 0 auto;
-  max-width: 900px;
-  --ms-base: 1em;
-  --ms-ratio:
-    1.1 / 500,
-    1.4 / 1000
-  ;
+  max-width: 700px;
+  font-size: 1.2em;
+  line-height: 1.6;
+  --tt-max: 700;
+  --tt-key: article;
 }
-p {
-  --font-size:
-    1em   / 500,
-    1.2em / 1000
-  ;
-  --line-height:
-    1.3 / 500,
-    1.4 / 1000
-  ;
+@keyframes article {
+  from {
+    font-size: .9em;
+    line-height: 1.1;
+  }
 }
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  line-height: 1;
+  line-height: 1.1;
 }
-h1, h2 {
-  --font-size: 5step;
-  --variation-wght:
-    2 / 500,
-    1 / 650,
-    .2 / 1000
-  ;
-  --variation-wdth:
-    1 / 500,
-    .7 / 1000
-  ;
-  font-size: 2em;
-  line-height: 1;
+
+h1 {
+  color: rgb(0, 108, 116);
+  font-size: 4em;
+  --tt-key: h1;
+  --tt-ease: ease-in;
+  font-variation-settings: 'wght' .2, 'wdth' .7;
 }
+@keyframes h1 {
+  0%,20% {
+    color: rgb(13, 64, 129);
+    font-size: 1.2em;
+    font-variation-settings: 'wght' 2, 'wdth' 1;
+  }
+}
+
 h2 {
-  --font-size:
-    1.3em / 520,
-    3em / 1200
-  ;
-  --variation-wght:
-    1.5 / 500,
-    1.2 / 1000
-  ;
+  color: rgb(116, 108, 0);
+  font-size: 1.6em;
+  --tt-key: h2;
+  font-variation-settings: 'wght' 1, 'wdth' .9;
+}
+@keyframes h2 {
+  0%,20% {
+    color: rgb(13, 64, 129);
+    font-size: 1.1em;
+    font-variation-settings: 'wght' 1.8, 'wdth' 1;
+  }
 }
