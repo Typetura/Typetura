@@ -104,6 +104,7 @@ Easing works in typetura just like it does with any other animations. However yo
   <td>Position of the animation between <code>0</code> and <code>--tt-max</code> (number)
   <td>yes
   <td><code>--tt-width</code>
+</table>
 
 ### License
 
