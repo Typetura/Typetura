@@ -1,6 +1,6 @@
 # Using typetura
 
-Typetura is a tool to make fluid typography easy. Here is a [demo of typetura in action](typetura-js.netlify.com). It enables you to control the font size, line height, margins, padding, variable font settings, and anything that can be animated across screen sizes as opposed to time.
+Typetura is a tool to make fluid typography easy. Here is a [demo of typetura in action](http://typetura-js.netlify.com). It enables you to control the font size, line height, margins, padding, variable font settings, and anything that can be animated. The difference is that the keyframes are applied across screen sizes as opposed to time.
 
 ### Installing typetura on your website
 
@@ -32,14 +32,9 @@ h1 {
 
 Awesome! You should be seeing typetura working. But you might be thinking the effect is happening over too wide a range. By default, the keyframes map to a viewport range of `0px` to `1600px` wide. Change the max to `960px` adding `--tt-max:960;` either locally on the `h1` or globally on the `body`.
 
-So far, your CSS should look somthing like this:
+So far, your CSS should look something like this:
 
 ```css
-h1 {
-  --tt-key: h1;
-  --tt-max:960;
-}
-
 @keyframes h1 {
   0% {
     font-size: 1.2em;
@@ -48,21 +43,24 @@ h1 {
     font-size: 4em;
   }
 }
+h1 {
+  --tt-key: h1;
+  --tt-max:960;
+}
 ```
 
 At this point you may be noticing the fluid transition cuts off at that `960px` width we set earlier. This is because the animation has stopped and the normal `h1` value is currently being used. Move the value(s) from the `100%` keyframe to your `h1`. Just like with regular CSS animations, the animation transitions into the values defined on the element so we can safely delete that keyframe and below is our final CSS for our `h1`.
 
 ```css
-h1 {
-  font-size: 4em;
-  --tt-key: h1;
-  --tt-max:960;
-}
-
 @keyframes h1 {
   0% {
     font-size: 1.2em;
   }
+}
+h1 {
+  font-size: 4em;
+  --tt-key: h1;
+  --tt-max:960;
 }
 ```
 
