@@ -1,8 +1,8 @@
-# [DEMO](typetura-js.netlify.com)
+# Using typetura
 
-This is a tool to make fluidly responsive typography easy.
+Typetura is a tool to make fluid typography easy. Here is a [demo of typetura in action](typetura-js.netlify.com). It enables you to control the font size, line height, margins, padding, variable font settings, and anything that can be animated across screen sizes as opposed to time.
 
-# How to use:
+### Installing typetura on your website
 
 * Link letterset.js in your `<head>`.
 * Start styling with CSS.
