@@ -4,7 +4,7 @@ Typetura is a tool to make fluid typography easy. Here is a [demo of typetura in
 
 ### Installing typetura on your website
 
-* Link letterset.js in your `<head>`.
+* Add `typetura.js` where you put yout scripts.
 * Start styling with CSS.
 
 ### Starting with the basics
