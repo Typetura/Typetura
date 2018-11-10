@@ -1,6 +1,6 @@
 {
   "name": "typeturajs",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "This is a tool to make fluidly responsive typography easy with support for font size, line height, and variable fonts.",
   "main": "js/typetura.js",
   "scripts": {
