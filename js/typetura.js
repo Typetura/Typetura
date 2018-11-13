@@ -1,4 +1,4 @@
-function initializeTypetura(element) {
+function typeturaInit(element) {
   // Query the width of the typetura container
   function typetura() {
     document.body.style.setProperty('--tt-width', element.offsetWidth);
@@ -17,14 +17,14 @@ function initializeTypetura(element) {
 
 if (typeof exports !== 'undefined') {
    if (typeof module !== 'undefined' && module.exports) {
-      exports = module.exports = initializeTypetura;
+      exports = module.exports = typeturaInit;
    }
-  exports.initializeTypetura = initializeTypetura;
+  exports.typeturaInit = typeturaInit;
 } else {
   document.addEventListener( 'DOMContentLoaded', function () {
     var element = document.getElementById('typetura') || document.body;
 
     // Initialize width variable
-    initializeTypetura(element);
+    typeturaInit(element);
   });
 }
