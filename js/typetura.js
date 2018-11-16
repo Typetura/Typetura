@@ -3,6 +3,7 @@ function typeturaInit(element) {
   function typetura() {
     document.body.style.setProperty('--tt-width', element.offsetWidth);
   }
+  typetura();
 
   // On resize recalculate width
   window.addEventListener('resize', typetura);
