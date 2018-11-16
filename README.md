@@ -11,20 +11,13 @@ npm install --save typeturajs
 ## Via script tag
 
 ```html
-<script src="./node_modules/typetura.js/js/typetura.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/scottkellum/typetura.js@master/js/typetura.min.js"></script>
 ```
 
 ## commonJS
 
 ```javascript
-import { typeturaInit } from 'typeturajs';
-
-// ...
-
-var element = document.getElementById('main-container');
-
-//  when typeturajs is used this way, you must passit a root elemwent to target
-typeturaInit(element);
+import 'typeturajs';
 ```
 
 ## Start styling with CSS! :tada:
