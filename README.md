@@ -2,10 +2,25 @@
 
 Typetura is a tool to make fluid typography easy. Here is a [demo of typetura in action](http://typetura-js.netlify.com). It enables you to control the font size, line height, margins, padding, variable font settings, and anything that can be animated. The difference is that the keyframes are applied across screen sizes as opposed to time.
 
-### Installing typetura on your website
+# Installing typetura on your website
 
-* Add `typetura.js` where you put yout scripts.
-* Start styling with CSS.
+```bash
+npm install --save typeturajs
+```
+
+## Via script tag
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/scottkellum/typetura.js@master/js/typetura.min.js"></script>
+```
+
+## commonJS
+
+```javascript
+import 'typeturajs';
+```
+
+## Start styling with CSS! :tada:
 
 ### Starting with the basics
 
@@ -13,7 +28,8 @@ At its core, Typetura works with [CSS keyframe animations](https://developer.moz
 
 ```css
 @keyframes h1 {
-  0%,20% {
+  0%,
+  20% {
     font-size: 1.2em;
   }
   100% {
@@ -45,7 +61,7 @@ So far, your CSS should look something like this:
 }
 h1 {
   --tt-key: h1;
-  --tt-max:960;
+  --tt-max: 960;
 }
 ```
 
@@ -60,7 +76,7 @@ At this point you may be noticing the fluid transition cuts off at that `960px` 
 h1 {
   font-size: 4em;
   --tt-key: h1;
-  --tt-max:960;
+  --tt-max: 960;
 }
 ```
 
