@@ -104,7 +104,7 @@ Easing works in typetura just like it does with any other animations. However yo
   <td><code>--tt-key</code>
   <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name">The keyframes name (string)</a>
   <td>no
-  <td><code>''</code>
+  <td><code>none</code>
 <tr>
   <td><code>--tt-max</code>
   <td>Value at witch the animation ends (number)
