@@ -126,7 +126,7 @@ Easing works in typetura just like it does with any other animations. However yo
 
 The MIT License (MIT)
 
-Copyright © 2018 [Scott Kellum](https://www.scottkellum.com/) and [Sal Hernandez](http://clickclickonsal.com/)
+Copyright © 2018–2019 [Scott Kellum](https://www.scottkellum.com/) and [Sal Hernandez](http://clickclickonsal.com/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
