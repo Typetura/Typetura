@@ -86,7 +86,7 @@ Anything that can be animated can be used in these keyframes like color, transfo
 
 By default typetura queries the width of the `body` element but you can select any other element, like an `article` element. To do this, add `id="typetura"` to the element you wish to use as the width reference.
 
-Typetura can also work with any unit-less number you feed it. You can bind it to scroll depth, cursor position, device orientation, or ambient light. To do this, pass the values through the CSS property `--tt-bind`. This value inherits so you can set it on the `body` if you want it to be applied everywhere or on a specific element. [Momentum](https://github.com/scottkellum/momentum) is a library that exposes a number of these events for you to use. If you were using [Momentum](https://github.com/scottkellum/momentum) with typetura you could write `body {--tt-bind:--scrolly}` to bind typetura to scroll instead of viewport width.
+Typetura can also work with any unit-less number you feed it. You can bind it to scroll depth, cursor position, device orientation, or ambient light. To do this, pass the values through the CSS property `--tt-bind`. This value inherits so you can set it on the `body` if you want it to be applied everywhere or on a specific element. [Momentum](https://github.com/scottkellum/momentum) is a library that exposes a number of these events for you to use. If you were using [Momentum](https://github.com/scottkellum/momentum) with typetura you could write `body {--tt-bind: var(--scrolly);}` to bind typetura to scroll instead of viewport width.
 
 ### Custom easing
 
@@ -126,7 +126,7 @@ Easing works in typetura just like it does with any other animations. However yo
 
 The MIT License (MIT)
 
-Copyright © 2018 [Scott Kellum](https://www.scottkellum.com/) and [Sal Hernandez](http://clickclickonsal.com/)
+Copyright © 2018–2019 [Scott Kellum](https://www.scottkellum.com/) and [Sal Hernandez](http://clickclickonsal.com/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
