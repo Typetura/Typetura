@@ -13,9 +13,13 @@ article {
 }
 @keyframes article {
   from {
-    font-size: .9em;
+    font-size: .9rem;
     line-height: 1.1;
   }
+}
+
+.typetura {
+  width: 75%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -33,21 +37,21 @@ h1 {
 @keyframes h1 {
   0%,20% {
     color: rgb(13, 64, 129);
-    font-size: 1.2em;
+    font-size: 1.2rem;
     font-variation-settings: 'wght' 2, 'wdth' 1;
   }
 }
 
 h2 {
   color: rgb(116, 108, 0);
-  font-size: 1.6em;
+  font-size: 1.6rem;
   --tt-key: h2;
   font-variation-settings: 'wght' 1, 'wdth' .9;
 }
 @keyframes h2 {
   0%,20% {
     color: rgb(13, 64, 129);
-    font-size: 1.1em;
+    font-size: 1.1rem;
     font-variation-settings: 'wght' 1.8, 'wdth' 1;
   }
 }

@@ -84,13 +84,21 @@ Anything that can be animated can be used in these keyframes like color, transfo
 
 ### Work off the width of an element and more
 
-By default typetura queries the width of the `body` element but you can select any other element, like an `article` element. To do this, add `id="typetura"` to the element you wish to use as the width reference.
+By default typetura queries the width of the `body` element but you can select any other element, like an `article` element. To do this, add `id="typetura"` to the element you wish to use as the width reference. This will be applied to typetura globally.
+
+If you wish to have typetura respond to individual element widths, similar to element queries, you can add the class `typetura` to those elements.
 
 Typetura can also work with any unit-less number you feed it. You can bind it to scroll depth, cursor position, device orientation, or ambient light. To do this, pass the values through the CSS property `--tt-bind`. This value inherits so you can set it on the `body` if you want it to be applied everywhere or on a specific element. [Momentum](https://github.com/scottkellum/momentum) is a library that exposes a number of these events for you to use. If you were using [Momentum](https://github.com/scottkellum/momentum) with typetura you could write `body {--tt-bind: var(--scrolly);}` to bind typetura to scroll instead of viewport width.
 
 ### Custom easing
 
 Easing works in typetura just like it does with any other animations. However you may want the easing functions you set to inherit and the default timing functions don’t. You can set your timing functions in typetura with `--tt-ease` and that timing function will be inherited by any element underneath it.
+
+### Browser support
+
+Typetura.js works in Firefox (Gecko), Chrome (Blink), and Safari* (Webkit). It can be treated as progressive enhancement in all other browsers. Microsoft Edge is transitioning to Blink/Chromium soon and Typetura will be supported in all major browsers.
+
+[*`em` and `ex` units are calculated improperly in Safari.](https://bugs.webkit.org/show_bug.cgi?id=194749)
 
 ### Index
 

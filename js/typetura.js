@@ -1,7 +1,10 @@
-function typeturaInit(element) {
+function typeturaInit(global, el) {
   // Query the width of the typetura container
   function typetura() {
-    document.body.style.setProperty('--tt-width', element.offsetWidth);
+    document.body.style.setProperty('--tt-width', global.offsetWidth);
+    el.forEach(element => {
+      element.style.setProperty('--tt-bind', element.offsetWidth);
+    });
   }
   typetura();
 
@@ -12,14 +15,15 @@ function typeturaInit(element) {
   var stylesheet = document.createElement('style');
   // Typetura's custom properties
   stylesheet.innerHTML =
-    "body{--tt-ease:linear;--tt-max:1600;--tt-bind:var(--tt-width);}*{--tt-key:none;animation:var(--tt-key) 1s var(--tt-ease) 1 calc(-1s*var(--tt-bind)/var(--tt-max)) paused}";
+    'body{--tt-ease:linear;--tt-max:1600;--tt-bind:var(--tt-width);}*{--tt-key:none;animation:var(--tt-key) 1s var(--tt-ease) 1 calc(-1s*var(--tt-bind)/var(--tt-max)) paused}';
   // Write typetura proprties to the top of the document head to avoid cascade conflicts
   document.head.insertBefore(stylesheet, document.head.firstChild);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  var element = document.getElementById('typetura') || document.body;
+window.onload = function() {
+  var global = document.getElementById('typetura') || document.body;
+  var el = document.querySelectorAll('.typetura');
 
   // Initialize width variable
-  typeturaInit(element);
-});
+  typeturaInit(global, el);
+};
