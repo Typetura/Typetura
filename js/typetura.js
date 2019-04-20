@@ -20,10 +20,12 @@ function typeturaInit(global, el) {
   document.head.insertBefore(stylesheet, document.head.firstChild);
 }
 
-window.onload = function() {
-  var global = document.getElementById('typetura') || document.body;
-  var el = document.querySelectorAll('.typetura');
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    var global = document.getElementById('typetura') || document.body;
+    var el = document.querySelectorAll('.typetura');
 
-  // Initialize width variable
-  typeturaInit(global, el);
+    // Initialize width variable
+    typeturaInit(global, el);
+  }
 };
