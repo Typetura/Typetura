@@ -30,10 +30,10 @@ At its core, Typetura works with [CSS keyframe animations](https://developer.moz
 @keyframes h1 {
   0%,
   20% {
-    font-size: 1.2em;
+    font-size: 1.2rem;
   }
   100% {
-    font-size: 4em;
+    font-size: 4rem;
   }
 }
 ```
@@ -53,10 +53,10 @@ So far, your CSS should look something like this:
 ```css
 @keyframes h1 {
   0% {
-    font-size: 1.2em;
+    font-size: 1.2rem;
   }
   100% {
-    font-size: 4em;
+    font-size: 4rem;
   }
 }
 h1 {
@@ -74,7 +74,7 @@ At this point you may be noticing the fluid transition cuts off at that `960px` 
   }
 }
 h1 {
-  font-size: 4em;
+  font-size: 4rem;
   --tt-key: h1;
   --tt-max: 960;
 }
