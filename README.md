@@ -70,7 +70,7 @@ At this point you may be noticing the fluid transition cuts off at that `960px` 
 ```css
 @keyframes h1 {
   0% {
-    font-size: 1.2em;
+    font-size: 1.2rem;
   }
 }
 h1 {
