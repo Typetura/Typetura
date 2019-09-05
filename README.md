@@ -100,7 +100,7 @@ Easing works in typetura just like it does with any other animations. However yo
   <td><code>linear</code>
 <tr>
   <td><code>--tt-bind</code>
-  <td>Position of the animation between <code>0s</code> and <code>-1s</code>
+  <td>Position of the animation as a unitless value
   <td>yes
   <td>Auto-generated
 </table>
