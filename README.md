@@ -46,7 +46,7 @@ h1 {
 }
 ```
 
-Awesome! You should be seeing typetura working. But you might be thinking the effect is happening over too wide a range. By default, the keyframes map to a viewport range of `0px` to `1600px` wide. Change the max to `960px` adding `--tt-max:960;` either locally on the `h1` or globally on the `body`.
+Awesome! You should be seeing typetura working. But you might be thinking the effect is happening over too wide a range. By default, the keyframes map to a viewport range of `0px` to `1600px` wide. Change the max to `960px` adding `--tt-max: 960;` either locally on the `h1` or globally on the `body`.
 
 So far, your CSS should look something like this:
 
@@ -65,21 +65,6 @@ h1 {
 }
 ```
 
-At this point you may be noticing the fluid transition cuts off at that `960px` width we set earlier. This is because the animation has stopped and the normal `h1` value is currently being used. Move the value(s) from the `100%` keyframe to your `h1`. Just like with regular CSS animations, the animation transitions into the values defined on the element so we can safely delete that keyframe and below is our final CSS for our `h1`.
-
-```css
-@keyframes h1 {
-  0% {
-    font-size: 1.2rem;
-  }
-}
-h1 {
-  font-size: 4rem;
-  --tt-key: h1;
-  --tt-max: 960;
-}
-```
-
 Anything that can be animated can be used in these keyframes like color, transforms, size, margins, padding, variable font properties, etc. The sky is the limit.
 
 ### Work off the width of an element and more
@@ -93,12 +78,6 @@ Typetura can also work with any unit-less number you feed it. You can bind it to
 ### Custom easing
 
 Easing works in typetura just like it does with any other animations. However you may want the easing functions you set to inherit and the default timing functions don’t. You can set your timing functions in typetura with `--tt-ease` and that timing function will be inherited by any element underneath it.
-
-### Browser support
-
-Typetura.js works in Firefox (Gecko), Chrome (Blink), and Safari* (Webkit). It can be treated as progressive enhancement in all other browsers. Microsoft Edge is transitioning to Blink/Chromium soon and Typetura will be supported in all major browsers.
-
-[*`em` and `ex` units are calculated improperly in Safari.](https://bugs.webkit.org/show_bug.cgi?id=194749)
 
 ### Index
 
@@ -125,18 +104,37 @@ Typetura.js works in Firefox (Gecko), Chrome (Blink), and Safari* (Webkit). It c
   <td><code>linear</code>
 <tr>
   <td><code>--tt-bind</code>
-  <td>Position of the animation between <code>0</code> and <code>--tt-max</code> (number)
+  <td>Position of the animation between <code>0s</code> and <code>-1s</code>
   <td>yes
-  <td><code>--tt-width</code>
+  <td>Auto-generated
+</table>
+
+### Browser support
+
+Typetura.js works in Firefox (Gecko), Chrome (Blink), and Safari\* (Webkit). It can be treated as progressive enhancement in all other browsers.
+
+<table>
+  <tr>
+    <th style="width: 25%">✅ Firefox</th>
+    <th style="width: 25%">✅ Chrome</th>
+    <th style="width: 25%">✅ Edge</th>
+    <th style="width: 25%">✅ Safari/Webkit</th>
+  </tr>
+<tr>
+  <td style="vertical-align: top;">Fully supported</td>
+  <td style="vertical-align: top;">Fully supported</td>
+  <td style="vertical-align: top;"><p>Supported</p><p>💁‍Edge 44 and below will render elements one time, when they are styled in the DOM. Chromium builds of Edge allow for fluid browser resizing.</p></td>
+  <td style="vertical-align: top;"><p>Supported</p><p>💁‍<a href="https://bugs.webkit.org/show_bug.cgi?id=194749"><code>em</code> units compound incorrectly</a>. Use <code>rem</code> instead.</p></td>
+  </tr>
 </table>
 
 ### License
 
-Copyright © 2018–2019 [Typetura LLC](https://typetura.com/). All rights reserved. Commercial licences are available that allow modification, custom integrations, enhanced features, and/or support by contacting [info@typetura.com](mailto:info@typetura.com).
+Copyright © 2018–2019 [Typetura LLC](https://typetura.com/). All rights reserved. Commercial licences that allow modification, custom integrations, enhanced features, and/or support are avalible by contacting [info@typetura.com](mailto:info@typetura.com).
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to use, copy, publish, and/or distribute copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-- The above copyright notice and this permission notice shall be included in all copies or portions of the Software.
+- The above copyright notice, license, and this permission notice shall be included in all copies or portions of the Software.
 - Modification of the code, such as changing function names, variable names, and/or removing portions of the code, is prohibited.
 
 **The software is provided “as is”, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and non-infringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.**

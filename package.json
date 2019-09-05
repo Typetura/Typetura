@@ -1,6 +1,6 @@
 {
   "name": "typeturajs",
-  "version": "1.0.11",
+  "version": "1.1.0",
   "description": "This is a tool to make fluidly responsive typography easy with support for font size, line height, and variable fonts.",
   "main": "js/typetura.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "size"
   ],
   "author": "Scott Kellum",
-  "license": "MIT",
+  "license": "Standard ‘no charge’ license",
   "bugs": {
     "url": "https://github.com/scottkellum/typetura.js/issues"
   },
