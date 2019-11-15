@@ -1,3 +1,6 @@
+// Copyright 2018-2019 Typetura LLC.
+// https://github.com/typetura/typetura.js
+
 function typeturaInit(els) {
   function typetura() {
     els.forEach(e => {
