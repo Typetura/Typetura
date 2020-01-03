@@ -16,6 +16,7 @@
     "prettier/prettier": "error"
   },
   "globals": {
-    "Event": true
+    "Event": true,
+    "ResizeObserver": true
   }
 }
