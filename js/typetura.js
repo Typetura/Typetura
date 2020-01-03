@@ -1,18 +1,28 @@
 // Copyright 2018-2020 Typetura LLC.
 // https://github.com/typetura/typetura.js
 
+var elementsHaveAttachedListeners = false;
+
 function typeturaInit(el) {
   function typetura() {
     el.forEach(element => {
       element.style.setProperty('--tt-bind', element.offsetWidth);
+      if (typeof ResizeObserver !== 'undefined') {
+        const resizeObserver = new ResizeObserver(entries => {
+          for (let entry of entries) {
+            element.style.setProperty('--tt-bind', Math.round(entry.contentRect.width));
+          }
+        });
+        resizeObserver.observe(element);
+      }
     });
   }
-  // run twce on init to calculate correctly
-  typetura();
   typetura();
 
   // On resize recalculate width
-  window.onresize = typetura;
+  if (typeof ResizeObserver === 'undefined') {
+    window.onresize = typetura;
+  }
 
   // Create a stylesheet for typetura's custom properties
   var stylesheet = document.createElement('style');
