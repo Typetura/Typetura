@@ -32,23 +32,16 @@ function typeturaInit(el) {
 }
 
 // Contexts to query with Typetura
-
 var typeturaContexts = [':root', '.typetura'];
 
 // Initiate Typetura on page load
-
 document.onreadystatechange = () => {
-  document.body.style.setProperty('opacity', 0);
-  document.body.style.setProperty('transition', 'none');
   if (document.readyState === 'complete') {
     typeturaInit(document.querySelectorAll(typeturaContexts));
-    document.body.style.setProperty('opacity', 1);
-    document.body.style.setProperty('transition', 'opacity .2s ease-out');
   }
 };
 
-// After load, query navigation within an SPA
-
+// Navigation within an SPA
 var historyPushState = window.history.pushState;
 
 window.history.pushState = (function() {
