@@ -1,8 +1,6 @@
 // Copyright 2018-2020 Typetura LLC.
 // https://github.com/typetura/typetura.js
 
-var elementsHaveAttachedListeners = false;
-
 function typeturaInit(el) {
   function typetura() {
     el.forEach(element => {
