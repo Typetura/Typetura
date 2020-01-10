@@ -121,7 +121,7 @@ Typetura.js works in Firefox (Gecko), Chrome (Blink), and Safari\* (Webkit). It 
 <tr>
   <td style="vertical-align: top;">Fully supported</td>
   <td style="vertical-align: top;">Fully supported</td>
-  <td style="vertical-align: top;"><p>Coming soon!</p><p>💁‍Chromium builds of Edge are fully supported. In the meantime, fallback styles, the styles outside of your keyframes, will be applied</p></td>
+  <td style="vertical-align: top;"><p>Coming soon!</p><p>💁‍On January 15, 2020 Typetura will work on Edge. In the meantime, fallback styles, the styles outside of your keyframes, will be applied</p></td>
   <td style="vertical-align: top;"><p>Supported</p><p>💁‍<a href="https://bugs.webkit.org/show_bug.cgi?id=194749"><code>em</code> units compound incorrectly</a>. Use <code>rem</code> instead.</p></td>
   </tr>
 </table>
