@@ -39,6 +39,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3",
     "lint-staged": "^6.0.1",
+    "node-minify": "^3.6.0",
     "prettier": "^1.17.0"
   }
 }
