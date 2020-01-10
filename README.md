@@ -2,6 +2,8 @@
 
 Typetura is a tool to make fluid typography easy. Here is a [demo of typetura in action](http://typetura-js.netlify.com). It enables you to control the font size, line height, margins, padding, variable font settings, and anything that can be animated. The difference is that the keyframes are applied across screen sizes as opposed to time.
 
+Typetura uses [resizeobserver](https://caniuse.com/#feat=resizeobserver) with a window resize listener as a fallback. Window resize works for most websites but if you have any scaling of text elements within a page, you can use a [resizeobserver polyfill](https://github.com/que-etc/resize-observer-polyfill/).
+
 # Installing typetura on your website
 
 ```bash
@@ -119,7 +121,7 @@ Typetura.js works in Firefox (Gecko), Chrome (Blink), and Safari\* (Webkit). It 
 <tr>
   <td style="vertical-align: top;">Fully supported</td>
   <td style="vertical-align: top;">Fully supported</td>
-  <td style="vertical-align: top;"><p>Coming soon!</p><p>💁‍Chromium builds of Edge are fully supported. In the meantime, fallback styles, the styles outside of your keyframes, will be applied</p></td>
+  <td style="vertical-align: top;"><p>Coming soon!</p><p>💁‍On January 15, 2020 Typetura will work on Edge. In the meantime, fallback styles, the styles outside of your keyframes, will be applied</p></td>
   <td style="vertical-align: top;"><p>Supported</p><p>💁‍<a href="https://bugs.webkit.org/show_bug.cgi?id=194749"><code>em</code> units compound incorrectly</a>. Use <code>rem</code> instead.</p></td>
   </tr>
 </table>
