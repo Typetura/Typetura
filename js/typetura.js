@@ -1,10 +1,10 @@
-// Copyright 2018-2019 Typetura LLC.
+// Copyright 2018-2020 Typetura LLC.
 // https://github.com/typetura/typetura.js
 
-function typeturaInit(els) {
+function typeturaInit(el) {
   function typetura() {
-    els.forEach(e => {
-      e.style.setProperty('--tt-bind', e.clientWidth);
+    el.forEach(element => {
+      element.style.setProperty('--tt-bind', element.offsetWidth);
     });
   }
   // run twce on init to calculate correctly
@@ -12,7 +12,7 @@ function typeturaInit(els) {
   typetura();
 
   // On resize recalculate width
-  window.addEventListener('resize', typetura);
+  window.onresize = typetura;
 
   // Create a stylesheet for typetura's custom properties
   var stylesheet = document.createElement('style');
@@ -23,9 +23,39 @@ function typeturaInit(els) {
   document.head.insertBefore(stylesheet, document.head.firstChild);
 }
 
+// Contexts to query with Typetura
+
+var typeturaContexts = [':root', '.typetura'];
+
+// Initiate Typetura on page load
+
 document.onreadystatechange = () => {
+  document.body.style.setProperty('opacity', 0);
+  document.body.style.setProperty('transition', 'none');
   if (document.readyState === 'complete') {
-    var els = document.querySelectorAll([':root', '.typetura']);
-    typeturaInit(els);
+    typeturaInit(document.querySelectorAll(typeturaContexts));
+    document.body.style.setProperty('opacity', 1);
+    document.body.style.setProperty('transition', 'opacity .2s ease-out');
   }
 };
+
+// After load, query navigation within an SPA
+
+var historyPushState = window.history.pushState;
+
+window.history.pushState = (function() {
+  return function pushState() {
+    var historyState = historyPushState.apply(this, arguments);
+    window.dispatchEvent(new Event('pushstate'));
+    window.dispatchEvent(new Event('locationchange'));
+    return historyState;
+  };
+})(window.history.pushState);
+window.addEventListener('popstate', function() {
+  window.dispatchEvent(new Event('locationchange'));
+});
+window.addEventListener('locationchange', function() {
+  setTimeout(() => {
+    typeturaInit(document.querySelectorAll(typeturaContexts));
+  }, 500);
+});
