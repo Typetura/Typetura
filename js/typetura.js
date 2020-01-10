@@ -3,17 +3,22 @@
 
 function typeturaInit(el) {
   function typetura() {
-    el.forEach(element => {
+    for (var i = 0; i < el.length; i++) {
+      var element = el[i];
+
       element.style.setProperty('--tt-bind', element.offsetWidth);
+
       if (typeof ResizeObserver !== 'undefined') {
-        const resizeObserver = new ResizeObserver(entries => {
-          for (let entry of entries) {
+        var resizeObserver = new ResizeObserver(function(entries) {
+          for (var j = 0; j < entries.length; j++) {
+            var entry = entries[j];
+
             element.style.setProperty('--tt-bind', Math.round(entry.contentRect.width));
           }
         });
         resizeObserver.observe(element);
       }
-    });
+    }
   }
   typetura();
 
@@ -35,8 +40,8 @@ function typeturaInit(el) {
 var typeturaContexts = [':root', '.typetura'];
 
 // Initiate Typetura on page load
-document.onreadystatechange = () => {
-  if (document.readyState === 'complete') {
+document.onreadystatechange = function() {
+  if (window.doument.readyState === 'complete') {
     typeturaInit(document.querySelectorAll(typeturaContexts));
   }
 };
@@ -56,7 +61,7 @@ window.addEventListener('popstate', function() {
   window.dispatchEvent(new Event('locationchange'));
 });
 window.addEventListener('locationchange', function() {
-  setTimeout(() => {
+  setTimeout(function() {
     typeturaInit(document.querySelectorAll(typeturaContexts));
   }, 500);
 });
