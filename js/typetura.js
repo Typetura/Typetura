@@ -3,19 +3,22 @@
 
 function typeturaInit(el) {
   function typetura() {
-    el.forEach(function(element) {
+    for (var i = 0; i < el.length; i++) {
+      var element = el[i];
+
       element.style.setProperty('--tt-bind', element.offsetWidth);
+
       if (typeof ResizeObserver !== 'undefined') {
         var resizeObserver = new ResizeObserver(function(entries) {
-          for (var i = 0; i < entries.length; i++) {
-            var entry = entries[i];
+          for (var j = 0; j < entries.length; j++) {
+            var entry = entries[j];
 
             element.style.setProperty('--tt-bind', Math.round(entry.contentRect.width));
           }
         });
         resizeObserver.observe(element);
       }
-    });
+    }
   }
   typetura();
 
