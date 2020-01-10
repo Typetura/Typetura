@@ -2,6 +2,8 @@
 
 Typetura is a tool to make fluid typography easy. Here is a [demo of typetura in action](http://typetura-js.netlify.com). It enables you to control the font size, line height, margins, padding, variable font settings, and anything that can be animated. The difference is that the keyframes are applied across screen sizes as opposed to time.
 
+Typetura uses [resizeobserver](https://caniuse.com/#feat=resizeobserver) with a window resize listener as a fallback. Window resize works for most websites but if you have any scaling of text elements within a page, you can use a [resizeobserver polyfill](https://github.com/que-etc/resize-observer-polyfill/).
+
 # Installing typetura on your website
 
 ```bash
