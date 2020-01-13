@@ -31,9 +31,7 @@ function typeturaInit(el) {
   document.head.insertBefore(stylesheet, document.head.firstChild);
 
   // On resize recalculate width
-  if (typeof ResizeObserver === 'undefined') {
-    window.onresize = typetura;
-  }
+  window.onresize = typetura;
 }
 
 // Contexts to query with Typetura

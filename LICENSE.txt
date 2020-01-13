@@ -1,5 +1,5 @@
 License
-Copyright © 2018–2019 Typetura LLC. All rights reserved. Commercial licences that allow modification, custom integrations, enhanced features, and/or support are avalible by contacting info@typetura.com.
+Copyright © 2018–2020 Typetura LLC. All rights reserved. Commercial licences that allow modification, custom integrations, enhanced features, and/or support are avalible by contacting info@typetura.com.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to use, copy, publish, and/or distribute copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
