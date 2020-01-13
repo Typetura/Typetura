@@ -41,7 +41,7 @@ var typeturaContexts = [':root', '.typetura'];
 
 // Initiate Typetura on page load
 document.onreadystatechange = function() {
-  if (window.doument.readyState === 'complete') {
+  if (window.doument.readyState === 'interactive') {
     typeturaInit(document.querySelectorAll(typeturaContexts));
   }
 };
