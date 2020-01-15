@@ -109,26 +109,26 @@ Easing works in typetura just like it does with any other animations. However yo
 
 ### Browser support
 
-Typetura.js works in Firefox (Gecko), Chrome (Blink), and Safari\* (Webkit). It can be treated as progressive enhancement in all other browsers.
+Typetura.js works in Firefox (Gecko), Chrome (Blink), Edge (Blink), and Safari\* (Webkit). In other browsers, or in older versions of these browsers, any fallback styles you have will be used.
 
 <table>
   <tr>
     <th style="width: 25%">✅ Firefox</th>
     <th style="width: 25%">✅ Chrome</th>
-    <th style="width: 25%">⏳ Edge</th>
+    <th style="width: 25%">✅ Edge</th>
     <th style="width: 25%">✅ Safari/Webkit</th>
   </tr>
 <tr>
   <td style="vertical-align: top;">Fully supported</td>
   <td style="vertical-align: top;">Fully supported</td>
-  <td style="vertical-align: top;"><p>Coming soon!</p><p>💁‍On January 15, 2020 Typetura will work on Edge. In the meantime, fallback styles, the styles outside of your keyframes, will be applied</p></td>
+  <td style="vertical-align: top;">Fully supported</td>
   <td style="vertical-align: top;"><p>Supported</p><p>💁‍<a href="https://bugs.webkit.org/show_bug.cgi?id=194749"><code>em</code> units compound incorrectly</a>. Use <code>rem</code> instead.</p></td>
   </tr>
 </table>
 
 ### License
 
-Copyright © 2018–2019 [Typetura LLC](https://typetura.com/). All rights reserved. Commercial licences that allow modification, custom integrations, enhanced features, and/or support are avalible by contacting [info@typetura.com](mailto:info@typetura.com).
+Copyright © 2018–2020 [Typetura LLC](https://typetura.com/). All rights reserved. Commercial licences that allow modification, custom integrations, enhanced features, and/or support are avalible by contacting [info@typetura.com](mailto:info@typetura.com).
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to use, copy, publish, and/or distribute copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
