@@ -3,8 +3,11 @@
   "version": "1.2.2",
   "description": "This is a tool to make fluidly responsive typography easy with support for font size, line height, and variable fonts.",
   "main": "js/typetura.js",
+  "browser": "dist/typetura.js",
   "scripts": {
-    "build": "node ./scripts/minify.js"
+    "build": "rollup -c",
+    "start": "rollup -c -w",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -28,6 +31,10 @@
   },
   "homepage": "https://github.com/scottkellum/typetura.js#readme",
   "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.8.6",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
     "babel-eslint": "^8.2.1",
     "eslint": "^4.16.0",
     "eslint-config-prettier": "^2.10.0",
@@ -39,7 +46,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3",
     "lint-staged": "^6.0.1",
-    "node-minify": "^3.6.0",
-    "prettier": "^1.17.0"
+    "prettier": "^1.17.0",
+    "rollup-plugin-babel": "^4.3.3"
   }
 }
