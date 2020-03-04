@@ -13,16 +13,47 @@ npm install --save typeturajs
 ## Via script tag
 
 ```html
+<script src="./node_modules/typetura/dist/typetura.js"></script>
+```
+
+## Via script tag(cdn)
+
+```html
 <script src="https://cdn.jsdelivr.net/gh/scottkellum/typetura.js@master/js/typetura.min.js"></script>
 ```
+
+## Start styling with CSS! :tada:
 
 ## commonJS
 
 ```javascript
-import 'typeturajs';
-```
+import React, { Component } from 'react';
 
-## Start styling with CSS! :tada:
+import Typetura, { initializeWithPackages } from '@typetura/react';
+
+export default class App extends Component {
+  componentDidMount() {
+    initializeWithPackages({ apiKey: '8PCNEVF-9H0M0EW-KSGPQMJ-97H1WAK' });
+  }
+  render() {
+    return (
+      <div>
+        <Typetura.Big>Big</Typetura.Big>
+        <Typetura.Blockquote>Blockquote</Typetura.Blockquote>
+        <Typetura.Caption>Caption</Typetura.Caption>
+        <Typetura.Meta>Meta</Typetura.Meta>
+        <Typetura.PrimaryHeadline>PrimaryHeadline</Typetura.PrimaryHeadline>
+        <Typetura.PrimarySubheadline>PrimarySubheadline</Typetura.PrimarySubheadline>
+        <Typetura.Pullquote>Pullquote</Typetura.Pullquote>
+        <Typetura.SectionHeadline>SectionHeadline</Typetura.SectionHeadline>
+        <Typetura.SectionLabel>SectionLabel</Typetura.SectionLabel>
+        <Typetura.SectionSubheadline>SectionSubheadline</Typetura.SectionSubheadline>
+        <Typetura.Small>Small</Typetura.Small>
+      </div>
+    );
+  }
+}
+```
 
 ### Starting with the basics
 
