@@ -2,8 +2,7 @@
   "name": "typeturajs",
   "version": "1.2.2",
   "description": "This is a tool to make fluidly responsive typography easy with support for font size, line height, and variable fonts.",
-  "main": "js/typetura.js",
-  "browser": "dist/typetura.js",
+  "main": "src/typetura.js",
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",
@@ -48,5 +47,8 @@
     "lint-staged": "^6.0.1",
     "prettier": "^1.17.0",
     "rollup-plugin-babel": "^4.3.3"
+  },
+  "dependencies": {
+    "rollup-plugin-babel-minify": "^9.1.1"
   }
 }

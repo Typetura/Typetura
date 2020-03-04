@@ -13,7 +13,7 @@ npm install --save typeturajs
 ## Via script tag
 
 ```html
-<script src="./node_modules/typetura/dist/typetura.js"></script>
+<script src="./node_modules/typetura/js/typetura.js"></script>
 ```
 
 ## Via script tag(cdn)
@@ -29,28 +29,14 @@ npm install --save typeturajs
 ```javascript
 import React, { Component } from 'react';
 
-import Typetura, { initializeWithPackages } from '@typetura/react';
+import { typeturaInit } from 'typeturajs';
 
-export default class App extends Component {
+export default class Big extends Component {
   componentDidMount() {
-    initializeWithPackages({ apiKey: '8PCNEVF-9H0M0EW-KSGPQMJ-97H1WAK' });
+    typeturaInit(baseSize);
   }
   render() {
-    return (
-      <div>
-        <Typetura.Big>Big</Typetura.Big>
-        <Typetura.Blockquote>Blockquote</Typetura.Blockquote>
-        <Typetura.Caption>Caption</Typetura.Caption>
-        <Typetura.Meta>Meta</Typetura.Meta>
-        <Typetura.PrimaryHeadline>PrimaryHeadline</Typetura.PrimaryHeadline>
-        <Typetura.PrimarySubheadline>PrimarySubheadline</Typetura.PrimarySubheadline>
-        <Typetura.Pullquote>Pullquote</Typetura.Pullquote>
-        <Typetura.SectionHeadline>SectionHeadline</Typetura.SectionHeadline>
-        <Typetura.SectionLabel>SectionLabel</Typetura.SectionLabel>
-        <Typetura.SectionSubheadline>SectionSubheadline</Typetura.SectionSubheadline>
-        <Typetura.Small>Small</Typetura.Small>
-      </div>
-    );
+    return <p className="big" />;
   }
 }
 ```
