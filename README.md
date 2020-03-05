@@ -27,16 +27,30 @@ npm install --save typeturajs
 ## commonJS
 
 ```javascript
-import React, { Component } from 'react';
+import React from 'react';
 
-import { typeturaInit } from 'typeturajs';
+import { typeturaInit, typeturize } from 'typeturajs';
 
-export default class Big extends Component {
+const PrimaryHeadline = ({ children }) => {
+  const ref = React.useRef();
+
+  React.useEffect(() => {
+    typeturize(ref.current);
+  }, [ref]);
+
+  return (
+    <h1 ref={ref} className="primary-headline">
+      {children}
+    </h1>
+  );
+};
+
+class App extends Component {
   componentDidMount() {
-    typeturaInit(baseSize);
+    typeturaInit();
   }
   render() {
-    return <p className="big" />;
+    return <PrimaryHeadline />;
   }
 }
 ```
