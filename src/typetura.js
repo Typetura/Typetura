@@ -1,6 +1,8 @@
 // Copyright 2018-2020 Typetura LLC.
 // https://github.com/typetura/typetura.js
 
+import { ResizeObserver } from 'resize-observer';
+
 export function typeturize(element) {
   element.style.setProperty('--tt-bind', element.offsetWidth);
 

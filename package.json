@@ -49,6 +49,7 @@
     "rollup-plugin-babel": "^4.3.3"
   },
   "dependencies": {
+    "resize-observer": "^1.0.0",
     "rollup-plugin-babel-minify": "^9.1.1"
   }
 }
