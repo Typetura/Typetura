@@ -126,13 +126,13 @@ Typetura.js works in Firefox (Gecko), Chrome (Blink), Edge (Blink), and Safari\*
   </tr>
 </table>
 
-### License
+### 🖋 License
 
-Copyright © 2018–2020 [Typetura LLC](https://typetura.com/). All rights reserved. Commercial licences that allow modification, custom integrations, enhanced features, and/or support are avalible by contacting [info@typetura.com](mailto:info@typetura.com).
+Copyright © 2018–2020 [Typetura LLC](https://typetura.com/). All rights reserved. Commercial licenses that allow modification, custom integrations, enhanced features, and/or support are available by contacting [info@typetura.com](mailto:info@typetura.com).
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to use, copy, publish, and/or distribute copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 - The above copyright notice, license, and this permission notice shall be included in all copies or portions of the Software.
 - Modification of the code, such as changing function names, variable names, and/or removing portions of the code, is prohibited.
 
-**The software is provided “as is”, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and non-infringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.**
+**The software is provided “as is,” without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and non-infringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.**
