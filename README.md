@@ -83,6 +83,8 @@ Now, your headline will fluidly respond to layout changes. But you may not be sa
 }
 ```
 
+### [Edit on Codepen](https://codepen.io/scottkellum/pen/WNvmXWJ?editors=1100)
+
 # Index
 
 <table>
