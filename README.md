@@ -1,8 +1,6 @@
 <img width="914" alt="Typetura core" src="https://user-images.githubusercontent.com/377189/78052830-854b0000-7334-11ea-829e-f453006f0ffc.png">
 
-Typetura is a tool to make fluid typography easy. Here is a [demo of Typetura in action](http://typetura-js.netlify.com). It enables you to control the font size, line height, margins, padding, variable font settings, and anything that can be animated. The difference is that the keyframes are applied across screen sizes as opposed to time.
-
-Typetura uses [resizeobserver](https://caniuse.com/#feat=resizeobserver) with a window resize listener as a fallback. Window resize works for most websites but if you have any scaling of text elements within a page, you can use a [resizeobserver polyfill](https://github.com/que-etc/resize-observer-polyfill/).
+Typetura is a different way to typeset your website. It allows you to create headlines, pull quotes, labels, and other text elements that respond to the container they are in, as opposed to the viewport. This means you can use the same headline style everywhere, from your sidebar to your page heading without, no breakpoints or layout specific styling. When used effectively, this can reduce your typographic styles by up to 90% and save 20% of your time as you will write far fewer typographic styles. Typetura also supports variable font adjustments, easing curves, is progressively enhanced, and is styled with CSS to offer the most feature rich and easy to use experience possible. We also offer [pre-typeset packages](https://typetura.com/typography-packages) and [assistance integrating Typetura into your projects](https://typetura.com/typography-services).
 
 # Installing Typetura on your website
 
@@ -22,62 +20,70 @@ npm install --save typeturajs
 import 'typeturajs';
 ```
 
-## Start styling with CSS! :tada:
+# Usage
 
-### Starting with the basics
+To get Typetura to work effectively, we need to do two things; [defining contexts](#defining-contexts) and [authoring styles](#authoring-styles) for your typographic components. Combined, these components will respond to your contexts and you will have a robust and responsive typographic system that will work regardless of the device or layout it’s used in.
 
-At its core, Typetura works with [CSS keyframe animations](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes) and ties those animations to the width of the page or [an element](#Work-off-the-width-of-an-element-and-more) instead of a timeline. Let’s create keyframes for our `<h1>`.
+## Defining contexts
 
-```css
-@keyframes h1 {
-  0%,
-  20% {
-    font-size: 1.2rem;
-  }
-  100% {
-    font-size: 4rem;
-  }
-}
-```
+By default, the viewport is a context. Additional contexts can be added to a page with the `typetura` class. We recommend you create a new context everywhere you have a new column of text.
 
-Now that you have your keyframes set up, let’s tell Typetura to use those keyframes to scale the text.
+## Authoring styles
+
+Typetura styles are written using [CSS Keyframe animation syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes) in your styles. So a good place to start is to define how the text might look at the smallest size possible and how it looks when the context is at its largest size. You can add any [animatable CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties) to these keyframes, and yes, this means you can manipulate variable fonts as well!.
 
 ```css
-h1 {
-  --tt-key: h1;
-}
-```
-
-Awesome! You should be seeing Typetura working. But you might be thinking the effect is happening over too wide a range. By default, the keyframes map to a viewport range of `0px` to `1600px` wide. Change the max to `960px` adding `--tt-max: 960;` either locally on the `h1` or globally on the `body`.
-
-So far, your CSS should look something like this:
-
-```css
-@keyframes h1 {
+@keyframes typetura-headline {
   0% {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    line-height: 1.15;
+    font-weight: 700;
   }
   100% {
-    font-size: 4rem;
+    font-size: 5rem;
+    line-height: 1;
+    font-weight: 300;
   }
-}
-h1 {
-  --tt-key: h1;
-  --tt-max: 960;
 }
 ```
 
-Anything that can be animated can be used in these keyframes like color, transforms, size, margins, padding, variable font properties, etc. The sky is the limit.
+Now, we need to attach these keyframes to the element we wish to style. For this we have a CSS custom property. Let’s also add some fallback styles just in case there is an issue with Typetura.
 
-### Work off the width of an element and more
+```css
+.typetura-headline {
+  --tt-key: typetura-headline;
+  font-size: 1.6rem;
+  line-height: 1.05;
+  font-weight: 600;
+}
+```
 
-By default Typetura queries the width of the viewport. You can select any other element by adding the class `typetura` to that element. With this class, all child elements will respond to that parent context.
+Now, your headline will fluidly respond to layout changes. But you may not be satisfied with how it is changing in certain places. You can change the maximum width using `--tt-max` to a value that is the maximum width of your context. If your text column only gets as wide as 800px, set it to `--tt-max: 800;`. You may also want to adjust the rate at which your text scales. To do this use `--tt-ease`. These additional properties along with the keyframes will look like this:
 
-### Custom easing
+```css
+.typetura-headline {
+  --tt-key: typetura-headline;
+  --tt-max: 800;
+  --tt-ease: ease-out;
+  font-size: 1.6rem;
+  line-height: 1.05;
+  font-weight: 600;
+}
+@keyframes typetura-headline {
+  0% {
+    font-size: 1rem;
+    line-height: 1.15;
+    font-weight: 700;
+  }
+  100% {
+    font-size: 5rem;
+    line-height: 1;
+    font-weight: 300;
+  }
+}
+```
 
-Easing works in Typetura just like it does with any other animations. However you may want the easing functions you set to inherit and the default timing functions don’t. You can set your timing functions in Typetura with `--tt-ease` and that timing function will be inherited by any element underneath it.
-
-### Index
+# Index
 
 <table>
   <tr>
@@ -107,32 +113,15 @@ Easing works in Typetura just like it does with any other animations. However yo
   <td>Auto-generated
 </table>
 
-### Browser support
+# 📝 License
 
-Typetura.js works in Firefox (Gecko), Chrome (Blink), Edge (Blink), and Safari\* (Webkit). In other browsers, or in older versions of these browsers, any fallback styles you have will be used.
-
-<table>
-  <tr>
-    <th style="width: 25%">✅ Firefox</th>
-    <th style="width: 25%">✅ Chrome</th>
-    <th style="width: 25%">✅ Edge</th>
-    <th style="width: 25%">✅ Safari/Webkit</th>
-  </tr>
-<tr>
-  <td style="vertical-align: top;">Fully supported</td>
-  <td style="vertical-align: top;">Fully supported</td>
-  <td style="vertical-align: top;">Fully supported</td>
-  <td style="vertical-align: top;"><p>Supported</p><p>💁‍<a href="https://bugs.webkit.org/show_bug.cgi?id=194749"><code>em</code> units compound incorrectly</a>. Use <code>rem</code> instead.</p></td>
-  </tr>
-</table>
-
-### 🖋 License
-
-Copyright © 2018–2020 [Typetura LLC](https://typetura.com/). All rights reserved. Commercial licenses that allow modification, custom integrations, enhanced features, and/or support are available by contacting [info@typetura.com](mailto:info@typetura.com).
+Copyright © 2018–2020 [Typetura LLC](https://typetura.com/). All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to use, copy, publish, and/or distribute copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 - The above copyright notice, license, and this permission notice shall be included in all copies or portions of the Software.
-- Modification of the code, such as changing function names, variable names, and/or removing portions of the code, is prohibited.
+- Modification of the code, such as changing function names, variable names, and/or removing portions of code, is prohibited.
 
-**The software is provided “as is,” without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and non-infringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.**
+Commercial licenses that allow modification, custom integrations, enhanced features, and/or support are available by contacting [info@typetura.com](mailto:info@typetura.com).
+
+**The software is provided “as is”, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and non-infringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.**
