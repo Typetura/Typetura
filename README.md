@@ -1,4 +1,4 @@
-<img width="914" alt="Typetura" src="https://user-images.githubusercontent.com/377189/77721757-f98a4a00-6fa8-11ea-8bc6-71522114842f.png">
+<img width="914" alt="Typetura core" src="https://user-images.githubusercontent.com/377189/78052830-854b0000-7334-11ea-829e-f453006f0ffc.png">
 
 Typetura is a tool to make fluid typography easy. Here is a [demo of typetura in action](http://typetura-js.netlify.com). It enables you to control the font size, line height, margins, padding, variable font settings, and anything that can be animated. The difference is that the keyframes are applied across screen sizes as opposed to time.
 
