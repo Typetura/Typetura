@@ -1,10 +1,10 @@
 <img width="914" alt="Typetura core" src="https://user-images.githubusercontent.com/377189/78052830-854b0000-7334-11ea-829e-f453006f0ffc.png">
 
-Typetura is a tool to make fluid typography easy. Here is a [demo of typetura in action](http://typetura-js.netlify.com). It enables you to control the font size, line height, margins, padding, variable font settings, and anything that can be animated. The difference is that the keyframes are applied across screen sizes as opposed to time.
+Typetura is a tool to make fluid typography easy. Here is a [demo of Typetura in action](http://typetura-js.netlify.com). It enables you to control the font size, line height, margins, padding, variable font settings, and anything that can be animated. The difference is that the keyframes are applied across screen sizes as opposed to time.
 
 Typetura uses [resizeobserver](https://caniuse.com/#feat=resizeobserver) with a window resize listener as a fallback. Window resize works for most websites but if you have any scaling of text elements within a page, you can use a [resizeobserver polyfill](https://github.com/que-etc/resize-observer-polyfill/).
 
-# Installing typetura on your website
+# Installing Typetura on your website
 
 ```bash
 npm install --save typeturajs
@@ -40,7 +40,7 @@ At its core, Typetura works with [CSS keyframe animations](https://developer.moz
 }
 ```
 
-Now that you have your keyframes set up, let’s tell typetura to use those keyframes to scale the text.
+Now that you have your keyframes set up, let’s tell Typetura to use those keyframes to scale the text.
 
 ```css
 h1 {
@@ -48,7 +48,7 @@ h1 {
 }
 ```
 
-Awesome! You should be seeing typetura working. But you might be thinking the effect is happening over too wide a range. By default, the keyframes map to a viewport range of `0px` to `1600px` wide. Change the max to `960px` adding `--tt-max: 960;` either locally on the `h1` or globally on the `body`.
+Awesome! You should be seeing Typetura working. But you might be thinking the effect is happening over too wide a range. By default, the keyframes map to a viewport range of `0px` to `1600px` wide. Change the max to `960px` adding `--tt-max: 960;` either locally on the `h1` or globally on the `body`.
 
 So far, your CSS should look something like this:
 
@@ -71,11 +71,11 @@ Anything that can be animated can be used in these keyframes like color, transfo
 
 ### Work off the width of an element and more
 
-By default typetura queries the width of the viewport. You can select any other element by adding the class `typetura` to that element. With this class, all child elements will respond to that parent context.
+By default Typetura queries the width of the viewport. You can select any other element by adding the class `typetura` to that element. With this class, all child elements will respond to that parent context.
 
 ### Custom easing
 
-Easing works in typetura just like it does with any other animations. However you may want the easing functions you set to inherit and the default timing functions don’t. You can set your timing functions in typetura with `--tt-ease` and that timing function will be inherited by any element underneath it.
+Easing works in Typetura just like it does with any other animations. However you may want the easing functions you set to inherit and the default timing functions don’t. You can set your timing functions in Typetura with `--tt-ease` and that timing function will be inherited by any element underneath it.
 
 ### Index
 
