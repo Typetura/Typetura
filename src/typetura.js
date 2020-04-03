@@ -34,4 +34,5 @@ export function typeturaInit(base = 20) {
     }`;
   // Write typetura properties to the top of the document head to avoid cascade conflicts
   document.head.insertBefore(stylesheet, document.head.firstChild);
+  typeturize(document.getRootNode());
 }

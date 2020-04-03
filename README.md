@@ -24,37 +24,6 @@ npm install --save typeturajs
 
 ## Start styling with CSS! :tada:
 
-## commonJS
-
-```javascript
-import React from 'react';
-
-import { typeturaInit, typeturize } from 'typeturajs';
-
-const PrimaryHeadline = ({ children }) => {
-  const ref = React.useRef();
-
-  React.useEffect(() => {
-    typeturize(ref.current);
-  }, [ref]);
-
-  return (
-    <h1 ref={ref} className="primary-headline">
-      {children}
-    </h1>
-  );
-};
-
-class App extends Component {
-  componentDidMount() {
-    typeturaInit();
-  }
-  render() {
-    return <PrimaryHeadline />;
-  }
-}
-```
-
 ### Starting with the basics
 
 At its core, Typetura works with [CSS keyframe animations](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes) and ties those animations to the width of the page or [an element](#Work-off-the-width-of-an-element-and-more) instead of a timeline. Let’s create keyframes for our `<h1>`.
