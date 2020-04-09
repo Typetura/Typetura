@@ -9,7 +9,7 @@ export default [
     input: 'src/typetura-umd.js',
     output: {
       name: 'typetura',
-      file: 'js/typetura.js',
+      file: '../../js/typetura.js',
       format: 'umd',
     },
     plugins: [
@@ -25,7 +25,7 @@ export default [
     input: 'src/typetura-umd.js',
     output: {
       name: 'typetura',
-      file: 'js/typetura.min.js',
+      file: '../../js/typetura.min.js',
       format: 'umd',
     },
     plugins: [
