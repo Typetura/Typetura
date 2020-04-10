@@ -13,12 +13,13 @@
     "mocha": true
   },
   "plugins": ["react", "prettier"],
-  "extends": ["standard", "standard-react", "prettier"],
+  "extends": ["standard", "prettier", "plugin:react/recommended"],
   "rules": {
     "prettier/prettier": "error"
   },
   "globals": {
     "Event": true,
+    "jQuery": true,
     "ResizeObserver": true
   }
 }

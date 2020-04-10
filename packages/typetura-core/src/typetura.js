@@ -7,7 +7,7 @@ export function typeturize(element) {
   element.style.setProperty('--tt-bind', element.offsetWidth);
 
   if (typeof ResizeObserver !== 'undefined') {
-    var resizeObserver = new ResizeObserver(function(entries) {
+    var resizeObserver = new ResizeObserver(function (entries) {
       for (var j = 0; j < entries.length; j++) {
         var entry = entries[j];
 

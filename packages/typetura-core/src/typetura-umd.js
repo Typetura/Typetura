@@ -21,7 +21,7 @@ function initialize(el) {
 var typeturaContexts = [':root', '.typetura'];
 
 // Initiate Typetura on page load
-document.onreadystatechange = function() {
+document.onreadystatechange = function () {
   if (window.document.readyState === 'interactive') {
     initialize(document.querySelectorAll(typeturaContexts));
   }
@@ -30,7 +30,7 @@ document.onreadystatechange = function() {
 // Navigation within an SPA
 var historyPushState = window.history.pushState;
 
-window.history.pushState = (function() {
+window.history.pushState = (function () {
   return function pushState() {
     var historyState = historyPushState.apply(this, arguments);
     window.dispatchEvent(new Event('pushstate'));
@@ -38,11 +38,11 @@ window.history.pushState = (function() {
     return historyState;
   };
 })(window.history.pushState);
-window.addEventListener('popstate', function() {
+window.addEventListener('popstate', function () {
   window.dispatchEvent(new Event('locationchange'));
 });
-window.addEventListener('locationchange', function() {
-  setTimeout(function() {
+window.addEventListener('locationchange', function () {
+  setTimeout(function () {
     initialize(document.querySelectorAll(typeturaContexts));
   }, 500);
 });
