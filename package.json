@@ -3,14 +3,14 @@
   "version": "1.2.2",
   "description": "This is a tool to make fluidly responsive typography easy with support for font size, line height, and variable fonts.",
   "main": "src/typetura.js",
-  "scripts": {},
+  "scripts": {
+    "postinstall": "lerna bootstrap",
+    "lint": "eslint . --cache",
+    "lint:fix": "eslint . --fix"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/scottkellum/typetura.js.git"
-  },
-  "engines": {
-    "node": ">=12",
-    "npm": ">=6"
   },
   "keywords": [
     "typography",
@@ -33,8 +33,8 @@
   },
   "homepage": "https://github.com/scottkellum/typetura.js#readme",
   "devDependencies": {
-    "@babel/core": "^7.8.6",
-    "@babel/preset-env": "^7.8.6",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
@@ -47,6 +47,6 @@
     "husky": "^0.14.3",
     "lerna": "^3.20.2",
     "lint-staged": "^6.0.1",
-    "prettier": "^1.17.0"
+    "prettier": "^2.0.4"
   }
 }
