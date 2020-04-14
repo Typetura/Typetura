@@ -1,17 +1,8 @@
 {
-  "name": "typeturajs",
+  "name": "typetura",
+  "private": true,
   "version": "1.2.2",
   "description": "This is a tool to make fluidly responsive typography easy with support for font size, line height, and variable fonts.",
-  "main": "src/typetura.js",
-  "scripts": {
-    "postinstall": "lerna bootstrap",
-    "lint": "eslint . --cache",
-    "lint:fix": "eslint . --fix"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/scottkellum/typetura.js.git"
-  },
   "keywords": [
     "typography",
     "typetura",
@@ -21,17 +12,30 @@
     "lint",
     "height",
     "font",
-    "size"
+    "size",
+    "react",
+    "wordpress"
   ],
+  "homepage": "https://github.com/scottkellum/typetura.js#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scottkellum/typetura.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/typetura/typetura/issues"
+  },
   "contributors": [
     "Scott Kellum <scott@typetura.com> (https://twitter.com/ScottKellum)",
     "Sal Hernandez <sal@typetura.com> (https://twitter.com/clickclickonsal)"
   ],
-  "license": "Standard ‘no charge’ license",
-  "bugs": {
-    "url": "https://github.com/scottkellum/typetura.js/issues"
+  "main": "src/typetura.js",
+  "scripts": {
+    "postinstall": "lerna bootstrap",
+    "lint": "eslint . --cache",
+    "lint:fix": "eslint . --fix",
+    "build": "lerna run build",
+    "test": "lerna run test"
   },
-  "homepage": "https://github.com/scottkellum/typetura.js#readme",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
@@ -48,6 +52,8 @@
     "husky": "^0.14.3",
     "lerna": "^3.20.2",
     "lint-staged": "^6.0.1",
-    "prettier": "^2.0.4"
-  }
+    "prettier": "^2.0.4",
+    "react-scripts": "^3.4.1"
+  },
+  "dependencies": {}
 }
