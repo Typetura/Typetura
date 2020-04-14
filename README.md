@@ -1,17 +1,41 @@
-<img width="914" alt="Typetura core" src="https://user-images.githubusercontent.com/377189/78052830-854b0000-7334-11ea-829e-f453006f0ffc.png">
+<p align="center">
+  <a href="https://docs.typetura.com/">
+    <img alt="babel" src="https://user-images.githubusercontent.com/8260678/79174108-aba67c00-7dc7-11ea-8713-eec163bf6fde.png" width="546">
+  </a>
+</p>
+
+<p align="center">
+  The tool for writing next generation Typography.
+</p>
+
+<p align="center">
+    <a href="https://www.npmjs.com/package/typeturajs"><img alt="npm Downloads" src="https://img.shields.io/npm/dm/typeturajs.svg?maxAge=43200&label=npm%20core%20downloads"></a>
+  <a href="https://www.npmjs.com/package/@typetura/react"><img alt="@typetura/react npm Downloads" src="https://img.shields.io/npm/dm/@typetura/react.svg?maxAge=43200&label=npm%20react%20downloads"></a>
+</p>
+<p align="center">
+
+<a href="https://twitter.com/intent/follow?screen_name=typetura"><img alt="Follow on Twitter" src="https://img.shields.io/twitter/follow/typetura.svg?style=social&label=Follow"></a>
+
+</p>
+
+[![Edit /@typetura/react example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/typeturareact-example-r3t6u?fontsize=14&hidenavigation=1&theme=dark)
+
+# Intro
 
 Typetura is a different way to typeset your website. It allows you to create headlines, pull quotes, labels, and other text elements that respond to the container they are in, as opposed to the viewport. This means you can use the same headline style everywhere, from your sidebar to your page heading without, no breakpoints or layout specific styling. When used effectively, this can reduce your typographic styles by up to 90% and save 20% of your time as you will write far fewer typographic styles. Typetura also supports variable font adjustments, easing curves, is progressively enhanced, and is styled with CSS to offer the most feature rich and easy to use experience possible. We also offer [pre-typeset packages](https://typetura.com/typography-packages) and [assistance integrating Typetura into your projects](https://typetura.com/typography-services).
 
-## Via script tag
+## FAQ
 
-```html
-<script src="./node_modules/typetura/js/typetura.js"></script>
+Where are the docs?
+
+Check out out https://docs.typetura.com.
+
+# README Badge
+
+Using Typetura? Add a README badge to show it off: [![typetura](https://img.shields.io/badge/typeset%20with-typetura-129681.svg)](https://typetura.com/)
+
 ```
-
-## Via script tag(cdn)
-
-```html
-<script src="https://cdn.jsdelivr.net/gh/scottkellum/typetura.js@master/js/typetura.min.js"></script>
+[![typetura](https://img.shields.io/badge/typeset%20with-typetura-129681.svg)](https://typetura.com/)
 ```
 
 # 📝 License

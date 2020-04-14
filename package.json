@@ -52,8 +52,7 @@
     "husky": "^0.14.3",
     "lerna": "^3.20.2",
     "lint-staged": "^6.0.1",
-    "prettier": "^2.0.4",
-    "react-scripts": "^3.4.1"
+    "prettier": "^2.0.4"
   },
   "dependencies": {}
 }
