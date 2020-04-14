@@ -31,6 +31,7 @@
   "main": "src/typetura.js",
   "scripts": {
     "postinstall": "lerna bootstrap",
+    "install:local": "lerna bootstrap --force-local",
     "lint": "eslint . --cache",
     "lint:fix": "eslint . --fix",
     "build": "lerna run build",
