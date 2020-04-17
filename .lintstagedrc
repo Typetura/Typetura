@@ -1,0 +1,6 @@
+{
+  "*.{js}": [
+    "eslint --cache --config .eslintrc.json -- fix",
+    "git add"
+  ],
+}

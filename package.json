@@ -55,5 +55,10 @@
     "lint-staged": "^6.0.1",
     "prettier": "^2.0.4"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
 }
