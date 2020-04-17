@@ -1,29 +1,29 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { typeturize } from 'typeturajs'
+import { typeturize } from 'typeturajs';
 
-const Small = props => {
-  const ref = React.useRef()
+const Small = (props) => {
+  const ref = React.useRef();
 
   React.useEffect(() => {
-    typeturize(ref.current)
-  }, [ref])
+    typeturize(ref.current);
+  }, [ref]);
 
   return React.createElement(props.as, {
     ref,
     className: 'small',
-    children: props.children
-  })
-}
+    children: props.children,
+  });
+};
 
 Small.defaultProps = {
-  as: 'p'
-}
+  as: 'p',
+};
 
 Small.propTypes = {
   as: PropTypes.string,
-  children: PropTypes.node
-}
+  children: PropTypes.node,
+};
 
-export default Small
+export default Small;

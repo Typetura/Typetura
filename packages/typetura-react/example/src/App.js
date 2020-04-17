@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import Typetura, { initializeTypetura } from '@typetura/react'
+import Typetura, { initializeTypetura } from '@typetura/react';
 
 export default class App extends Component {
   componentDidMount() {
@@ -21,9 +21,9 @@ export default class App extends Component {
         'main',
         'article',
         'section',
-        'aside'
-      ]
-    })
+        'aside',
+      ],
+    });
   }
 
   render() {
@@ -34,22 +34,18 @@ export default class App extends Component {
         <Typetura.Caption>Caption</Typetura.Caption>
         <Typetura.Meta>Meta</Typetura.Meta>
         <Typetura.PrimaryHeadline>PrimaryHeadline</Typetura.PrimaryHeadline>
-        <Typetura.PrimarySubheadline>
-          PrimarySubheadline
-        </Typetura.PrimarySubheadline>
+        <Typetura.PrimarySubheadline>PrimarySubheadline</Typetura.PrimarySubheadline>
         <Typetura.Pullquote>Pullquote</Typetura.Pullquote>
         <Typetura.SectionHeadline>SectionHeadline</Typetura.SectionHeadline>
         <Typetura.SectionLabel>SectionLabel</Typetura.SectionLabel>
-        <Typetura.SectionSubheadline>
-          SectionSubheadline
-        </Typetura.SectionSubheadline>
+        <Typetura.SectionSubheadline>SectionSubheadline</Typetura.SectionSubheadline>
         <Typetura.Small>Small</Typetura.Small>
 
         <Typetura.Context>
-          <h1 className='typetura'>Hello</h1>
-          <h1 className='typetura'>Hi</h1>
+          <h1 className="typetura">Hello</h1>
+          <h1 className="typetura">Hi</h1>
         </Typetura.Context>
       </div>
-    )
+    );
   }
 }

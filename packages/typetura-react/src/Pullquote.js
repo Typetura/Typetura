@@ -1,29 +1,29 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { typeturize } from 'typeturajs'
+import { typeturize } from 'typeturajs';
 
-const Pullquote = props => {
-  const ref = React.useRef()
+const Pullquote = (props) => {
+  const ref = React.useRef();
 
   React.useEffect(() => {
-    typeturize(ref.current)
-  }, [ref])
+    typeturize(ref.current);
+  }, [ref]);
 
   return React.createElement(props.as, {
     ref,
     className: 'pullquote',
-    children: props.children
-  })
-}
+    children: props.children,
+  });
+};
 
 Pullquote.defaultProps = {
-  as: 'p'
-}
+  as: 'p',
+};
 
 Pullquote.propTypes = {
   as: PropTypes.string,
-  children: PropTypes.node
-}
+  children: PropTypes.node,
+};
 
-export default Pullquote
+export default Pullquote;

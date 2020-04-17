@@ -1,29 +1,29 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { typeturize } from 'typeturajs'
+import { typeturize } from 'typeturajs';
 
-const SectionHeadline = props => {
-  const ref = React.useRef()
+const SectionHeadline = (props) => {
+  const ref = React.useRef();
 
   React.useEffect(() => {
-    typeturize(ref.current)
-  }, [ref])
+    typeturize(ref.current);
+  }, [ref]);
 
   return React.createElement(props.as, {
     ref,
     className: 'section-headline',
-    children: props.children
-  })
-}
+    children: props.children,
+  });
+};
 
 SectionHeadline.defaultProps = {
-  as: 'h1'
-}
+  as: 'h1',
+};
 
 SectionHeadline.propTypes = {
   as: PropTypes.string,
-  children: PropTypes.node
-}
+  children: PropTypes.node,
+};
 
-export default SectionHeadline
+export default SectionHeadline;

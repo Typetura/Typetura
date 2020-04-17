@@ -1,29 +1,29 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { typeturize } from 'typeturajs'
+import { typeturize } from 'typeturajs';
 
-const Big = props => {
-  const ref = React.useRef()
+const Big = (props) => {
+  const ref = React.useRef();
 
   React.useEffect(() => {
-    typeturize(ref.current)
-  }, [ref])
+    typeturize(ref.current);
+  }, [ref]);
 
   return React.createElement(props.as, {
     ref,
     className: 'big',
-    children: props.children
-  })
-}
+    children: props.children,
+  });
+};
 
 Big.defaultProps = {
-  as: 'p'
-}
+  as: 'p',
+};
 
 Big.propTypes = {
   as: PropTypes.string,
-  children: PropTypes.node
-}
+  children: PropTypes.node,
+};
 
-export default Big
+export default Big;
