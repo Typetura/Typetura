@@ -16,10 +16,10 @@
     "react",
     "wordpress"
   ],
-  "homepage": "https://github.com/scottkellum/typetura.js#readme",
+  "homepage": "https://www.typetura.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/scottkellum/typetura.js.git"
+    "url": "https://github.com/typetura/typetura"
   },
   "bugs": {
     "url": "https://github.com/typetura/typetura/issues"

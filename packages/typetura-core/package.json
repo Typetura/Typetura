@@ -16,7 +16,7 @@
   "homepage": "https://www.typetura.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/typetura/typetura.git/tree/master/packages/typetura-core"
+    "url": "https://github.com/typetura/typetura/tree/master/packages/typetura-core"
   },
   "bugs": {
     "url": "https://github.com/typetura/typetura/issues"

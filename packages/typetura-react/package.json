@@ -1,0 +1,68 @@
+{
+  "name": "@typetura/react",
+  "version": "1.0.1",
+  "description": "A react plugin to use typetura",
+  "keywords": [
+    "typography",
+    "typetura",
+    "typeturajs",
+    "variable",
+    "fonts",
+    "lint",
+    "height",
+    "font",
+    "size",
+    "react",
+    "react-plugin"
+  ],
+  "homepage": "https://www.typetura.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/typetura/typetura/packages/typetura-react"
+  },
+  "bugs": {
+    "url": "https://github.com/typetura/typetura/issues"
+  },
+  "contributors": [
+    "Scott Kellum <scott@typetura.com> (https://twitter.com/ScottKellum)",
+    "Sal Hernandez <sal@typetura.com> (https://twitter.com/clickclickonsal)"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "browser": "dist/typetura.js",
+  "scripts": {
+    "test": "cross-env CI=1 react-scripts test --env=jsdom",
+    "test:watch": "react-scripts test --env=jsdom",
+    "build": "rollup -c",
+    "start": "rollup -c -w",
+    "prepare": "npm run build",
+    "predeploy": "cd example && npm install && npm run build",
+    "deploy": "gh-pages -d example/build"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.5.4",
+    "react": "^15.0.0 || ^16.0.0",
+    "react-dom": "^15.0.0 || ^16.0.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.8.6",
+    "@babel/preset-react": "^7.8.3",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-url": "^4.0.2",
+    "gh-pages": "^2.2.0",
+    "rollup": "^1.31.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-peer-deps-external": "^2.2.2"
+  },
+  "dependencies": {
+    "@babel/core": "^7.8.6",
+    "typeturajs": "git://github.com/typetura/typetura.js.git#support-commonjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "directories": {
+    "example": "example"
+  }
+}
