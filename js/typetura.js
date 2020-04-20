@@ -268,9 +268,7 @@
 	var ResizeObserver_2 = ResizeObserver_1.ResizeObserver;
 	var ResizeObserver_3 = ResizeObserver_1.install;
 
-	// Copyright 2018-2020 Typetura LLC.
-	function typeturize(element) {
-	  console.log(element);
+	var typeturize = function typeturize(element) {
 	  element.style.setProperty('--tt-bind', element.offsetWidth);
 
 	  if (typeof ResizeObserver_2 !== 'undefined') {
@@ -282,22 +280,34 @@
 	    });
 	    resizeObserver.observe(element);
 	  }
-	}
-	function typeturaInit() {
-	  var base = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 20;
-	  var stylesheet = createStyleSheet(base); // Write typetura properties to the top of the document head to avoid cascade conflicts
+	};
 
-	  document.head.insertBefore(stylesheet, document.head.firstChild);
-	  typeturize(document.getRootNode());
-	}
-
-	function createStyleSheet(base) {
+	var createStyleSheet = function createStyleSheet(base) {
 	  // Create a stylesheet for typetura's custom properties
 	  var stylesheet = document.createElement('style'); // Typetura's custom properties
 
-	  stylesheet.innerHTML = "\n    :root{\n      --tt-base: ".concat(base, ";\n      --tt-ease:linear;\n      --tt-max:1600\n    }\n    *,:before,:after,:root{\n      --tt-key:none;\n      animation:var(--tt-key) 1s var(--tt-ease) 1 calc(-1s * var(--tt-bind) / var(--tt-max)) both paused\n    }");
+	  stylesheet.innerHTML = "\n      :root{\n        --tt-base: ".concat(base, ";\n        --tt-ease:linear;\n        --tt-max:1600\n      }\n      *,:before,:after,:root{\n        --tt-key:none;\n        animation:var(--tt-key) 1s var(--tt-ease) 1 calc(-1s * var(--tt-bind) / var(--tt-max)) both paused\n      }");
 	  return stylesheet;
-	}
+	};
+
+	// Copyright 2018-2020 Typetura LLC.
+
+	var typeturaInit = function typeturaInit() {
+	  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var _options$baseSize = options.baseSize,
+	      baseSize = _options$baseSize === void 0 ? 20 : _options$baseSize;
+	  return new Promise(function (resolve, reject) {
+	    if (typeof baseSize !== 'number') {
+	      return reject(new Error('baseSize must be a number'));
+	    }
+
+	    var stylesheet = createStyleSheet(baseSize); // Write typetura properties to the top of the document head to avoid cascade conflicts
+
+	    document.head.insertBefore(stylesheet, document.head.firstChild);
+	    typeturize(document.getRootNode());
+	    resolve();
+	  });
+	};
 
 	// Copyright 2018-2020 Typetura LLC.
 
