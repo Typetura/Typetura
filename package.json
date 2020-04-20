@@ -28,7 +28,6 @@
     "Scott Kellum <scott@typetura.com> (https://twitter.com/ScottKellum)",
     "Sal Hernandez <sal@typetura.com> (https://twitter.com/clickclickonsal)"
   ],
-  "main": "src/typetura.js",
   "scripts": {
     "postinstall": "lerna bootstrap",
     "install:local": "lerna bootstrap --force-local",

@@ -1,7 +1,7 @@
 // Copyright 2018-2020 Typetura LLC.
 // https://github.com/typetura/typetura.js
 
-import { typeturaInit, typeturize } from './typetura';
+import { typeturaInit, typeturize } from './index';
 
 function initialize(el) {
   typeturaInit();

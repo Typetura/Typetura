@@ -17,7 +17,7 @@ export const initializeTypetura = (options = {}) => {
 
   window.contexts = contexts;
 
-  typeturaInit(baseSize);
+  typeturaInit({ baseSize });
 
   if (!withPackage && !withPackage.apiKey && !withPackage.name) {
     return;

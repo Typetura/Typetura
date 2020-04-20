@@ -270,6 +270,7 @@
 
 	// Copyright 2018-2020 Typetura LLC.
 	function typeturize(element) {
+	  console.log(element);
 	  element.style.setProperty('--tt-bind', element.offsetWidth);
 
 	  if (typeof ResizeObserver_2 !== 'undefined') {
@@ -284,13 +285,18 @@
 	}
 	function typeturaInit() {
 	  var base = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 20;
-	  // Create a stylesheet for typetura's custom properties
-	  var stylesheet = document.createElement('style'); // Typetura's custom properties
-
-	  stylesheet.innerHTML = "\n    :root{\n      --tt-base: ".concat(base, ";\n      --tt-ease:linear;\n      --tt-max:1600\n    }\n    *,:before,:after,:root{\n      --tt-key:none;\n      animation:var(--tt-key) 1s var(--tt-ease) 1 calc(-1s * var(--tt-bind) / var(--tt-max)) both paused\n    }"); // Write typetura properties to the top of the document head to avoid cascade conflicts
+	  var stylesheet = createStyleSheet(base); // Write typetura properties to the top of the document head to avoid cascade conflicts
 
 	  document.head.insertBefore(stylesheet, document.head.firstChild);
 	  typeturize(document.getRootNode());
+	}
+
+	function createStyleSheet(base) {
+	  // Create a stylesheet for typetura's custom properties
+	  var stylesheet = document.createElement('style'); // Typetura's custom properties
+
+	  stylesheet.innerHTML = "\n    :root{\n      --tt-base: ".concat(base, ";\n      --tt-ease:linear;\n      --tt-max:1600\n    }\n    *,:before,:after,:root{\n      --tt-key:none;\n      animation:var(--tt-key) 1s var(--tt-ease) 1 calc(-1s * var(--tt-bind) / var(--tt-max)) both paused\n    }");
+	  return stylesheet;
 	}
 
 	// Copyright 2018-2020 Typetura LLC.

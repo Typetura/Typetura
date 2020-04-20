@@ -25,20 +25,25 @@
     "Scott Kellum <scott@typetura.com> (https://twitter.com/ScottKellum)",
     "Sal Hernandez <sal@typetura.com> (https://twitter.com/clickclickonsal)"
   ],
-  "main": "src/typetura.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "test": "jest",
+    "test:watch": "yarn run test -- --watch"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "jest": "^25.3.0",
+    "rollup": "^1.31.1",
+    "rollup-plugin-babel": "^4.3.3"
   },
   "dependencies": {
     "resize-observer": "^1.0.0",
     "rollup-plugin-babel-minify": "^9.1.1"
-  },
-  "devDependencies": {
-    "rollup": "^1.31.1",
-    "@rollup/plugin-commonjs": "^11.0.2",
-    "@rollup/plugin-node-resolve": "^7.1.1",
-    "rollup-plugin-babel": "^4.3.3"
   }
 }
