@@ -1,15 +1,8 @@
 {
-  "name": "typeturajs",
+  "name": "typetura",
+  "private": true,
   "version": "1.2.2",
   "description": "This is a tool to make fluidly responsive typography easy with support for font size, line height, and variable fonts.",
-  "main": "js/typetura.js",
-  "scripts": {
-    "build": "node ./scripts/minify.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/scottkellum/typetura.js.git"
-  },
   "keywords": [
     "typography",
     "typetura",
@@ -19,27 +12,52 @@
     "lint",
     "height",
     "font",
-    "size"
+    "size",
+    "react",
+    "wordpress"
   ],
-  "author": "Scott Kellum",
-  "license": "Standard ‘no charge’ license",
-  "bugs": {
-    "url": "https://github.com/scottkellum/typetura.js/issues"
+  "homepage": "https://www.typetura.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/typetura/typetura"
   },
-  "homepage": "https://github.com/scottkellum/typetura.js#readme",
+  "bugs": {
+    "url": "https://github.com/typetura/typetura/issues"
+  },
+  "contributors": [
+    "Scott Kellum <scott@typetura.com> (https://twitter.com/ScottKellum)",
+    "Sal Hernandez <sal@typetura.com> (https://twitter.com/clickclickonsal)"
+  ],
+  "scripts": {
+    "postinstall": "lerna bootstrap",
+    "install:local": "lerna bootstrap --force-local",
+    "lint": "eslint . --cache",
+    "lint:fix": "eslint . --fix",
+    "build": "lerna run build",
+    "test": "lerna run test"
+  },
   "devDependencies": {
-    "babel-eslint": "^8.2.1",
-    "eslint": "^4.16.0",
-    "eslint-config-prettier": "^2.10.0",
-    "eslint-config-standard": "^11.0.0-beta.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-prettier": "^2.7.0",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "husky": "^0.14.3",
-    "lint-staged": "^6.0.1",
-    "node-minify": "^3.6.0",
-    "prettier": "^1.17.0"
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.2.5",
+    "lerna": "^3.20.2",
+    "lint-staged": "^10.1.3",
+    "prettier": "^2.0.4"
+  },
+  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

@@ -1,0 +1,49 @@
+{
+  "name": "@typetura/core",
+  "version": "1.2.2",
+  "description": "This is a tool to make fluidly responsive typography easy with support for font size, line height, and variable fonts.",
+  "keywords": [
+    "typography",
+    "typetura",
+    "typeturajs",
+    "variable",
+    "fonts",
+    "lint",
+    "height",
+    "font",
+    "size"
+  ],
+  "homepage": "https://www.typetura.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/typetura/typetura/tree/master/packages/typetura-core"
+  },
+  "bugs": {
+    "url": "https://github.com/typetura/typetura/issues"
+  },
+  "contributors": [
+    "Scott Kellum <scott@typetura.com> (https://twitter.com/ScottKellum)",
+    "Sal Hernandez <sal@typetura.com> (https://twitter.com/clickclickonsal)"
+  ],
+  "main": "src/index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "start": "rollup -c -w",
+    "prepare": "npm run build",
+    "test": "jest",
+    "test:watch": "yarn run test -- --watch"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "jest": "^25.3.0",
+    "rollup": "^1.31.1",
+    "rollup-plugin-babel": "^4.3.3"
+  },
+  "dependencies": {
+    "resize-observer": "^1.0.0",
+    "rollup-plugin-babel-minify": "^9.1.1"
+  }
+}

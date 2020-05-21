@@ -1,0 +1,6 @@
+{
+  "*.{js}": [
+    "eslint --cache --fix",
+    "git add"
+  ],
+}

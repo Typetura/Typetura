@@ -1,0 +1,9 @@
+{
+  "npmClient": "yarn",
+  "packages": ["packages/*"],
+  "version": "0.0.0",
+  "publish": {
+    "ignoreChanges": ["ignored-file", "*.md"],
+    "message": "chore(release): publish"
+  }
+}
