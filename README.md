@@ -6,19 +6,15 @@
 <a href="https://twitter.com/intent/follow?screen_name=typetura"><img alt="Follow on Twitter" src="https://img.shields.io/twitter/follow/typetura.svg?style=social&label=Follow"></a>
 </p>
 
-[![Edit /@typetura/react example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/typeturareact-example-r3t6u?fontsize=14&hidenavigation=1&theme=dark)
+<a href="https://codepen.io/scottkellum/pen/GRpRzvZ"><img alt="Edit on CodePen" src="https://user-images.githubusercontent.com/377189/82715332-79e6c780-9c47-11ea-8fc1-01ca16994f90.png" height="42" /><a> <a href="https://codesandbox.io/s/typeturareact-example-r3t6u?fontsize=14&hidenavigation=1&theme=dark"><img alt="Edit on CodeSandbox" src="https://codesandbox.io/static/img/play-codesandbox.svg" height="42" /></a>
 
 # Intro
 
 Typetura is a different way to typeset your website. It allows you to create headlines, pull quotes, labels, and other text elements that respond to the container they are in, as opposed to the viewport. This means you can use the same headline style everywhere, from your sidebar to your page heading without, no breakpoints or layout specific styling. When used effectively, this can reduce your typographic styles by up to 90% and save 20% of your time as you will write far fewer typographic styles. Typetura also supports variable font adjustments, easing curves, is progressively enhanced, and is styled with CSS to offer the most feature rich and easy to use experience possible. We also offer [pre-typeset packages](https://typetura.com/typography-packages) and [assistance integrating Typetura into your projects](https://typetura.com/typography-services).
 
-## FAQ
+[![Read our documentation](https://user-images.githubusercontent.com/377189/82715915-fa0e2c80-9c49-11ea-9d47-1e10860fd291.png)](https://docs.typetura.com)
 
-Where are the docs?
-
-Check out out https://docs.typetura.com.
-
-# README Badge
+# Readme Badge
 
 Using Typetura? Add a README badge to show it off: [![typetura](https://img.shields.io/badge/typeset%20with-typetura-129681.svg)](https://typetura.com/)
 
