@@ -8,8 +8,6 @@
 
 <a href="https://codepen.io/scottkellum/pen/GRpRzvZ"><img alt="Edit on CodePen" src="https://user-images.githubusercontent.com/377189/82715332-79e6c780-9c47-11ea-8fc1-01ca16994f90.png" height="42" /><a> <a href="https://codesandbox.io/s/typeturareact-example-r3t6u?fontsize=14&hidenavigation=1&theme=dark"><img alt="Edit on CodeSandbox" src="https://codesandbox.io/static/img/play-codesandbox.svg" height="42" /></a>
 
-# Intro
-
 [Typetura](https://typetura.com/) is an intrinsic typography technology that makes breakpoints obsolete. It enables you to design with more flexibility, while dramatically reducing code.
 
 Typetura is different from other typesetting methods. Instead of creating a ruleset for every new space where type exists in your layout, Typetura measures and understands those different spaces, and ensures your type adapts perfectly every time. This reduces your code by up to 90%, saving you time designing and developing. For example, if your website is using Typetura, your hero, article links, and trending articles, will use a single headline style that adapts to each of these areas in your layout.
