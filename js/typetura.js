@@ -326,7 +326,7 @@
 	} // Contexts to query with Typetura
 
 
-	var typeturaContexts = [':root', '.typetura']; // Initiate Typetura on page load
+	var typeturaContexts = window.typeturaContexts || [':root', '.typetura']; // Initiate Typetura on page load
 
 	document.onreadystatechange = function () {
 	  if (window.document.readyState === 'interactive') {

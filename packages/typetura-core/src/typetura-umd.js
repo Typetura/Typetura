@@ -18,7 +18,7 @@ function initialize(el) {
 }
 
 // Contexts to query with Typetura
-var typeturaContexts = [':root', '.typetura'];
+var typeturaContexts = window.typeturaContexts || [':root', '.typetura'];
 
 // Initiate Typetura on page load
 document.onreadystatechange = function () {
