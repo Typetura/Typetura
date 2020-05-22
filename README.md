@@ -1,21 +1,9 @@
-<p align="center">
-  <a href="https://docs.typetura.com/">
-    <img alt="babel" src="https://user-images.githubusercontent.com/8260678/79174108-aba67c00-7dc7-11ea-8713-eec163bf6fde.png" width="546">
-  </a>
-</p>
-
-<p align="center">
-  The tool for writing next generation Typography.
-</p>
-
-<p align="center">
-    <a href="https://www.npmjs.com/package/typeturajs"><img alt="npm Downloads" src="https://img.shields.io/npm/dm/typeturajs.svg?maxAge=43200&label=npm%20core%20downloads"></a>
-  <a href="https://www.npmjs.com/package/@typetura/react"><img alt="@typetura/react npm Downloads" src="https://img.shields.io/npm/dm/@typetura/react.svg?maxAge=43200&label=npm%20react%20downloads"></a>
-</p>
-<p align="center">
-
+![Typetura](https://user-images.githubusercontent.com/377189/82712948-350a6300-9c3e-11ea-987b-6746108634b2.png) 
+    
+<p>
+<a href="https://www.npmjs.com/package/typeturajs"><img alt="npm Downloads" src="https://img.shields.io/npm/dm/typeturajs.svg?maxAge=43200&label=npm%20core%20downloads"></a>
+<a href="https://www.npmjs.com/package/@typetura/react"><img alt="@typetura/react npm Downloads" src="https://img.shields.io/npm/dm/@typetura/react.svg?maxAge=43200&label=npm%20react%20downloads"></a>
 <a href="https://twitter.com/intent/follow?screen_name=typetura"><img alt="Follow on Twitter" src="https://img.shields.io/twitter/follow/typetura.svg?style=social&label=Follow"></a>
-
 </p>
 
 [![Edit /@typetura/react example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/typeturareact-example-r3t6u?fontsize=14&hidenavigation=1&theme=dark)
