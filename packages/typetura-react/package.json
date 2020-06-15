@@ -1,6 +1,6 @@
 {
   "name": "@typetura/react",
-  "version": "1.0.1",
+  "version": "1.3.0",
   "description": "A react plugin to use typetura",
   "keywords": [
     "typography",
