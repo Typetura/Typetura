@@ -62,7 +62,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.8.6",
-    "typeturajs": "git://github.com/typetura/typetura.js.git#support-commonjs"
+    "typeturajs": "1.2.2"
   },
   "files": [
     "dist"

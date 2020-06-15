@@ -1,5 +1,5 @@
 {
-  "name": "@typetura/core",
+  "name": "typeturajs",
   "version": "1.3.0",
   "description": "This is a tool to make fluidly responsive typography easy with support for font size, line height, and variable fonts.",
   "keywords": [
