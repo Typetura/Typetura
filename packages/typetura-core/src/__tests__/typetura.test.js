@@ -1,3 +1,4 @@
+import typetura from '../typeturaSettings';
 import typeturaInit from '../typeturaInit';
 import typeturize from '../typeturize';
 import createStyleSheet from '../utils/createStyleSheet';
@@ -26,14 +27,24 @@ describe('typeturaInit', () => {
       expect(res).toBeUndefined();
     });
   });
-  it('should resolve if baseSize is pased', () => {
-    return typeturaInit({ baseSize: 16 }).catch((err) => {
-      expect(err.message).toEqual('Base must be a number');
-    });
+it('should resolve if typetura.base is pased', () => {
+  return typeturaInit({ typetura.base: 16 }).catch((err) => {
+    expect(err.message).toEqual('typeutra.base must be a number');
   });
-  it('should reject if baseSize is not a number', () => {
-    return typeturaInit({ baseSize: 'a' }).catch((err) => {
-      expect(err.message).toEqual('baseSize must be a number');
-    });
+});
+it('should reject if typetura.base is not a number', () => {
+  return typeturaInit({ typetura.base: 'a' }).catch((err) => {
+    expect(err.message).toEqual('typeutra.base must be a number');
   });
+});
+it('should resolve if typetura.scale is pased', () => {
+  return typeturaInit({ typetura.scale: 1.2 }).catch((err) => {
+    expect(err.message).toEqual('typetura.scale must be a number');
+  });
+});
+it('should reject if typetura.scale is not a number', () => {
+  return typeturaInit({ typetura.scale: 'b' }).catch((err) => {
+    expect(err.message).toEqual('typeutra.scale must be a number');
+  });
+});
 });
