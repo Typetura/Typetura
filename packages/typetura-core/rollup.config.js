@@ -11,11 +11,13 @@ export default [
       name: 'typetura',
       file: '../../js/typetura.js',
       format: 'umd',
-      banner: `/** Copyright 2018-2021 Typetura LLC
+      banner: `/* Copyright 2018-2021 Typetura LLC
+ * typetura.com
+
  * typetura.js is subject to the Typetura platform licence
  * https://docs.typetura.com/legal/copyright
+
  * US Patent US10769348B1
- * typetura.com
  */`,
     },
     plugins: [
@@ -33,11 +35,13 @@ export default [
       name: 'typetura',
       file: '../../js/typetura.min.js',
       format: 'umd',
-      banner: `/** Copyright 2018-2021 Typetura LLC
+      banner: `/* Copyright 2018-2021 Typetura LLC
+ * typetura.com
+
  * typetura.js is subject to the Typetura platform licence
  * https://docs.typetura.com/legal/copyright
+
  * US Patent US10769348B1
- * typetura.com
  */`,
     },
     plugins: [

@@ -1,8 +1,10 @@
-/** Copyright 2018-2021 Typetura LLC
+/* Copyright 2018-2021 Typetura LLC
+ * typetura.com
+
  * typetura.js is subject to the Typetura platform licence
  * https://docs.typetura.com/legal/copyright
+
  * US Patent US10769348B1
- * typetura.com
  */
 (function (factory) {
   typeof define === 'function' && define.amd ? define(factory) :
@@ -83,7 +85,7 @@
 
   var typeturize = function typeturize(element) {
     if (typeof window.ResizeObserver !== 'undefined') {
-      var resizeObserver = new ResizeObserver(function (entries) {
+      var resizeObserver = new window.ResizeObserver(function (entries) {
         var _iterator = _createForOfIteratorHelper(entries),
             _step;
 
