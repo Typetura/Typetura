@@ -1,4 +1,6 @@
 /** Copyright 2018-2021 Typetura LLC
+ * typetura.js is subject to the Typetura platform licence
+ * https://docs.typetura.com/legal/copyright
  * US Patent US10769348B1
  * typetura.com
  */
@@ -157,7 +159,7 @@
     });
   };
 
-  window.typetura = {
+  window.typetura = window.typetura || {
     classes: ['typetura'],
     base: 20,
     scale: 1
