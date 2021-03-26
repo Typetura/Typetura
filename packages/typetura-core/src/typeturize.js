@@ -1,13 +1,5 @@
-/*!
-Copyright 2018-2021 Typetura LLC
-US Patent US10769348B1
-typetura.com
-*/
-
-import { ResizeObserver } from 'resize-observer';
-
 const typeturize = (element) => {
-  if (typeof ResizeObserver !== 'undefined') {
+  if (typeof window.ResizeObserver !== 'undefined') {
     const resizeObserver = new ResizeObserver((entries) => {
       for (const entry of entries) {
         if (entry.contentBoxSize) {
