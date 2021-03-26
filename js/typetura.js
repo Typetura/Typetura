@@ -366,77 +366,37 @@
     }
   };
 
-  var createStyleSheet = function createStyleSheet(base) {
-    // Create a stylesheet for typetura's custom properties
-    var stylesheet = document.createElement('style'); // Typetura's custom properties
-
-    stylesheet.innerHTML = "\n      :root{\n        --tt-base: ".concat(base, ";\n        --tt-ease:linear;\n        --tt-max:1600\n      }\n      *,:before,:after,:root{\n        --tt-key:none;\n        animation:var(--tt-key) 1s var(--tt-ease) 1 calc(-1s * var(--tt-bind) / var(--tt-max)) both paused\n      }");
-    return stylesheet;
-  };
-
-  // Copyright 2018-2020 Typetura LLC.
+  // ADSFADFS
 
   var typeturaInit = function typeturaInit() {
-    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var _options$baseSize = options.baseSize,
-        baseSize = _options$baseSize === void 0 ? 20 : _options$baseSize;
-    return new Promise(function (resolve, reject) {
-      if (typeof baseSize !== 'number') {
-        return reject(new Error('baseSize must be a number'));
-      }
+    // Look for new elements on the page that might be Typetura contexts.
+    var mutationObserver = new MutationObserver(mutations);
+    mutationObserver.observe(document.documentElement, {
+      childList: true,
+      attributes: false,
+      subtree: true
+    }); // Loop through new elements and attach resize observations.
 
-      var stylesheet = createStyleSheet(baseSize); // Write typetura properties to the top of the document head to avoid cascade conflicts
+    function mutations(mutationsList) {
+      mutationsList.forEach(function (mutation) {
+        var nodes = mutation.addedNodes;
+        nodes.forEach(function (node) {
+          if (node.classList) {
+            if (node.classList.contains([typetura.classes])) {
+              typeturize(node);
+            }
+          }
+        });
+      });
+    } // Initiate Typetura on the root element
 
-      document.head.insertBefore(stylesheet, document.head.firstChild);
-      typeturize(document.documentElement);
-      resolve();
-    });
+
+    typeturize(document.documentElement); // Write typetura properties to the top of the document head to avoid cascade conflicts
+
+    document.head.insertBefore(stylesheet, document.head.firstChild);
+    resolve();
   };
 
-  // Copyright 2018-2020 Typetura LLC.
-
-  function initialize(el) {
-    typeturaInit();
-
-    function typetura() {
-      for (var i = 0; i < el.length; i++) {
-        var element = el[i];
-        typeturize(element);
-      }
-    }
-
-    typetura();
-    window.onresize = typetura;
-  } // Contexts to query with Typetura
-
-
-  var typeturaContexts = window.typeturaContexts || [':root', '.typetura']; // Initiate Typetura on page load
-
-  document.onreadystatechange = function () {
-    if (window.document.readyState === 'interactive') {
-      initialize(document.querySelectorAll(typeturaContexts));
-    }
-  }; // Navigation within an SPA
-
-
-  var historyPushState = window.history.pushState;
-
-  window.history.pushState = function () {
-    return function pushState() {
-      var historyState = historyPushState.apply(this, arguments);
-      window.dispatchEvent(new Event('pushstate'));
-      window.dispatchEvent(new Event('locationchange'));
-      return historyState;
-    };
-  }();
-
-  window.addEventListener('popstate', function () {
-    window.dispatchEvent(new Event('locationchange'));
-  });
-  window.addEventListener('locationchange', function () {
-    setTimeout(function () {
-      initialize(document.querySelectorAll(typeturaContexts));
-    }, 500);
-  });
+  typeturaInit();
 
 })));

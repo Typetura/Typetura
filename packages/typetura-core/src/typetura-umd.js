@@ -1,1 +1,1 @@
-import { typeturaInit, typeturize } from './index';
+import { typetura, typeturaInit, typeturize } from './index';

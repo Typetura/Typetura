@@ -1,3 +1,5 @@
+// ADSFADFS
+
 import typeturize from './typeturize';
 import { createStyleSheet } from './utils/';
 
@@ -12,9 +14,9 @@ const typeturaInit = (options = {}) => {
 
   // Loop through new elements and attach resize observations.
   function mutations(mutationsList) {
-    mutationsList.forEach(mutation => {
+    mutationsList.forEach((mutation) => {
       const nodes = mutation.addedNodes;
-      nodes.forEach(node => {
+      nodes.forEach((node) => {
         if (node.classList) {
           if (node.classList.contains([typetura.classes])) {
             typeturize(node);
