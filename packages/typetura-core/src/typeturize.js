@@ -1,6 +1,6 @@
 const typeturize = (element) => {
   if (typeof window.ResizeObserver !== 'undefined') {
-    const resizeObserver = new ResizeObserver((entries) => {
+    const resizeObserver = new window.ResizeObserver((entries) => {
       for (const entry of entries) {
         if (entry.contentBoxSize) {
           entry.target.style.setProperty('--tt-bind', entry.contentRect.width);
