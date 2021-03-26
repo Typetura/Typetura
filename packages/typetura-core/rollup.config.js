@@ -11,9 +11,10 @@ export default [
       name: 'typetura',
       file: '../../js/typetura.js',
       format: 'umd',
-      banner: `// Copyright 2018-2021 Typetura LLC
-// US Patent US10769348B1
-// typetura.com`,
+      banner: `/** Copyright 2018-2021 Typetura LLC
+ * US Patent US10769348B1
+ * typetura.com
+ */`,
     },
     plugins: [
       resolve(), // so Rollup can find `ms`
@@ -30,9 +31,10 @@ export default [
       name: 'typetura',
       file: '../../js/typetura.min.js',
       format: 'umd',
-      banner: `// Copyright 2018-2021 Typetura LLC
-// US Patent US10769348B1
-// typetura.com`,
+      banner: `/** Copyright 2018-2021 Typetura LLC
+ * US Patent US10769348B1
+ * typetura.com
+ */`,
     },
     plugins: [
       resolve(), // so Rollup can find `ms`

@@ -1,6 +1,7 @@
-// Copyright 2018-2021 Typetura LLC
-// US Patent US10769348B1
-// typetura.com
+/** Copyright 2018-2021 Typetura LLC
+ * US Patent US10769348B1
+ * typetura.com
+ */
 (function (factory) {
   typeof define === 'function' && define.amd ? define(factory) :
   factory();
