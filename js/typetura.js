@@ -1,3 +1,6 @@
+// Copyright 2018-2021 Typetura LLC
+// US Patent US10769348B1
+// typetura.com
 (function (factory) {
   typeof define === 'function' && define.amd ? define(factory) :
   factory();
@@ -366,37 +369,63 @@
     }
   };
 
-  // ADSFADFS
+  var createStyleSheet = function createStyleSheet(_ref) {
+    var base = _ref.base,
+        scale = _ref.scale;
+    // Create a stylesheet for typetura's custom properties
+    var stylesheet = document.createElement('style'); // Typetura's custom properties
 
-  var typeturaInit = function typeturaInit() {
-    // Look for new elements on the page that might be Typetura contexts.
-    var mutationObserver = new MutationObserver(mutations);
-    mutationObserver.observe(document.documentElement, {
-      childList: true,
-      attributes: false,
-      subtree: true
-    }); // Loop through new elements and attach resize observations.
-
-    function mutations(mutationsList) {
-      mutationsList.forEach(function (mutation) {
-        var nodes = mutation.addedNodes;
-        nodes.forEach(function (node) {
-          if (node.classList) {
-            if (node.classList.contains([typetura.classes])) {
-              typeturize(node);
-            }
-          }
-        });
-      });
-    } // Initiate Typetura on the root element
-
-
-    typeturize(document.documentElement); // Write typetura properties to the top of the document head to avoid cascade conflicts
-
-    document.head.insertBefore(stylesheet, document.head.firstChild);
-    resolve();
+    stylesheet.innerHTML = "html{--tt-base: ".concat(base, ";--tt-scale: ").concat(scale, ";--tt-ease:linear;--tt-max:1600}*,:before,:after,html{--tt-key:none;animation:var(--tt-key) 1s var(--tt-ease) 1 calc(-1s * var(--tt-bind) / var(--tt-max)) both paused}");
+    return stylesheet;
   };
 
-  typeturaInit();
+  var typeturaInit = function typeturaInit() {
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var _options$classes = options.classes,
+        classes = _options$classes === void 0 ? ['typetura'] : _options$classes,
+        _options$base = options.base,
+        base = _options$base === void 0 ? 20 : _options$base,
+        _options$scale = options.scale,
+        scale = _options$scale === void 0 ? 1 : _options$scale;
+    return new Promise(function (resolve, reject) {
+      // Look for new elements on the page that might be Typetura contexts.
+      var mutationObserver = new window.MutationObserver(mutations);
+      mutationObserver.observe(document.documentElement, {
+        childList: true,
+        attributes: false,
+        subtree: true
+      }); // Loop through new elements and attach resize observations.
+
+      function mutations(mutationsList) {
+        mutationsList.forEach(function (mutation) {
+          var nodes = mutation.addedNodes;
+          nodes.forEach(function (node) {
+            if (node.classList) {
+              if (node.classList.contains(classes)) {
+                typeturize(node);
+              }
+            }
+          });
+        });
+      }
+
+      var stylesheet = createStyleSheet({
+        base: base,
+        scale: scale
+      }); // Initiate Typetura on the root element
+
+      typeturize(document.documentElement); // Write typetura properties to the top of the document head to avoid cascade conflicts
+
+      document.head.insertBefore(stylesheet, document.head.firstChild);
+      resolve();
+    });
+  };
+
+  window.typetura = {
+    classes: ['typetura'],
+    base: 20,
+    scale: 1
+  };
+  typeturaInit(window.typetura);
 
 })));
