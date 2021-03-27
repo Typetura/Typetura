@@ -1,4 +1,5 @@
-/* Copyright 2018-2021 Typetura LLC
+/**
+ * Copyright 2018-2021 Typetura LLC
  * typetura.com
 
  * typetura.js is subject to the Typetura platform licence
@@ -86,26 +87,30 @@
   var typeturize = function typeturize(element) {
     if (typeof window.ResizeObserver !== 'undefined') {
       var resizeObserver = new window.ResizeObserver(function (entries) {
-        var _iterator = _createForOfIteratorHelper(entries),
-            _step;
-
-        try {
-          for (_iterator.s(); !(_step = _iterator.n()).done;) {
-            var entry = _step.value;
-
-            if (entry.contentBoxSize) {
-              entry.target.style.setProperty('--tt-bind', entry.contentRect.width);
-            }
+        window.requestAnimationFrame(function () {
+          if (!Array.isArray(entries) || !entries.length) {
+            return;
           }
-        } catch (err) {
-          _iterator.e(err);
-        } finally {
-          _iterator.f();
-        }
+
+          var _iterator = _createForOfIteratorHelper(entries),
+              _step;
+
+          try {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              var entry = _step.value;
+
+              if (entry.contentRect) {
+                entry.target.style.setProperty('--tt-bind', entry.contentRect.width);
+              }
+            }
+          } catch (err) {
+            _iterator.e(err);
+          } finally {
+            _iterator.f();
+          }
+        });
       });
       resizeObserver.observe(element);
-    } else {
-      element.style.setProperty('--tt-bind', element.offsetWidth);
     }
   };
 

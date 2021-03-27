@@ -11,7 +11,8 @@ export default [
       name: 'typetura',
       file: '../../js/typetura.js',
       format: 'umd',
-      banner: `/* Copyright 2018-2021 Typetura LLC
+      banner: `/**
+ * Copyright 2018-2021 Typetura LLC
  * typetura.com
 
  * typetura.js is subject to the Typetura platform licence
@@ -35,7 +36,8 @@ export default [
       name: 'typetura',
       file: '../../js/typetura.min.js',
       format: 'umd',
-      banner: `/* Copyright 2018-2021 Typetura LLC
+      banner: `/**
+ * Copyright 2018-2021 Typetura LLC
  * typetura.com
 
  * typetura.js is subject to the Typetura platform licence
