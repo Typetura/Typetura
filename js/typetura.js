@@ -126,8 +126,8 @@
 
   var typeturaInit = function typeturaInit() {
     var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var _options$classes = options.classes,
-        classes = _options$classes === void 0 ? ['typetura'] : _options$classes,
+    var _options$selectors = options.selectors,
+        selectors = _options$selectors === void 0 ? ['.typetura'] : _options$selectors,
         _options$base = options.base,
         base = _options$base === void 0 ? 20 : _options$base,
         _options$scale = options.scale,
@@ -146,7 +146,7 @@
           var nodes = mutation.addedNodes;
           nodes.forEach(function (node) {
             if (node.classList) {
-              if (node.classList.contains(classes)) {
+              if (node.matches(selectors)) {
                 typeturize(node);
               }
             }
@@ -167,7 +167,7 @@
   };
 
   window.typetura = window.typetura || {
-    classes: ['typetura'],
+    selectors: ['.typetura'],
     base: 20,
     scale: 1
   };

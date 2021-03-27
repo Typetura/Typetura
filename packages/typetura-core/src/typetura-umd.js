@@ -1,7 +1,7 @@
 import { typeturaInit } from './index';
 
 window.typetura = window.typetura || {
-  classes: ['typetura'],
+  selectors: ['.typetura'],
   base: 20,
   scale: 1,
 };

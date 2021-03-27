@@ -2,7 +2,7 @@ import typeturize from './typeturize';
 import { createStyleSheet } from './utils/';
 
 const typeturaInit = (options = {}) => {
-  const { classes = ['typetura'], base = 20, scale = 1 } = options;
+  const { selectors = ['.typetura'], base = 20, scale = 1 } = options;
 
   return new Promise((resolve, reject) => {
     // Look for new elements on the page that might be Typetura contexts.
@@ -19,7 +19,7 @@ const typeturaInit = (options = {}) => {
         const nodes = mutation.addedNodes;
         nodes.forEach((node) => {
           if (node.classList) {
-            if (node.classList.contains(classes)) {
+            if (node.matches(selectors)) {
               typeturize(node);
             }
           }
