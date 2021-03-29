@@ -15,7 +15,7 @@ export default [
  * Copyright 2018-2021 Typetura LLC
  * typetura.com
 
- * typetura.js is subject to the Typetura platform licence
+ * typetura.js is subject to the Typetura platform license
  * https://docs.typetura.com/legal/copyright
 
  * US Patent US10769348B1
@@ -40,7 +40,7 @@ export default [
  * Copyright 2018-2021 Typetura LLC
  * typetura.com
 
- * typetura.js is subject to the Typetura platform licence
+ * typetura.js is subject to the Typetura platform license
  * https://docs.typetura.com/legal/copyright
 
  * US Patent US10769348B1
