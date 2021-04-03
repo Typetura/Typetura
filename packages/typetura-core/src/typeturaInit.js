@@ -2,7 +2,9 @@ import typeturize from './typeturize';
 import { createStyleSheet } from './utils/';
 
 const typeturaInit = (options = {}) => {
-  const { selectors = ['.typetura'], base = 20, scale = 1 } = options;
+  const selectors = options.selectors  || ['.typetura'];
+  const base = options.base  || 20;
+  const scale = options.scale  || 1;
 
   return new Promise((resolve, reject) => {
     // Look for new elements on the page that might be Typetura contexts.

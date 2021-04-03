@@ -126,12 +126,9 @@
 
   var typeturaInit = function typeturaInit() {
     var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var _options$selectors = options.selectors,
-        selectors = _options$selectors === void 0 ? ['.typetura'] : _options$selectors,
-        _options$base = options.base,
-        base = _options$base === void 0 ? 20 : _options$base,
-        _options$scale = options.scale,
-        scale = _options$scale === void 0 ? 1 : _options$scale;
+    var selectors = options.selectors || ['.typetura'];
+    var base = options.base || 20;
+    var scale = options.scale || 1;
     return new Promise(function (resolve, reject) {
       // Look for new elements on the page that might be Typetura contexts.
       var mutationObserver = new window.MutationObserver(mutations);

@@ -28,7 +28,7 @@ initializeTypetura({
     apiKey: '<YOUR_TYPETURA_DOT_COM_API_KEY>',
     name: 'bullseye',
   },
-  contexts: [':root', '.typetura', 'main', 'article', 'section', 'aside'],
+  selectors: [':root', '.typetura', 'main', 'article', 'section', 'aside'], // default: ['.typetura],
 });
 ```
 
