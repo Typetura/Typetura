@@ -13,11 +13,9 @@ import Context from './Context';
 import { typeturaInit } from 'typeturajs';
 
 export const initializeTypetura = (options = {}) => {
-  const { withPackage, baseSize, contexts } = options;
+  const { withPackage, base, scale, selectors } = options;
 
-  window.contexts = contexts;
-
-  typeturaInit({ baseSize });
+  typeturaInit({ base,scale,  selectors });
 
   if (!withPackage && !withPackage.apiKey && !withPackage.name) {
     return;

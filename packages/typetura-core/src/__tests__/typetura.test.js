@@ -26,14 +26,24 @@ describe('typeturaInit', () => {
       expect(res).toBeUndefined();
     });
   });
-  it('should resolve if baseSize is pased', () => {
-    return typeturaInit({ baseSize: 16 }).catch((err) => {
-      expect(err.message).toEqual('Base must be a number');
+  it('should resolve if base is pased', () => {
+    return typeturaInit({ base: 16 }).catch((err) => {
+      expect(err.message).toEqual('typeutra.base must be a number');
     });
   });
-  it('should reject if baseSize is not a number', () => {
-    return typeturaInit({ baseSize: 'a' }).catch((err) => {
-      expect(err.message).toEqual('baseSize must be a number');
+  it('should reject if base is not a number', () => {
+    return typeturaInit({ base: 'a' }).catch((err) => {
+      expect(err.message).toEqual('typeutra.base must be a number');
+    });
+  });
+  it('should resolve if scale is passed', () => {
+    return typeturaInit({ scale: 1.2 }).catch((err) => {
+      expect(err.message).toEqual('scale must be a number');
+    });
+  });
+  it('should reject if scale is not a number', () => {
+    return typeturaInit({ scale: 'b' }).catch((err) => {
+      expect(err.message).toEqual('scale must be a number');
     });
   });
 });

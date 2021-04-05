@@ -1,6 +1,6 @@
 {
   "name": "typeturajs",
-  "version": "1.3.1",
+  "version": "2.0.0",
   "description": "This is a tool to make fluidly responsive typography easy with support for font size, line height, and variable fonts.",
   "keywords": [
     "typography",
@@ -43,7 +43,6 @@
     "rollup-plugin-babel": "^4.3.3"
   },
   "dependencies": {
-    "resize-observer": "^1.0.0",
     "rollup-plugin-babel-minify": "^9.1.1"
   }
 }

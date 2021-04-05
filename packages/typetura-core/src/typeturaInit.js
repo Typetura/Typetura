@@ -1,22 +1,39 @@
-// Copyright 2018-2020 Typetura LLC.
-// https://github.com/typetura/typetura.js
-
 import typeturize from './typeturize';
 import { createStyleSheet } from './utils/';
 
 const typeturaInit = (options = {}) => {
-  const { baseSize = 20 } = options;
+  const selectors = options.selectors  || ['.typetura'];
+  const base = options.base  || 20;
+  const scale = options.scale  || 1;
 
   return new Promise((resolve, reject) => {
-    if (typeof baseSize !== 'number') {
-      return reject(new Error('baseSize must be a number'));
-    }
+    // Look for new elements on the page that might be Typetura contexts.
+    const mutationObserver = new window.MutationObserver(mutations);
+    mutationObserver.observe(document.documentElement, {
+      childList: true,
+      attributes: false,
+      subtree: true,
+    });
 
-    const stylesheet = createStyleSheet(baseSize);
+    // Loop through new elements and attach resize observations.
+    function mutations(mutationsList) {
+      mutationsList.forEach((mutation) => {
+        const nodes = mutation.addedNodes;
+        nodes.forEach((node) => {
+          if (node.classList) {
+            if (node.matches(selectors)) {
+              typeturize(node);
+            }
+          }
+        });
+      });
+    }
+    const stylesheet = createStyleSheet({ base, scale });
+    // Initiate Typetura on the root element
+    typeturize(document.documentElement);
 
     // Write typetura properties to the top of the document head to avoid cascade conflicts
     document.head.insertBefore(stylesheet, document.head.firstChild);
-    typeturize(document.documentElement);
 
     resolve();
   });

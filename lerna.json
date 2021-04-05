@@ -1,14 +1,9 @@
 {
   "npmClient": "yarn",
-  "packages": [
-    "packages/*"
-  ],
-  "version": "1.3.2",
+  "packages": ["packages/*"],
+  "version": "2.0.0",
   "publish": {
-    "ignoreChanges": [
-      "ignored-file",
-      "*.md"
-    ],
+    "ignoreChanges": ["ignored-file", "*.md"],
     "message": "chore(release): publish"
   }
 }
