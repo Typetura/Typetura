@@ -4,7 +4,7 @@ Typetura is a CSS library that allows you to create dynamic responsive type syst
 
 ## Installation
 
-Add [typetura.css](typetura.css) to your project. Copy and paste it into your CSS file or link to it in your HTML.
+Add [typetura.css](https://raw.githubusercontent.com/Typetura/Typetura/main/typetura.css) to your project. Copy and paste it into your CSS file or link to it in your HTML.
 
 ## Using Typetura
 
