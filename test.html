@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typetura testbed</title>
+
+  <link rel="stylesheet" href="typetura.css">
+
+  <style>
+    html {
+      /*
+      Yes you can mix units now! For a really trippy time try viewport units here.
+      */
+      --tt-min: 0;
+      --tt-max: 700px;
+      font-size: 125%;
+      font-family: "Big Shoulders Display", sans-serif;
+      --tt-key: html;
+      animation-timing-function: cubic-bezier(0,0.7,0.3,1);
+    }
+    @keyframes html {
+      0% {
+        font-size: 0px;
+      }
+      100% {
+        font-size: 115%;
+      }
+    }
+
+    section {
+      --tt-min: 20rem;
+      --tt-max: 750px;
+    }
+    .container {
+      width: 100%;
+      background: #eee;
+      resize: horizontal;
+      overflow: hidden;
+    }
+    .headline {
+      margin: 0;
+      animation-name: headline;
+    }
+    @keyframes headline {
+      from {
+        font-size: 20px;
+        font-weight: 900;
+        color: hsl(330, 96%, 15%);
+      }
+      to {
+        font-size: 72px;
+        font-weight: 600;
+        color: hsl(330, 96%, 45%);
+      }
+    }
+
+    div {
+      margin-left: var(--tt-min);
+      width: calc(var(--tt-max) - var(--tt-min));
+      height: 4px;
+      background: hsl(330, 96%, 45%);
+    }
+  </style>
+</head>
+<body>
+
+  <section>
+    <div></div>
+    <article class="container cq">
+      <h1 contenteditable class="headline tt">Container</h1>
+      <h1 contenteditable class="headline rtt">Root</h1>
+    </article>
+  </section>
+  
+  <p>Test of html styles. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque dignissimos vel iure explicabo molestiae nisi, ab praesentium eos necessitatibus? Eaque illum doloribus quaerat distinctio fugit, magnam a tempore nemo incidunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque dignissimos vel iure explicabo molestiae nisi, ab praesentium eos necessitatibus? Eaque illum doloribus quaerat distinctio fugit, magnam a tempore nemo incidunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque dignissimos vel iure explicabo molestiae nisi, ab praesentium eos necessitatibus? Eaque illum doloribus quaerat distinctio fugit, magnam a tempore nemo incidunt.</p>
+</body>
+</html>

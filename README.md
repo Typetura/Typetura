@@ -1,36 +1,33 @@
-![Typetura](https://user-images.githubusercontent.com/377189/82712948-350a6300-9c3e-11ea-987b-6746108634b2.png) 
-    
-<p>
-<a href="https://www.npmjs.com/package/typeturajs"><img alt="npm Downloads" src="https://img.shields.io/npm/dm/typeturajs.svg?maxAge=43200&label=npm%20core%20downloads"></a>
-<a href="https://www.npmjs.com/package/@typetura/react"><img alt="@typetura/react npm Downloads" src="https://img.shields.io/npm/dm/@typetura/react.svg?maxAge=43200&label=npm%20react%20downloads"></a>
-<a href="https://twitter.com/intent/follow?screen_name=typetura"><img alt="Follow on Twitter" src="https://img.shields.io/twitter/follow/typetura.svg?style=social&label=Follow"></a>
-</p>
+# Typetura v4
 
-<a href="https://codepen.io/scottkellum/pen/GRpRzvZ"><img alt="Edit on CodePen" src="https://user-images.githubusercontent.com/377189/82715332-79e6c780-9c47-11ea-8fc1-01ca16994f90.png" height="42" /><a> <a href="https://codesandbox.io/s/typeturareact-example-r3t6u?fontsize=14&hidenavigation=1&theme=dark"><img alt="Edit on CodeSandbox" src="https://codesandbox.io/static/img/play-codesandbox.svg" height="42" /></a>
+Typetura is a CSS library that allows you to create dynamic responsive type systems with ease. v4 has numerous changes, including removal of all JavaScript, a new license (MIT), and a few changes to the API.
 
-[Typetura](https://typetura.com/) is an [intrinsic typography](https://css-tricks.com/intrinsic-typography-is-the-future-of-styling-text-on-the-web/) technology that makes breakpoints obsolete. It enables you to design with more flexibility, while dramatically reducing code.
+## Installation
 
-Typetura is different from other typesetting methods. Instead of creating a ruleset for every new space where type exists in your layout, Typetura measures and understands those different spaces, and ensures your type adapts perfectly every time. This reduces your code by up to 90%, saving you time designing and developing. For example, if your website is using Typetura, your hero, article links, and trending articles, will use a single headline style that adapts to each of these areas in your layout.
+Add [typetura.css](typetuar.css) to your project. Copy and paste it into your CSS file or link to it in your HTML.
 
-[![Read our documentation](https://user-images.githubusercontent.com/377189/82715915-fa0e2c80-9c49-11ea-9d47-1e10860fd291.png)](https://docs.typetura.com)
+## Using Typetura
 
-# Readme Badge
 
-Using Typetura? Add a README badge to show it off: [![typetura](https://img.shields.io/badge/typeset%20with-typetura-129681.svg)](https://typetura.com/)
 
-```
-[![typetura](https://img.shields.io/badge/typeset%20with-typetura-129681.svg)](https://typetura.com/)
-```
+## Aknowledgements
 
-# License
+Typetura is created and developed by [Scott Kellum](https://scottkellum.com) and Typetura LLC.
 
-Copyright © 2018–2021 [Typetura LLC](https://typetura.com/). All rights reserved.
+Special things to [Ana Monroe](https://anamonroe.com) for all the support and guidance, Gabrielle Kellner for helping communicate the vision, [Jane Ori](https://propjockey.io/) for cracking the `calc()` division problem, and [Roman Komarov](https://kizu.dev/) and [Miriam Suzanne](https://miriamsuzanne.com/) for their trailblazing on the bleeding edge of CSS.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to use, copy, publish, and/or distribute copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-    
-- The above copyright notice, license, and this permission notice shall be included in all copies or portions of the Software.
-- Modification of the code, such as changing function names, variable names, and/or removing portions of code, is strictly prohibited.
+## Patents
 
-Commercial licenses that allow modification and additional support are available by contacting info@typetura.com.
+Use of this software does not grant licence to any patents held by Typetura LLC. For more information, please contact [Typetura LLC](https://typetura.com/ip) at [info@typetura.com](mailto:info@typetura.com). These patents describe the distribution of typographc systems at scale as well as how design software might be used to create and manage dynamic typographic systems. These patents protect our business usecases for this software and are not intended to restrict the use of the software itself on projects you own, operate, control, or are a part of.
 
-**The software is provided “as is”, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and non-infringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.**
+As an example, if `fonts.bigcompany.com` is interested in distributing typographic systems with their fonts, they would need to license the patents. If `Big Design Software` decided to create an interface keyframing out text scaling in their app, they would need to license the patents. If `yourcompany.com` is using Typetura to manage their own typographic system, they would not need to license the patents.
+
+## License (MIT)
+
+Copyright © 2024 [Typetura LLC](https://typetura.com/)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+**The software is provided “as is”, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.**
