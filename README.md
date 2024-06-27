@@ -2,6 +2,12 @@
 
 Typetura is a CSS library that allows you to create dynamic responsive type systems with ease. v4 has numerous changes, including removal of all JavaScript, a new license (MIT), and a few changes to the API.
 
+## What is Typetura?
+
+Is it software? Is it a company? Yes.
+
+Scott Kellum was working on ways to make variable fonts responsive to the viewport. Frustrated with the limitations of clamp(), he developed the technology and decided to quit his day job and start a company around the ideas that it enabled.
+
 ## Installation
 
 Add [typetura.css](https://raw.githubusercontent.com/Typetura/Typetura/main/typetura.css) to your project. Copy and paste it into your CSS file or link to it in your HTML.
@@ -14,15 +20,61 @@ With Typetura you need to do three things: Identify the context, bind typetura�
 
 By default, the context is the viewport. Similar to viewport units, Typetura looks at the width of the viewport to determine what styles to use. You can define your own context by using the utlity class `class="cq"` or by adding `container-type: inline-size;` to any element in your CSS. If you’re fimiliar with container queries, you’ve already got the hang of it.
 
-If you’ve used Typetura before, there is one difference in that your context can’t be the element you are styling, it needs to be a parent of that element.
+```html
+<div class="cq">
+  <h1>Hello, world!</h1>
+</div>
+```
+
+### Binding Typetura’s Styles
+
+Typetura’s styles are bound to your elements by using the `tt` class.
+
+```html
+<div class="cq">
+  <h1 class="tt">Hello, world!</h1>
+</div>
+```
 
 ### Creating Keyframes
 
-
-
 Creating keyframes is where you’ll be spending most of your time. These are regular CSS keyframes that you might have used before, but they define how your styles change as the container gets bigger.
 
+```html
+<div class="cq">
+  <h1 class="tt">Hello, world!</h1>
+</div>
+```
+
 ```css
+h1 {
+  animation-name: hello-world;
+}
+@keyframes hello-world {
+  from {
+    font-size: 1rem;
+  }
+  to {
+    font-size: 4rem;
+  }
+}
+```
+
+### Advanced use of Typetura
+
+Now that you’re up and running you may want to dive a little deeper in to what Typetura can do.
+
+#### Identifying the Contexts
+
+These are generic [container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries) and can be defined using `container-type: inline-size;` in your CSS.
+
+```css
+.container {
+  container-type: inline-size;
+}
+```
+
+
 
 ## Aknowledgements
 
