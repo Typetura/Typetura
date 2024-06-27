@@ -4,11 +4,25 @@ Typetura is a CSS library that allows you to create dynamic responsive type syst
 
 ## Installation
 
-Add [typetura.css](typetuar.css) to your project. Copy and paste it into your CSS file or link to it in your HTML.
+Add [typetura.css](typetura.css) to your project. Copy and paste it into your CSS file or link to it in your HTML.
 
 ## Using Typetura
 
+With Typetura you need to do three things: Identify the context, bind typetura’s styles, and create keyframes for your styles.
 
+### Identifying the Context
+
+By default, the context is the viewport. Similar to viewport units, Typetura looks at the width of the viewport to determine what styles to use. You can define your own context by using the utlity class `class="cq"` or by adding `container-type: inline-size;` to any element in your CSS. If you’re fimiliar with container queries, you’ve already got the hang of it.
+
+If you’ve used Typetura before, there is one difference in that your context can’t be the element you are styling, it needs to be a parent of that element.
+
+### Creating Keyframes
+
+
+
+Creating keyframes is where you’ll be spending most of your time. These are regular CSS keyframes that you might have used before, but they define how your styles change as the container gets bigger.
+
+```css
 
 ## Aknowledgements
 
