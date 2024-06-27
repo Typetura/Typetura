@@ -14,7 +14,7 @@ Add [typetura.css](https://raw.githubusercontent.com/Typetura/Typetura/main/type
 
 ## Using Typetura
 
-With Typetura you need to do three things: Identify the context, bind typetura’s styles, and create keyframes for your styles.
+With Typetura you need to do three things: Identify the context, bind typetura’s styles, and styling elements.
 
 ### Identifying the Context
 
@@ -36,8 +36,7 @@ Typetura’s styles are bound to your elements by using the `tt` class.
 </div>
 ```
 
-### Creating Keyframes
-
+### Styling Elements
 Creating keyframes is where you’ll be spending most of your time. These are regular CSS keyframes that you might have used before, but they define how your styles change as the container gets bigger.
 
 ```html
@@ -60,11 +59,11 @@ h1 {
 }
 ```
 
-### Advanced use of Typetura
+## Advanced use of Typetura
 
 Now that you’re up and running you may want to dive a little deeper in to what Typetura can do.
 
-#### Identifying the Contexts
+### Identifying the Contexts
 
 These are generic [container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries) and can be defined using `container-type: inline-size;` in your CSS.
 
@@ -74,7 +73,54 @@ These are generic [container queries](https://developer.mozilla.org/en-US/docs/W
 }
 ```
 
+### Binding Typetura’s Styles
 
+We’ve covered the `.tt` class, but you can also add `.rtt` to target the viewport, or root, instead of the container. Additionally `html` has typetura styles bound to it by default.
+
+You can add and change the selector list by modifying [lines 23-26 in the typetura.css](https://github.com/Typetura/Typetura/blob/c7c51a1cadb47ed170f08d52b26f4b5d33f6ff86/typetura.css#L23-L26) file.
+
+### Styling Elements
+
+You’ve created CSS keyframes for your project already, but you might want to adjust the upper and lower limit for where those styles are applied, or adjust the easing function.
+
+Additionally you can use any interpolable CSS property in your keyframes, not just `font-size`.
+
+```css
+html {
+  --tt-min: 0;
+  --tt-max: 40em;
+  font-family: sans-serif;
+  animation-name: html;
+  animation-timing-function: cubic-bezier(0,0.7,0.3,1);
+}
+@keyframes html {
+  0% {
+    font-size: 0%; /* To avoid text clipping on absurdly small screens */
+  }
+  100% {
+    font-size: 115%;
+  }
+}
+
+.heading {
+  --tt-min: 320px; /* Accepts any <length> unit */
+  --tt-max: 60rem; /* Accepts any <length> unit */
+  animation-name: heading;
+  animation-timing-function: ease-in-out; /* Accepts any <timing-function> */
+}
+@keyframes heading {
+  from {
+    font-size: 100%;
+    line-height: 1.2;
+    color: black;
+  }
+  to {
+    font-size: 4rem;
+    line-height: 1.1;
+    color: hotpink;
+  }
+}
+```
 
 ## Aknowledgements
 

@@ -9,13 +9,10 @@
 
   <style>
     html {
-      /*
-      Yes you can mix units now! For a really trippy time try viewport units here.
-      */
       --tt-min: 0;
       --tt-max: 700px;
       font-size: 125%;
-      font-family: "Big Shoulders Display", sans-serif;
+      font-family: sans-serif;
       --tt-key: html;
       animation-timing-function: cubic-bezier(0,0.7,0.3,1);
     }
@@ -55,6 +52,10 @@
       }
     }
 
+    article {
+      margin-block: 1rem;
+    }
+
     div {
       margin-left: var(--tt-min);
       width: calc(var(--tt-max) - var(--tt-min));
@@ -68,11 +69,14 @@
   <section>
     <div></div>
     <article class="container cq">
-      <h1 contenteditable class="headline tt">Container</h1>
-      <h1 contenteditable class="headline rtt">Root</h1>
+      <h1 contenteditable class="headline tt">Container scaling</h1>
     </article>
+    <article class="container cq">
+      <h1 contenteditable class="headline rtt">Viewport scaling</h1>
+    </article>
+    <article>
+      <p>Viewport scaling on root. Test of html styles — Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque dignissimos vel iure explicabo molestiae nisi, ab praesentium eos necessitatibus? Eaque illum doloribus quaerat distinctio fugit, magnam a tempore nemo incidunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque dignissimos vel iure explicabo molestiae nisi, ab praesentium eos necessitatibus? Eaque illum doloribus quaerat distinctio fugit, magnam a tempore nemo incidunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque dignissimos vel iure explicabo molestiae nisi, ab praesentium eos necessitatibus? Eaque illum doloribus quaerat distinctio fugit, magnam a tempore nemo incidunt.</p>
+    </article>    
   </section>
-  
-  <p>Test of html styles. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque dignissimos vel iure explicabo molestiae nisi, ab praesentium eos necessitatibus? Eaque illum doloribus quaerat distinctio fugit, magnam a tempore nemo incidunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque dignissimos vel iure explicabo molestiae nisi, ab praesentium eos necessitatibus? Eaque illum doloribus quaerat distinctio fugit, magnam a tempore nemo incidunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque dignissimos vel iure explicabo molestiae nisi, ab praesentium eos necessitatibus? Eaque illum doloribus quaerat distinctio fugit, magnam a tempore nemo incidunt.</p>
 </body>
 </html>
