@@ -1,4 +1,6 @@
-# Typetura v4
+<img src="https://repository-images.githubusercontent.com/104536743/11a38071-3d2e-42e7-9cd3-0d7973eb8073" alt="Typetura.css" style="width:100%;display:block;border-raius:1rem" />
+
+# Typetura.css
 
 Typetura is a CSS library that allows you to create dynamic responsive type systems with ease. v4 has numerous changes, including removal of all JavaScript, a new license (MIT), and a few changes to the API.
 
