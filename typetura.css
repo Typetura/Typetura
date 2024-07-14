@@ -1,6 +1,11 @@
-/* Typetura v4.0.0 */
+/* Typetura v4.0.1 */
 
 /* Custom property behavior */
+@property --property {
+  syntax: "<integer>";
+  initial-value: 1;
+  inherits: false;
+}
 @property --tt-context {
   syntax: "<length>";
   initial-value: 100vi;
@@ -35,8 +40,8 @@
     /* Shorthand has some bugs, but this is easier to read */
     animation-name: var(--tt-key, none);
     animation-timing-function: var(--tt-ease, linear);
-    animation-delay: calc(-1s * (var(--TTCONTEXT) - var(--TTMIN)) / (var(--TTMAX) - var(--TTMIN)));
-    animation-duration: 1s;
+    animation-delay: calc(-1s * var(--property) * (var(--TTCONTEXT) - var(--TTMIN)) / (var(--TTMAX) - var(--TTMIN)));
+    animation-duration: calc(1s * var(--property));
     animation-iteration-count: 1;
     animation-fill-mode: both;
     animation-play-state: paused;
