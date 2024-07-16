@@ -37,7 +37,7 @@
     --TTMAX: calc(tan(atan2(var(--tt-max,60rem),1px)));
     --TTMIN: calc(tan(atan2(var(--tt-min,0rem),1px)));
     
-    /* Shorthand has some bugs, but this is easier to read */
+    /* Durations need to be registered as <time> to work propertly shorthand. Simpler and more clear to write individual property/values instead */
     animation-name: var(--tt-key, none);
     animation-timing-function: var(--tt-ease, linear);
     animation-delay: calc(-1s * var(--property) * (var(--TTCONTEXT) - var(--TTMIN)) / (var(--TTMAX) - var(--TTMIN)));
