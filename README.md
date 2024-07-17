@@ -14,11 +14,11 @@ Add [typetura.css](https://raw.githubusercontent.com/Typetura/Typetura/main/type
 
 ## Using Typetura
 
-With Typetura you need to do three things: Identify the context, bind typetura’s styles, and styling elements.
+With Typetura you need to do three things: Identify the container, bind typetura’s styles, and styling elements.
 
-### Identifying the Context
+### Identifying the container
 
-By default, the context is the viewport. Similar to viewport units, Typetura looks at the width of the viewport to determine what styles to use. You can define your own context by using the utlity class `class="cq"` or by adding `container-type: inline-size;` to any element in your CSS. If you’re fimiliar with container queries, you’ve already got the hang of it.
+By default, the container is the viewport. Similar to viewport units, Typetura looks at the width of the viewport to determine what styles to use. You can define your own container by using the utlity class `class="cq"` or by adding `container-type: inline-size;` to any element in your CSS. If you’re fimiliar with container queries, you’ve already got the hang of it.
 
 ```html
 <div class="cq">
@@ -63,7 +63,7 @@ h1 {
 
 Now that you’re up and running you may want to dive a little deeper in to what Typetura can do.
 
-### Identifying the Contexts
+### Identifying the Containers
 
 These are generic [container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries) and can be defined using `container-type: inline-size;` in your CSS.
 
