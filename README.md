@@ -12,7 +12,7 @@ We started this project when running into limitations with `clamp()` in an effor
 
 ## Installation
 
-Add [typetura.css](https://raw.githubusercontent.com/Typetura/Typetura/main/typetura.css) to your project. Copy and paste it into your CSS file or link to it in your HTML.
+Add [typetura.css](https://raw.githubusercontent.com/Typetura/Typetura/v4/typetura.css) to your project. Copy and paste it into your CSS file or link to it in your HTML.
 
 ## Using Typetura
 
