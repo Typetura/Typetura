@@ -1,12 +1,14 @@
 # Typetura.css
 
-Typetura is a CSS library that allows you to create dynamic responsive type systems with ease. v4 has numerous changes, including removal of all JavaScript, a new license (MIT), and a few changes to the API.
+Typetura is a CSS library that allows you to create dynamic responsive type systems with ease. Far more powerful and dynamic than `calc()` and `clamp()`, you can interpolate things like color and weight, scale text with an easing curve, and have more control over where design changes happen. The intuitive syntax allows you to specify specific points where a design change starts and ends as well as giving you the flexability to use the CSS values you prefer in your designs.
+
+v4 has numerous changes, including removal of all JavaScript, a new license (MIT), and a few changes to the API.
 
 ## What is Typetura?
 
 Is it software? Is it a company? Yes.
 
-Scott Kellum was working on ways to make variable fonts responsive to the viewport. Frustrated with the limitations of clamp(), he developed the technology and decided to quit his day job and start a company around the ideas that it enabled.
+We started this project when running into limitations with `clamp()` in an effort to make designing editorial websites easier. This core of an approach to typography led to the creation of the company [Typetura](https://typetura.com) where we develop typographic tools and create beautiful websites for people.
 
 ## Installation
 
