@@ -16,7 +16,7 @@ Add [typetura.css](https://raw.githubusercontent.com/Typetura/Typetura/v4/typetu
 
 ## Using Typetura
 
-With Typetura you need to do three things: Identify the container, bind typetura’s styles, and styling elements.
+With Typetura you need to do three things: Identify the container, bind typetura’s styles, and style elements.
 
 ### Identifying the container
 
