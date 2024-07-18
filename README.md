@@ -1,14 +1,23 @@
 # Typetura.css
 
-Typetura is a CSS library that allows you to create dynamic responsive type systems with ease. Far more powerful and dynamic than `calc()` and `clamp()`, you can interpolate things like color and weight, scale text with an easing curve, and have more control over where design changes happen. The intuitive syntax allows you to specify specific points where a design change starts and ends as well as giving you the flexability to use the CSS values you prefer in your designs.
+Typetura is a CSS library that allows you to create dynamic responsive type systems with ease. [Far more powerful and dynamic than `calc()` and `clamp()`](#the-software), you can interpolate things like color and weight, scale text with an easing curve, and have more control over where design changes happen. The intuitive syntax allows you to specify specific points where a design change starts and ends as well as giving you the flexability to use the CSS values you prefer in your designs.
 
 v4 has numerous changes, including removal of all JavaScript, a new license (MIT), and a few changes to the API.
 
 ## What is Typetura?
 
-Is it software? Is it a company? Yes.
+Is it [software](#the-software)? Is it a company? Yes.
 
 We started this project when running into limitations with `clamp()` in an effort to make designing editorial websites easier. This core of an approach to typography led to the creation of the company [Typetura](https://typetura.com) where we develop typographic tools and create beautiful websites for people.
+
+### The software
+
+Typetura is an approach to responsive typography that binds CSS keyframes to widths. This has numerous distinct advantages over previous responsive typography techniques.
+
+1. **Interpolation on a curve:** `clamp()` and `calc()` only interpolate values linearly. While text might scale, the nuances of how it scales can’t be well controlled. Interpolating on a curve is particularly valuable when scaling text on your document’s root, allowing it to get quite small for tiny screens like watches, then scaling it up quickly to a more reasonable size on other screens. Headlines tend to look better on and ease-in-out or ease-in curve, where the hirarchy can get more pronounced as screen realestate becomes avalible.
+2. **Defining start and end positions:** Online calculators for `clamp()` are so useful because authoring a function that matches your design’s breakpoints can be tedious. With Typetura.css, you can set values for `--tt-min` and `--tt-max` directly in your CSS for these positions. This also avoids issues of breakpoint drift that `clamp()` expereances if a user changes their preferred font size in their browser.
+3. **Interpolate anything:** Interpolate color, font weight, unitless line height, and anything else. Use the units and CSS variables you already have in your design system. Unlike `calc()` and `clamp()`, you can interpolate anything.
+4. **Familiar syntax:** Typetura uses CSS keyframe animations. If you have ever written a CSS animation, you will feel right at home using Typetura. No math or complex functions, it just works.
 
 ## Installation
 
