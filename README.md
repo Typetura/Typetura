@@ -15,7 +15,7 @@ We started this project when running into limitations with `clamp()` in an effor
 Typetura is an approach to responsive typography that binds CSS keyframes to widths. This has numerous distinct advantages over previous responsive typography techniques.
 
 1. **Interpolation on a curve:** `clamp()` and `calc()` only interpolate values linearly. While text might scale, the nuances of how it scales can’t be well controlled. Interpolating on a curve is particularly valuable when scaling text on your document’s root, allowing it to get quite small for tiny screens like watches, then scaling it up quickly to a more reasonable size on other screens. Headlines tend to look better on and ease-in-out or ease-in curve, where the hirarchy can get more pronounced as screen realestate becomes avalible.
-2. **Defining start and end positions:** Online calculators for `clamp()` are so useful because authoring a function that matches your design’s breakpoints can be tedious. With Typetura.css, you can set values for `--tt-min` and `--tt-max` directly in your CSS for these positions. This also avoids issues of breakpoint drift that `clamp()` expereances if a user changes their preferred font size in their browser.
+2. **Defining start and end positions:** Online calculators for `clamp()` are so useful because authoring a function that matches your design’s breakpoints can be tedious. With Typetura.css, you can set values for `--from` and `--to` directly in your CSS for these positions. This also avoids issues of breakpoint drift that `clamp()` expereances if a user changes their preferred font size in their browser.
 3. **Interpolate anything:** Interpolate color, font weight, unitless line height, and anything else. Use the units and CSS variables you already have in your design system. Unlike `calc()` and `clamp()`, you can interpolate anything.
 4. **Familiar syntax:** Typetura uses CSS keyframe animations. If you have ever written a CSS animation, you will feel right at home using Typetura. No math or complex functions, it just works.
 
@@ -98,8 +98,8 @@ Additionally you can use any interpolable CSS property in your keyframes, not ju
 
 ```css
 html {
-  --tt-min: 0;
-  --tt-max: 40em;
+  --from: 0;
+  --to: 40em;
   font-family: sans-serif;
   animation-name: html;
   animation-timing-function: cubic-bezier(0,0.7,0.3,1);
@@ -114,8 +114,8 @@ html {
 }
 
 .heading {
-  --tt-min: 320px; /* Accepts any <length> unit */
-  --tt-max: 60rem; /* Accepts any <length> unit */
+  --from: 320px; /* Accepts any <length> unit */
+  --to: 60rem; /* Accepts any <length> unit */
   animation-name: heading;
   animation-timing-function: ease-in-out; /* Accepts any <timing-function> */
 }
