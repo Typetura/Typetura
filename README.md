@@ -4,6 +4,8 @@ Typetura is a CSS library that allows you to create dynamic responsive type syst
 
 v4 has numerous changes, including removal of all JavaScript, a new license (MIT), and a few changes to the API.
 
+# [Documentation](https://docs.typetura.com)
+
 ## What is Typetura?
 
 Is it [software](#the-software)? Is it a company? Yes.
