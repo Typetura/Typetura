@@ -1,6 +1,6 @@
 # Typetura.css
 
-Typetura is a CSS library that allows you to create dynamic responsive type systems with ease. [Far more powerful and dynamic than `calc()` and `clamp()`](#the-software), you can interpolate things like color and weight, scale text with an easing curve, and have more control over where design changes happen. The intuitive syntax allows you to specify specific points where a design change starts and ends as well as giving you the flexability to use the CSS values you prefer in your designs.
+Typetura is a CSS library that allows you to create dynamic responsive type systems with ease. [Far more powerful and dynamic than `calc()` and `clamp()`](#the-software), you can interpolate things like color and weight, scale text with an easing curve, and have more control over where design changes happen. The intuitive syntax allows you to specify specific points where a design change starts and ends as well as giving you the flexibility to use the CSS values you prefer in your designs.
 
 v4 has numerous changes, including removal of all JavaScript, a new license (MIT), and a few changes to the API.
 
@@ -16,8 +16,8 @@ We started this project when running into limitations with `clamp()` in an effor
 
 Typetura is an approach to responsive typography that binds CSS keyframes to widths. This has numerous distinct advantages over previous responsive typography techniques.
 
-1. **Interpolation on a curve:** `clamp()` and `calc()` only interpolate values linearly. While text might scale, the nuances of how it scales can’t be well controlled. Interpolating on a curve is particularly valuable when scaling text on your document’s root, allowing it to get quite small for tiny screens like watches, then scaling it up quickly to a more reasonable size on other screens. Headlines tend to look better on and ease-in-out or ease-in curve, where the hirarchy can get more pronounced as screen realestate becomes avalible.
-2. **Defining start and end positions:** Online calculators for `clamp()` are so useful because authoring a function that matches your design’s breakpoints can be tedious. With Typetura.css, you can set values for `--from` and `--to` directly in your CSS for these positions. This also avoids issues of breakpoint drift that `clamp()` expereances if a user changes their preferred font size in their browser.
+1. **Interpolation on a curve:** `clamp()` and `calc()` only interpolate values linearly. While text might scale, the nuances of how it scales can’t be well controlled. Interpolating on a curve is particularly valuable when scaling text on your document’s root, allowing it to get quite small for tiny screens like watches, then scaling it up quickly to a more reasonable size on other screens. Headlines tend to look better on and ease-in-out or ease-in curve, where the hierarchy can get more pronounced as screen real estate becomes available.
+2. **Defining start and end positions:** Online calculators for `clamp()` are so useful because authoring a function that matches your design’s breakpoints can be tedious. With Typetura.css, you can set values for `--from` and `--to` directly in your CSS for these positions. This also avoids issues of breakpoint drift that `clamp()` experiences if a user changes their preferred font size in their browser.
 3. **Interpolate anything:** Interpolate color, font weight, unitless line height, and anything else. Use the units and CSS variables you already have in your design system. Unlike `calc()` and `clamp()`, you can interpolate anything.
 4. **Familiar syntax:** Typetura uses CSS keyframe animations. If you have ever written a CSS animation, you will feel right at home using Typetura. No math or complex functions, it just works.
 
@@ -31,7 +31,7 @@ With Typetura you need to do three things: Identify the container, bind typetura
 
 ### Identifying the container
 
-By default, the container is the viewport. Similar to viewport units, Typetura looks at the width of the viewport to determine what styles to use. You can define your own container by using the utlity class `class="cq"` or by adding `container-type: inline-size;` to any element in your CSS. If you’re fimiliar with container queries, you’ve already got the hang of it.
+By default, the container is the viewport. Similar to viewport units, Typetura looks at the width of the viewport to determine what styles to use. You can define your own container by using the utility class `class="cq"` or by adding `container-type: inline-size;` to any element in your CSS. If you’re familiar with container queries, you’ve already got the hang of it.
 
 ```html
 <div class="cq">
@@ -135,7 +135,7 @@ html {
 }
 ```
 
-## Aknowledgements
+## Acknowledgments
 
 Typetura is created and developed by [Scott Kellum](https://scottkellum.com) and Typetura LLC.
 
@@ -143,7 +143,7 @@ Special things to [Ana Monroe](https://anamonroe.com) for all the support and gu
 
 ## Patents
 
-Use of this software does not grant licence to any patents held by Typetura LLC. For more information, please contact [Typetura LLC](https://typetura.com) at [info@typetura.com](mailto:info@typetura.com). These patents describe the distribution of typographc systems at scale as well as how design software might be used to create and manage dynamic typographic systems. These patents protect our business usecases for this software and are not intended to restrict the use of the software itself on projects you own, operate, control, or are a part of.
+Use of this software does not grant license to any patents held by Typetura LLC. For more information, please contact [Typetura LLC](https://typetura.com) at [info@typetura.com](mailto:info@typetura.com). These patents describe the distribution of typographic systems at scale as well as how design software might be used to create and manage dynamic typographic systems. These patents protect our business use-cases for this software and are not intended to restrict the use of the software itself on projects you own, operate, control, or are a part of.
 
 As an example, if `fonts.bigcompany.com` is interested in distributing typographic systems with their fonts, they would need to license the patents. If `Big Design Software` decided to create an interface keyframing out text scaling in their app, they would need to license the patents. If `yourcompany.com` is using Typetura to manage their own typographic system, they would not need to license the patents.
 
