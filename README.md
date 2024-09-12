@@ -49,6 +49,14 @@ Typetura’s styles are bound to your elements by using the `tt` class.
 </div>
 ```
 
+You can also invoke Typetura’s styles by adding the style `--tt: var(--on)` to any element in your CSS.
+
+```css
+h1 {
+  --tt: var(--on);
+}
+```
+
 ### Styling Elements
 Creating keyframes is where you’ll be spending most of your time. These are regular CSS keyframes that you might have used before, but they define how your styles change as the container gets bigger.
 

@@ -1,4 +1,4 @@
-/* Typetura v4.1.0 */
+/* Typetura v4.1.1 */
 
 /* Custom property behavior */
 @property --property {
@@ -24,27 +24,34 @@
 
 /* Selectors for Typetura elements */
 @layer typetura {
-  :where(
-    .tt,
-    .rtt,
-    .typetura,
-    html
-  ) {
+  * {
+    /* Toggle Typetura styles with `--tt: var(--on)` */
+    --tt:; /* intentionally broken */
+    --on: unset;
+
     /* Use cqi when avalible, if not use vi. */
     /* Then normalize all units to run through the delay property */
-    --container: 100cqi;
+    --container: var(--tt, 100cqi);
     --CONTAINER: calc(tan(atan2(var(--container,100vi),1px)));
     --FROM: calc(tan(atan2(var(--from,0rem),1px)));
     --TO: calc(tan(atan2(var(--to,60rem),1px)));
-    
-    /* Durations need to be registered as <time> to work propertly in shorthand. Simpler and more clear to write individual property/values instead */
-    animation-name: none;
-    animation-timing-function: linear;
-    animation-delay: calc(-1s * var(--property) * (var(--CONTAINER) - var(--FROM)) / (var(--TO) - var(--FROM)));
-    animation-duration: calc(1s * var(--property));
-    animation-iteration-count: 1;
-    animation-fill-mode: both;
-    animation-play-state: paused;
+
+    animation-delay: var(--tt,calc(-1s * var(--property) * (var(--CONTAINER) - var(--FROM)) / (var(--TO) - var(--FROM))));
+    animation-duration: var(--tt,calc(1s * var(--property)));
+    animation-iteration-count: var(--tt,1);
+    animation-fill-mode: var(--tt,both);
+    animation-play-state: var(--tt,paused);
+  }
+	@supports (width: calc(1% / 1px * 1px)) {
+		* {
+	    animation-delay: var(--tt,calc(-1s * (var(--container) - var(--from)) / (var(--to) - var(--from))));
+		}
+	}
+  .tt,
+  .rtt,
+  .typetura,
+  html {
+    --tt: var(--on);
   }
   :where(html) {
     /* Reset defaults. Browsers like 0px in @property */
