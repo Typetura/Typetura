@@ -1,52 +1,53 @@
-/* Typetura v4.1.1 */
+/* Typetura v4.1.2 */
 
-/* Custom property behavior */
-@property --property {
-  syntax: "<integer>";
-  initial-value: 1;
-  inherits: false;
-}
-@property --container {
-  syntax: "<length>";
-  initial-value: 100vi;
-  inherits: false;
-}
-@property --from {
-  syntax: "<length>";
-  initial-value: 0px;
-  inherits: true;
-}
-@property --to {
-  syntax: "<length>";
-  initial-value: 0px;
-  inherits: true;
-}
-
-/* Selectors for Typetura elements */
 @layer typetura {
-  * {
+	@property --property {
+		syntax: "<integer>";
+		initial-value: 1;
+		inherits: false;
+	}
+	@property --container {
+		syntax: "<length>";
+		initial-value: 100vi;
+		inherits: false;
+	}
+	@property --from {
+		syntax: "<length>";
+		initial-value: 0px;
+		inherits: true;
+	}
+	@property --to {
+		syntax: "<length>";
+		initial-value: 0px;
+		inherits: true;
+	}
+
+	* {
     /* Toggle Typetura styles with `--tt: var(--on)` */
-    --tt:; /* intentionally broken */
+    --tt:; /* intentionally blank */
     --on: unset;
 
     /* Use cqi when avalible, if not use vi. */
-    /* Then normalize all units to run through the delay property */
     --container: var(--tt, 100cqi);
-    --CONTAINER: calc(tan(atan2(var(--container,100vi),1px)));
-    --FROM: calc(tan(atan2(var(--from,0rem),1px)));
-    --TO: calc(tan(atan2(var(--to,60rem),1px)));
 
-    animation-delay: var(--tt,calc(-1s * var(--property) * (var(--CONTAINER) - var(--FROM)) / (var(--TO) - var(--FROM))));
+    animation-delay: var(--tt,calc(-1s * (var(--container) - var(--from)) / (var(--to) - var(--from))));
     animation-duration: var(--tt,calc(1s * var(--property)));
     animation-iteration-count: var(--tt,1);
     animation-fill-mode: var(--tt,both);
     animation-play-state: var(--tt,paused);
-  }
-	@supports (width: calc(1% / 1px * 1px)) {
+	}
+
+	/* Fallback if a browser doesn’t support unit division */
+	@supports not (width: calc(1% / 1px * 1px)) {
 		* {
-	    animation-delay: var(--tt,calc(-1s * (var(--container) - var(--from)) / (var(--to) - var(--from))));
+			--CONTAINER: calc(tan(atan2(var(--container,100vi),1px)));
+			--FROM: calc(tan(atan2(var(--from,0rem),1px)));
+			--TO: calc(tan(atan2(var(--to,60rem),1px)));
+	    animation-delay: var(--tt,calc(-1s * var(--property) * (var(--CONTAINER) - var(--FROM)) / (var(--TO) - var(--FROM))));
 		}
 	}
+	
+	/* Utility classes */
   .tt,
   .rtt,
   .typetura,
@@ -59,7 +60,6 @@
     --to: 60rem;	
   }
   :where(.rtt) {
-    /* Root Typetura container if you explicitly want the viewport container */
     --container: 100vi;
   }
   :where(.cq) {
