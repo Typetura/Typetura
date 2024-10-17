@@ -1,4 +1,4 @@
-/* Typetura v4.1.2 */
+/* Typetura v4.1.3 */
 
 @layer typetura {
 	@property --property {
@@ -23,18 +23,18 @@
 	}
 
 	* {
-    /* Toggle Typetura styles with `--tt: var(--on)` */
-    --tt:; /* intentionally blank */
-    --on: unset;
+		/* Toggle Typetura styles with `--tt: var(--on)` */
+		--tt: 0;
+		--on: unset;
 
-    /* Use cqi when avalible, if not use vi. */
-    --container: var(--tt, 100cqi);
+		/* Use cqi when avalible, if not use vi. */
+		--container: var(--tt, 100cqi);
 
-    animation-delay: var(--tt,calc(-1s * (var(--container) - var(--from)) / (var(--to) - var(--from))));
-    animation-duration: var(--tt,calc(1s * var(--property)));
-    animation-iteration-count: var(--tt,1);
-    animation-fill-mode: var(--tt,both);
-    animation-play-state: var(--tt,paused);
+		animation-delay: var(--tt,calc(-1s * (var(--container) - var(--from)) / (var(--to) - var(--from))));
+		animation-duration: var(--tt,calc(1s * var(--property)));
+		animation-iteration-count: var(--tt,1);
+		animation-fill-mode: var(--tt,both);
+		animation-play-state: var(--tt,paused);
 	}
 
 	/* Fallback if a browser doesn’t support unit division */
@@ -43,27 +43,25 @@
 			--CONTAINER: calc(tan(atan2(var(--container,100vi),1px)));
 			--FROM: calc(tan(atan2(var(--from,0rem),1px)));
 			--TO: calc(tan(atan2(var(--to,60rem),1px)));
-	    animation-delay: var(--tt,calc(-1s * var(--property) * (var(--CONTAINER) - var(--FROM)) / (var(--TO) - var(--FROM))));
+			animation-delay: var(--tt,calc(-1s * var(--property) * (var(--CONTAINER) - var(--FROM)) / (var(--TO) - var(--FROM))));
 		}
 	}
 	
 	/* Utility classes */
-  .tt,
-  .rtt,
-  .typetura,
-  html {
-    --tt: var(--on);
-  }
-  :where(html) {
-    /* Reset defaults. Browsers like 0px in @property */
-    --from: 0rem;
-    --to: 60rem;	
-  }
-  :where(.rtt) {
-    --container: 100vi;
-  }
-  :where(.cq) {
-    /* A container query class */
-    container-type: inline-size;
-  }
+	.tt,
+	.rtt,
+	.typetura,
+	html {
+		--tt: var(--on);
+	}
+	:where(html) {
+		--from: 0rem;
+		--to: 60rem;	
+	}
+	:where(.rtt) {
+		--container: 100vi;
+	}
+	:where(.cq) {
+		container-type: inline-size;
+	}
 }
