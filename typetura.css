@@ -27,7 +27,7 @@
 		--tt: 0;
 		--on: unset;
 
-		/* Use cqi when avalible, if not use vi. */
+		/* Use cqi when available, if not use vi. */
 		--container: var(--tt, 100cqi);
 
 		animation-delay: var(--tt,calc(-1s * (var(--container) - var(--from)) / (var(--to) - var(--from))));
